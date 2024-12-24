@@ -1,0 +1,27 @@
+﻿
+@{
+    ViewData["Title"] = "_IssueBooks";
+}
+
+<h4>Issue Books</h4>
+<form method="post" action="/Admin/IssueBooks">
+    <div class="form-group">
+        <label for="bookId">Book ID</label>
+        <input type="number" id="bookId" name="bookId" class="form-control" required />
+    </div>
+    <div class="form-group mt-3">
+        <label for="userId">User ID</label>
+        <input type="number" id="userId" name="userId" class="form-control" required />
+    </div>
+    <div class="form-group mt-3">
+        <label for="issueDate">Issue Date</label>
+        <input type="date" id="issueDate" name="issueDate" class="form-control" required />
+    </div>
+    <div class="form-group mt-3">
+        <label for="dueDate">Due Date</label>
+        <input type="date" id="dueDate" name="dueDate" class="form-control" required />
+    </div>
+    <button type="submit" class="btn btn-primary mt-4">Issue Book</button>
+</form>
+
+

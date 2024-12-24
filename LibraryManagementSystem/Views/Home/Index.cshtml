@@ -1,6 +1,9 @@
 ﻿@{
     ViewData["Title"] = "Library Management System";
 }
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
 
 <style>
     body {
@@ -31,7 +34,7 @@
     }
 
         .welcome-text h1 {
-            font-size: 2.5rem;
+            font-size: 2rem;
             
         }
 
@@ -43,15 +46,16 @@
     .login-card {
         background: rgba(255, 255, 255, 0.9);
         padding: 30px;
+        margin-left: 10px;
         border-radius: 10px;
-        width: 300px;
+        width: 400px;
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     }
 
     footer {
         background: transparent;
-        text-align: center;
-        padding: 10px 0;
+        text-align: right;
+        padding: 10px 10px;
         color: #333;
         position: absolute;
         bottom: 0;

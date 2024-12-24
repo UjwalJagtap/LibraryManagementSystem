@@ -1,43 +1,18 @@
-﻿<style>
+﻿
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<style>
     body {
         background-image: url('/images/homeBG.jpg');
         background-size: cover;
         background-position: center;
-        background-attachment: fixed;
-        background-repeat: no-repeat;
+        background-repeat: repeat-y;
         height: 100vh;
         margin: 0;
         display: flex;
         flex-direction: column;
     }
-
-    header {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        z-index: 1000;
-        background: rgba(255, 255, 255, 0.9); /* Slightly transparent header */
-        padding: 10px 20px;
-        text-align: center;
-        font-size: 1.5rem;
-        font-weight: bold;
-        height: 60px; /* Fixed height */
-    }
-
-    footer {
-        position: fixed;
-        bottom: 0;
-        left: 0;
-        width: 100%;
-        text-align: center;
-        padding: 10px 0;
-        background: transparent; /* Fully transparent footer */
-        color: #333;
-        font-size: 0.9rem;
-        height: 40px; /* Fixed height */
-    }
-
     .main-container {
         display: flex;
         justify-content: center;

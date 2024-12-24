@@ -32,20 +32,24 @@ build_property.EnableCodeStyleSeverity =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxSZWdpc3Rlci5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/jagta/OneDrive/Desktop/LibraryManagementSystem/LibraryManagementSystem/Views/Admin/AddBook.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cQWRkQm9vay5jc2h0bWw=
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/jagta/OneDrive/Desktop/LibraryManagementSystem/LibraryManagementSystem/Views/Admin/AddStudent.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cQWRkU3R1ZGVudC5jc2h0bWw=
-build_metadata.AdditionalFiles.CssScope = 
-
 [C:/Users/jagta/OneDrive/Desktop/LibraryManagementSystem/LibraryManagementSystem/Views/Admin/Dashboard.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cRGFzaGJvYXJkLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/jagta/OneDrive/Desktop/LibraryManagementSystem/LibraryManagementSystem/Views/Admin/ManageFines.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cTWFuYWdlRmluZXMuY3NodG1s
+[C:/Users/jagta/OneDrive/Desktop/LibraryManagementSystem/LibraryManagementSystem/Views/Admin/_AddBooks.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cX0FkZEJvb2tzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/jagta/OneDrive/Desktop/LibraryManagementSystem/LibraryManagementSystem/Views/Admin/_GenerateReports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cX0dlbmVyYXRlUmVwb3J0cy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/jagta/OneDrive/Desktop/LibraryManagementSystem/LibraryManagementSystem/Views/Admin/_IssueBooks.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cX0lzc3VlQm9va3MuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/jagta/OneDrive/Desktop/LibraryManagementSystem/LibraryManagementSystem/Views/Admin/_ManageFines.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cX01hbmFnZUZpbmVzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/jagta/OneDrive/Desktop/LibraryManagementSystem/LibraryManagementSystem/Views/Error/Error.cshtml]

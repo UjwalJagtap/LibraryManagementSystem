@@ -1,0 +1,22 @@
+﻿
+@{
+    ViewData["Title"] = "_ManageFines";
+}
+
+<h4>Manage Fines</h4>
+<form method="post" action="/Admin/ManageFines">
+    <div class="form-group">
+        <label for="issuedBookId">Issued Book ID</label>
+        <input type="number" id="issuedBookId" name="issuedBookId" class="form-control" required />
+    </div>
+    <div class="form-group mt-3">
+        <label for="fineAmount">Fine Amount (₹)</label>
+        <input type="number" id="fineAmount" name="fineAmount" class="form-control" required />
+    </div>
+    <div class="form-check mt-3">
+        <input type="checkbox" id="isPaid" name="isPaid" class="form-check-input" />
+        <label for="isPaid" class="form-check-label">Mark as Paid</label>
+    </div>
+    <button type="submit" class="btn btn-primary mt-4">Update Fine</button>
+</form>
+

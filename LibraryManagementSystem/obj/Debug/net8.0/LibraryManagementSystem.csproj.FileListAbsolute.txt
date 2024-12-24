@@ -574,3 +574,4 @@ C:\Users\jagta\OneDrive\Desktop\LibraryManagementSystem\LibraryManagementSystem\
 C:\Users\jagta\OneDrive\Desktop\LibraryManagementSystem\LibraryManagementSystem\obj\Debug\net8.0\LibraryManagementSystem.pdb
 C:\Users\jagta\OneDrive\Desktop\LibraryManagementSystem\LibraryManagementSystem\obj\Debug\net8.0\LibraryManagementSystem.genruntimeconfig.cache
 C:\Users\jagta\OneDrive\Desktop\LibraryManagementSystem\LibraryManagementSystem\obj\Debug\net8.0\ref\LibraryManagementSystem.dll
+C:\Users\jagta\OneDrive\Desktop\LibraryManagementSystem\LibraryManagementSystem\obj\Debug\net8.0\LibraryManagementSystem.sourcelink.json

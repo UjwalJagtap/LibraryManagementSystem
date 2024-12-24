@@ -1,84 +1,116 @@
-﻿<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin Dashboard</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f4f4f4;
-        }
+﻿@{
+    ViewData["Title"] = "Admin Dashboard";
+}
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
 
-        .sidebar {
-            width: 250px;
-            height: 100vh;
-            background-color: #343a40;
-            color: #fff;
-            position: fixed;
-            top: 0;
-            left: 0;
-            padding: 20px 0;
-        }
+<style>
+    body {
+        background-image: url('/images/homeBG.jpg'); /* Replace with your actual image path */
+        background-size: cover;
+        background-position: center;
+        background-repeat: repeat-y;
+    }
 
-        .sidebar h3 {
-            text-align: center;
-            margin-bottom: 20px;
-        }
+    #one {
+        background: rgba(255, 255, 255, 0.9); /* Semi-transparent background for content */
+        border-radius: 10px;
+        padding: 20px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
 
-        .sidebar a {
-            display: block;
-            color: #fff;
-            text-decoration: none;
-            padding: 10px 20px;
-            margin: 5px 0;
-        }
+    .nav {
+        font-size: 1.1rem;
+    }
 
-        .sidebar a:hover {
-            background-color: #495057;
-        }
+    .nav-link {
+        cursor: pointer;
+    }
 
-        .content {
-            margin-left: 250px;
-            padding: 20px;
-        }
+    #content {
+        margin-top: 20px;
+    }
+</style>
 
-        .header {
-            font-size: 24px;
-            font-weight: bold;
-            margin-bottom: 20px;
-        }
+<div class="container mt-4" id="one">
+    <h1 class="text-center">Admin Dashboard</h1>
 
-        .logout {
-            margin-top: 20px;
-            text-align: center;
-        }
-
-        .logout a {
-            text-decoration: none;
-            color: red;
-            font-weight: bold;
-        }
-    </style>
-</head>
-<body>
-    <div class="sidebar">
-        <h3>Admin Dashboard</h3>
-        <a href="#">Add Student</a>
-        <a href="#">Add Book</a>
-        <a href="#">Issue Book</a>
-        <a href="#">Student Report</a>
-        <a href="#">Fines</a>
-        <div class="logout">
-            <a href="/Home/Login">Logout</a>
+    <!-- Metrics Section -->
+    <div class="row mt-4">
+        <div class="col-md-3">
+            <div class="card text-white bg-primary mb-3">
+                <div class="card-header">Total Books</div>
+                <div class="card-body">
+                    <h5 class="card-title">@ViewBag.TotalBooks</h5>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card text-white bg-success mb-3">
+                <div class="card-header">Registered Students</div>
+                <div class="card-body">
+                    <h5 class="card-title">@ViewBag.TotalStudents</h5>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card text-white bg-warning mb-3">
+                <div class="card-header">Books Issued</div>
+                <div class="card-body">
+                    <h5 class="card-title">@ViewBag.TotalIssuedBooks</h5>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card text-white bg-danger mb-3">
+                <div class="card-header">Overdue Books</div>
+                <div class="card-body">
+                    <h5 class="card-title">@ViewBag.TotalOverdueBooks</h5>
+                </div>
+            </div>
         </div>
     </div>
 
-    <div class="content">
-        <div class="header">Welcome to Digital Library System</div>
-        <p>Select an action from the menu to get started.</p>
+    <!-- Navigation Panel -->
+    <div class="row">
+        <div class="col-md-3 border-end">
+            <h4>Welcome, Admin</h4>
+            <ul class="nav flex-column mt-4">
+                <li class="nav-item mb-2">
+                    <a class="nav-link text-primary" onclick="loadContent('AddBooks')">Add Books</a>
+                </li>
+                <li class="nav-item mb-2">
+                    <a class="nav-link text-primary" onclick="loadContent('IssueBooks')">Issue Books</a>
+                </li>
+                <li class="nav-item mb-2">
+                    <a class="nav-link text-primary" onclick="loadContent('ManageFines')">Manage Fines</a>
+                </li>
+                <li class="nav-item mb-2">
+                    <a class="nav-link text-primary" onclick="loadContent('GenerateReports')">Generate Reports</a>
+                </li>
+            </ul>
+        </div>
+
+        <!-- Dynamic Content Area -->
+        <div class="col-md-9" id="content">
+            <h4 class="text-center">Select a Functionality</h4>
+        </div>
     </div>
-</body>
-</html>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    function loadContent(action) {
+        $.ajax({
+            url: `/Admin/${action}`,
+            type: "GET",
+            success: function (data) {
+                $("#content").html(data);
+            },
+            error: function () {
+                alert("An error occurred while loading the content.");
+            }
+        });
+    }
+</script>
