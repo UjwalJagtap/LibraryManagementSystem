@@ -1,0 +1,32 @@
+﻿@model LibraryManagementSystem.Models.User
+
+<h2>Add Student</h2>
+
+<form method="post" asp-action="AddStudent" asp-controller="Admin">
+    <label>Full Name</label>
+    <input type="text" asp-for="FullName" required />
+
+    <label>Email</label>
+    <input type="email" asp-for="Email" required />
+
+    <label>Phone</label>
+    <input type="tel" asp-for="Phone" required />
+
+    <label>Username</label>
+    <input type="text" asp-for="Username" required />
+
+    <label>Password</label>
+    <input type="password" asp-for="PasswordHash" required />
+
+    <button type="submit">Add Student</button>
+</form>
+
+@if (TempData["SuccessMessage"] != null)
+{
+    <p style="color:green;">@TempData["SuccessMessage"]</p>
+}
+
+@if (ViewBag.ErrorMessage != null)
+{
+    <p style="color:red;">@ViewBag.ErrorMessage</p>
+}

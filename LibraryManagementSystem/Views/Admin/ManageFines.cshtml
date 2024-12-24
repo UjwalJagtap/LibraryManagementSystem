@@ -1,0 +1,31 @@
+﻿@model IEnumerable<LibraryManagementSystem.Models.Fine>
+
+@{
+    ViewData["Title"] = "Manage Fines";
+}
+
+<h2>Manage Fines</h2>
+
+<table>
+    <thead>
+        <tr>
+            <th>Student Name</th>
+            <th>Book Title</th>
+            <th>Fine Amount</th>
+            <th>Fine Date</th>
+            <th>Status</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var fine in Model)
+        {
+            <tr>
+                <td>@fine.IssuedBook.User.FullName</td>
+                <td>@fine.IssuedBook.Book.Title</td>
+                <td>@fine.FineAmount</td>
+                <td>@fine.FineDate.ToShortDateString()</td>
+                <td>@(fine.IsPaid ? "Paid" : "Unpaid")</td>
+            </tr>
+        }
+    </tbody>
+</table>

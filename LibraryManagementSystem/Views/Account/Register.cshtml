@@ -1,0 +1,107 @@
+﻿<style>
+    body {
+        background-image: url('/images/homeBG.jpg');
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed;
+        background-repeat: no-repeat;
+        height: 100vh;
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+    }
+
+    header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        z-index: 1000;
+        background: rgba(255, 255, 255, 0.9); /* Slightly transparent header */
+        padding: 10px 20px;
+        text-align: center;
+        font-size: 1.5rem;
+        font-weight: bold;
+        height: 60px; /* Fixed height */
+    }
+
+    footer {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        text-align: center;
+        padding: 10px 0;
+        background: transparent; /* Fully transparent footer */
+        color: #333;
+        font-size: 0.9rem;
+        height: 40px; /* Fixed height */
+    }
+
+    .main-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: calc(100vh - 100px); /* Account for header (60px) + footer (40px) */
+        padding: 0 20px; /* Adjust padding for better spacing */
+        box-sizing: border-box;
+    }
+
+    .register-card {
+        background: rgba(255, 255, 255, 0.9);
+        padding: 20px;
+        border-radius: 10px;
+        width: 100%;
+        max-width: 400px; /* Limit width for better fit */
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        text-align: center;
+    }
+
+        .register-card h1 {
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+            font-weight: bold;
+        }
+
+    .form-group {
+        margin-bottom: 10px;
+        text-align: left;
+    }
+
+    .form-control {
+        padding: 8px;
+        font-size: 1rem;
+    }
+
+    .btn-submit, .btn-cancel {
+        width: 100%;
+        margin-top: 10px;
+    }
+</style>
+
+<div class="main-container">
+    <div class="register-card">
+        <h1>Register</h1>
+        <form method="post" action="@Url.Action("Register", "Account")">
+            <div class="form-group">
+                <label for="fullName">Full Name</label>
+                <input type="text" id="fullName" name="fullName" class="form-control" placeholder="Enter your full name" required />
+            </div>
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" class="form-control" placeholder="Enter your email" required />
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" class="form-control" placeholder="Enter your password" required />
+            </div>
+            <div class="form-group">
+                <label for="confirmPassword">Confirm Password</label>
+                <input type="password" id="confirmPassword" name="confirmPassword" class="form-control" placeholder="Confirm your password" required />
+            </div>
+            <button type="submit" class="btn btn-primary btn-submit">Register</button>
+            <a href="@Url.Action("Index", "Home")" class="btn btn-secondary btn-cancel">Cancel</a>
+        </form>
+    </div>
+</div>
+
