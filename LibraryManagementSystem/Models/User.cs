@@ -31,6 +31,6 @@ namespace LibraryManagementSystem.Models
 
         [Required(ErrorMessage = "Role is required.")]
         [StringLength(50, ErrorMessage = "Role cannot exceed 50 characters.")]
-        public string Role { get; set; }
+        public string Role { get; set; } = "Student";
     }
 }

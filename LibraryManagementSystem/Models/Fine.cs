@@ -1,6 +1,5 @@
-﻿using System;
+﻿using System.ComponentModel.DataAnnotations.Schema;
 using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
 
 namespace LibraryManagementSystem.Models
 {
@@ -16,7 +15,7 @@ namespace LibraryManagementSystem.Models
 
         [Required(ErrorMessage = "Fine amount is required.")]
         [Range(0.01, double.MaxValue, ErrorMessage = "Fine amount must be greater than zero.")]
-        public decimal FineAmount { get; set; }
+        public double FineAmount { get; set; }
 
         [Required(ErrorMessage = "Fine date is required.")]
         public DateTime FineDate { get; set; }

@@ -1,7 +1,171 @@
-﻿
-@{
-    ViewData["Title"] = "Dashboard";
+﻿@{
+    ViewData["Title"] = "Student Dashboard";
 }
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="container mt-4">
+    <!-- White Background div similar to Admin Dashboard (with solid background) -->
+    <div class="dashboard-bg">
+        <!-- Dashboard Header -->
+        <h1 class="text-center mt-4">Student Dashboard</h1>
 
-<h1>Dashboard</h1>
+        <!-- Metrics Section -->
+        <div class="row mt-4">
+            <div class="col-md-4">
+                <div class="card text-white bg-primary mb-3 shadow-sm">
+                    <div class="card-header">Total Books</div>
+                    <div class="card-body">
+                        <h5 class="card-title">@ViewBag.TotalBooks</h5>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card text-white bg-warning mb-3 shadow-sm">
+                    <div class="card-header">Books Issued</div>
+                    <div class="card-body">
+                        <h5 class="card-title">@ViewBag.BooksIssued</h5>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card text-white bg-danger mb-3 shadow-sm">
+                    <div class="card-header">Overdue Fines</div>
+                    <div class="card-body">
+                        <h5 class="card-title">@ViewBag.OverdueFines</h5>
+                    </div>
+                </div>
+            </div>
+        </div>
 
+        <!-- Navigation Panel and Dynamic Content -->
+        <div class="row mt-4">
+            <!-- Navigation Panel -->
+            <div class="col-md-3 border-end">
+                <h4>Welcome, @User.Identity.Name</h4>
+                <ul class="nav flex-column mt-4">
+                    <li class="nav-item mb-2">
+                        <a href="#" class="nav-link text-primary" onclick="loadContent('SearchBooks')">Search Books</a>
+                    </li>
+                    <li class="nav-item mb-2">
+                        <a href="#" class="nav-link text-primary" onclick="loadContent('ViewIssuedBooks')">View Issued Books</a>
+                    </li>
+                    <li class="nav-item mb-2">
+                        <a href="#" class="nav-link text-primary" onclick="loadContent('ViewFines')">View Fines</a>
+                    </li>
+                    <!-- Add more links as needed -->
+                </ul>
+            </div>
+
+            <!-- Dynamic Content Section -->
+            <div class="col-md-9" id="content">
+                <h4 class="text-center">Select a Functionality</h4>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    function loadContent(action) {
+        $.ajax({
+            url: `/Student/${action}`,
+            type: "GET",
+            success: function (data) {
+                $("#content").html(data);
+            },
+            error: function () {
+                alert("An error occurred while loading the content.");
+            }
+        });
+    }
+</script>
+
+<!-- Add the following CSS to match the admin dashboard style -->
+<style>
+    /* New White Background div for the dashboard */
+    .dashboard-bg {
+         background: rgba(255, 255, 255, 0.9);
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); /* Similar to admin dashboard box-shadow */
+    }
+
+    /* Styling for the main container */
+    .container {
+        margin-top: 30px;
+    }
+
+    .card {
+        border-radius: 10px; /* Rounded corners */
+    }
+
+    /* Optional: Add some spacing for the welcome message and metrics */
+    .welcome-text {
+        padding-top: 5px;
+        margin-bottom: 20px;
+    }
+
+        .welcome-text h1 {
+            font-size: 2rem;
+        }
+
+        .welcome-text p {
+            font-size: 1.2rem;
+            margin-top: 10px;
+        }
+
+    /* Add some padding and shadow to the navigation panel */
+    .nav-item a {
+        
+        color: #007bff; /* Blue color for the links */
+    }
+
+        .nav-item a:hover {
+            color: #0056b3; /* Darker blue color on hover */
+        }
+
+    /* Card styles to match Admin Dashboard */
+    .card {
+        border-radius: 10px; /* Rounded corners */
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Slight shadow */
+    }
+
+    /* Adjust card spacing and text style */
+    .card-header { 
+        font-size: 1.1rem; /* Slightly larger text for header */
+    }
+
+    .card-body {
+        font-size: 1.2rem;
+        padding: 10px;
+    }
+
+    /* Adjust button and link colors */
+    .nav-link {
+        color: #007bff; /* Default link color */
+        
+    }
+
+        .nav-link:hover {
+            color: #0056b3; /* Darker on hover */
+        }
+
+    /* Enhance the appearance of the container and columns */
+    .col-md-3 {
+        padding-right: 15px;
+    }
+
+    .col-md-9 {
+        padding-left: 15px;
+    }
+
+    /* Fix the size and padding for better UX */
+    .nav-link {
+        padding: 8px 16px;
+        font-size: 1.1rem;
+    }
+
+    .nav-item {
+        margin-bottom: 15px;
+    }
+</style>

@@ -1,0 +1,53 @@
+﻿@model IEnumerable<LibraryManagementSystem.Models.IssuedBook>
+
+<div>
+    <h3>Renew Books</h3>
+    <table class="table mt-3">
+        <thead>
+            <tr>
+                <th>Title</th>
+                <th>Author</th>
+                <th>Issue Date</th>
+                <th>Due Date</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var issuedBook in Model)
+            {
+                <tr>
+                    <td>@issuedBook.Book.Title</td>
+                    <td>@issuedBook.Book.Author</td>
+                    <td>@issuedBook.IssueDate.ToString("MM/dd/yyyy")</td>
+                    <td>@issuedBook.DueDate.ToString("MM/dd/yyyy")</td>
+                    <td>
+                        @if (issuedBook.ReturnDate == null && DateTime.Now <= issuedBook.DueDate)
+                        {
+                            <button class="btn btn-primary btn-sm" onclick="renewBook(@issuedBook.IssuedBookId)">Renew</button>
+                        }
+                        else
+                        {
+                            <span class="text-muted">Not Eligible</span>
+                        }
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+<script>
+    function renewBook(issuedBookId) {
+        $.ajax({
+            url: `/Student/RenewBook/${issuedBookId}`,
+            type: "POST",
+            success: function () {
+                alert("Book renewed successfully!");
+                location.reload();
+            },
+            error: function () {
+                alert("An error occurred while renewing the book.");
+            }
+        });
+    }
+</script>

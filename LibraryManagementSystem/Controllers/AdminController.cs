@@ -1,43 +1,84 @@
 ﻿using LibraryManagementSystem.Models;
 using Microsoft.AspNetCore.Mvc;
+using LibraryManagementSystem.Data;
+using Microsoft.AspNetCore.Http;
+using System.Linq;
+using System;
+using Microsoft.AspNetCore.Mvc.Filters;
+using Microsoft.AspNetCore.Authorization;
 
-public class AdminController : Controller
+namespace LibraryManagementSystem.Controllers
 {
-    private readonly LibraryContext _context;
-
-    public AdminController(LibraryContext context)
+    public class AdminController : Controller
     {
-        _context = context;
-    }
+        private readonly LibraryContext _context;
 
-    public IActionResult Dashboard()
-    {
-        // Pass metrics to the view
-        ViewBag.TotalBooks = _context.Books.Count();
-        ViewBag.TotalStudents = _context.Users.Count(u => u.Role == "Student");
-        ViewBag.TotalIssuedBooks = _context.IssuedBooks.Count();
-        ViewBag.TotalOverdueBooks = _context.IssuedBooks.Count(ib => ib.DueDate < DateTime.Now && ib.ReturnDate == null);
+        public AdminController(LibraryContext context)
+        {
+            _context = context;
+        }
 
-        return View();
-    }
+        // Ensure only logged-in Admins can access this controller
+        public override void OnActionExecuting(ActionExecutingContext context)
+        {
+            if (!UserIsAdmin())
+            {
+                TempData["ErrorMessage"] = "Access denied. Admins only.";
+                context.Result = RedirectToAction("Index", "Home");
+            }
+            base.OnActionExecuting(context);
+        }
 
-    public IActionResult AddBooks()
-    {
-        return PartialView("_AddBooks");
-    }
+        private bool UserIsAdmin()
+        {
+            // Use session to validate if the user is an admin
+            var role = HttpContext.Session.GetString("Role"); // Ensure the "Role" is set during login
+            return role == "Librarian"; // Only "Librarian" is allowed to access the Admin panel
+        }
+         
 
-    public IActionResult IssueBooks()
-    {
-        return PartialView("_IssueBooks");
-    }
+        public IActionResult Dashboard()
+        {
+            // Make sure to check if the data exists before passing to the view
+            try
+            {
+                // Pass metrics to the view
+                ViewBag.TotalBooks = _context.Books.Count();
+                ViewBag.TotalStudents = _context.Users.Count(u => u.Role == "Student");
+                ViewBag.TotalIssuedBooks = _context.IssuedBooks.Count();
+                ViewBag.TotalOverdueBooks = _context.IssuedBooks.Count(ib => ib.DueDate < DateTime.Now && ib.ReturnDate == null);
+            }
+            catch (Exception ex)
+            {
+                TempData["ErrorMessage"] = $"Error loading dashboard: {ex.Message}";
+                return RedirectToAction("Index", "Home");
+            }
 
-    public IActionResult ManageFines()
-    {
-        return PartialView("_ManageFines");
-    }
+            return View();
+        }
 
-    public IActionResult GenerateReports()
-    {
-        return PartialView("_GenerateReports");
+        public IActionResult AddBooks()
+        {
+            // Returning a partial view to handle book addition logic
+            return PartialView("_AddBooks");
+        }
+
+        public IActionResult IssueBooks()
+        {
+            // Returning a partial view to handle book issuance logic
+            return PartialView("_IssueBooks");
+        }
+
+        public IActionResult ManageFines()
+        {
+            // Returning a partial view to handle fines management logic
+            return PartialView("_ManageFines");
+        }
+
+        public IActionResult GenerateReports()
+        {
+            // Returning a partial view to handle reports generation logic
+            return PartialView("_GenerateReports");
+        }
     }
 }

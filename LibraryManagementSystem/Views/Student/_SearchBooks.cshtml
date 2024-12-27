@@ -1,0 +1,43 @@
+﻿@model IEnumerable<LibraryManagementSystem.Models.Book>
+
+<div>
+    <h3>Search Books</h3>
+    <div class="form-group">
+        <input type="text" id="searchInput" class="form-control" placeholder="Search by Title, Author, or ISBN" onkeyup="filterBooks()">
+    </div>
+    <table class="table mt-3">
+        <thead>
+            <tr>
+                <th>Title</th>
+                <th>Author</th>
+                <th>Publisher</th>
+                <th>ISBN</th>
+                <th>Available Copies</th>
+            </tr>
+        </thead>
+        <tbody id="bookTable">
+            @foreach (var book in Model)
+            {
+                <tr>
+                    <td>@book.Title</td>
+                    <td>@book.Author</td>
+                    <td>@book.Publisher</td>
+                    <td>@book.ISBN</td>
+                    <td>@book.AvailableCopies</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+<script>
+    function filterBooks() {
+        const input = document.getElementById("searchInput").value.toLowerCase();
+        const rows = document.querySelectorAll("#bookTable tr");
+        rows.forEach(row => {
+            const cells = row.querySelectorAll("td");
+            const text = Array.from(cells).map(cell => cell.textContent.toLowerCase()).join(" ");
+            row.style.display = text.includes(input) ? "" : "none";
+        });
+    }
+</script>

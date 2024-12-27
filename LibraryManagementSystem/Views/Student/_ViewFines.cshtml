@@ -1,0 +1,35 @@
+﻿@model IEnumerable<LibraryManagementSystem.Models.Fine>
+
+<div>
+    <h3>Your Fines</h3>
+    <table class="table mt-3">
+        <thead>
+            <tr>
+                <th>Title</th>
+                <th>Fine Amount</th>
+                <th>Fine Date</th>
+                <th>Payment Status</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var fine in Model)
+            {
+                <tr>
+                    <td>@fine.IssuedBook.Book.Title</td>
+                    <td>$@fine.FineAmount.ToString("0.00")</td>
+                    <td>@fine.FineDate.ToString("MM/dd/yyyy")</td>
+                    <td>
+                        @if (fine.IsPaid)
+                        {
+                            <span class="badge bg-success">Paid</span>
+                        }
+                        else
+                        {
+                            <span class="badge bg-danger">Unpaid</span>
+                        }
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

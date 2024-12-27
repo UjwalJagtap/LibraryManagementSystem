@@ -1,7 +1,7 @@
-﻿
-@{
+﻿@{
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+
 <style>
     body {
         background-image: url('/images/homeBG.jpg');
@@ -13,6 +13,7 @@
         display: flex;
         flex-direction: column;
     }
+
     .main-container {
         display: flex;
         justify-content: center;
@@ -54,25 +55,49 @@
     }
 </style>
 
+@model LibraryManagementSystem.Models.RegisterViewModel
+
 <div class="main-container">
     <div class="register-card">
         <h1>Register</h1>
-        <form method="post" action="@Url.Action("Register", "Account")">
+        <form asp-action="Register" asp-controller="Account" method="post">
             <div class="form-group">
-                <label for="fullName">Full Name</label>
-                <input type="text" id="fullName" name="fullName" class="form-control" placeholder="Enter your full name" required />
+                <label asp-for="Username"></label>
+                <input asp-for="Username" class="form-control" placeholder="Enter your username" />
+                <span asp-validation-for="Username" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label for="email">Email</label>
-                <input type="email" id="email" name="email" class="form-control" placeholder="Enter your email" required />
+                <label asp-for="FullName"></label>
+                <input asp-for="FullName" class="form-control" placeholder="Enter your full name" />
+                <span asp-validation-for="FullName" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label for="password">Password</label>
-                <input type="password" id="password" name="password" class="form-control" placeholder="Enter your password" required />
+                <label asp-for="Email"></label>
+                <input asp-for="Email" type="email" class="form-control" placeholder="Enter your email" />
+                <span asp-validation-for="Email" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label for="confirmPassword">Confirm Password</label>
-                <input type="password" id="confirmPassword" name="confirmPassword" class="form-control" placeholder="Confirm your password" required />
+                <label asp-for="Phone"></label>
+                <input asp-for="Phone" class="form-control" placeholder="Enter your phone number" />
+                <span asp-validation-for="Phone" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Password"></label>
+                <input asp-for="Password" type="password" class="form-control" placeholder="Enter your password" />
+                <span asp-validation-for="Password" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ConfirmPassword"></label>
+                <input asp-for="ConfirmPassword" type="password" class="form-control" placeholder="Confirm your password" />
+                <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Role"></label>
+                <select asp-for="Role" class="form-control">
+                    <option value="Student">Student</option>
+                    <option value="Librarian">Librarian</option>
+                </select>
+                <span asp-validation-for="Role" class="text-danger"></span>
             </div>
             <button type="submit" class="btn btn-primary btn-submit">Register</button>
             <a href="@Url.Action("Index", "Home")" class="btn btn-secondary btn-cancel">Cancel</a>
@@ -80,3 +105,7 @@
     </div>
 </div>
 
+@section Scripts {
+    @* Enable client-side validation *@
+    <partial name="_ValidationScriptsPartial" />
+}
