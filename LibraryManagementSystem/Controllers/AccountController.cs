@@ -110,12 +110,13 @@ namespace LibraryManagementSystem.Controllers
             TempData["ErrorMessage"] = "Unknown role.";
             return RedirectToAction("Index", "Home");
         }
+        
+        [HttpGet]
         public IActionResult Logout()
         {
-            HttpContext.Session.Clear(); // Clear session data (e.g., user session, role, etc.)
-            return RedirectToAction("Index", "Home"); // Redirect to the home page after logging out
+            HttpContext.Session.Clear(); // Clear session data
+            return RedirectToAction("Index", "Home"); // Redirect to Home page
         }
-
 
 
     }

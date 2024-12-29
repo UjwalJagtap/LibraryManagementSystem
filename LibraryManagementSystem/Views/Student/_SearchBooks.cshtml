@@ -1,43 +1,42 @@
 ﻿@model IEnumerable<LibraryManagementSystem.Models.Book>
 
-<div>
-    <h3>Search Books</h3>
-    <div class="form-group">
-        <input type="text" id="searchInput" class="form-control" placeholder="Search by Title, Author, or ISBN" onkeyup="filterBooks()">
-    </div>
-    <table class="table mt-3">
-        <thead>
-            <tr>
-                <th>Title</th>
-                <th>Author</th>
-                <th>Publisher</th>
-                <th>ISBN</th>
-                <th>Available Copies</th>
-            </tr>
-        </thead>
-        <tbody id="bookTable">
-            @foreach (var book in Model)
-            {
-                <tr>
-                    <td>@book.Title</td>
-                    <td>@book.Author</td>
-                    <td>@book.Publisher</td>
-                    <td>@book.ISBN</td>
-                    <td>@book.AvailableCopies</td>
-                </tr>
-            }
-        </tbody>
-    </table>
-</div>
+<div class="mt-4">
+    <h4>Search Books</h4>
+    <form method="get" action="@Url.Action("SearchBooks", "Student")" class="row g-3">
+        <div class="col-md-4">
+            <input type="text" name="query" class="form-control" placeholder="Search by Title, Author, or Genre" required />
+        </div>
+        <div class="col-md-4">
+            <button type="submit" class="btn btn-primary">Search</button>
+        </div>
+    </form>
 
-<script>
-    function filterBooks() {
-        const input = document.getElementById("searchInput").value.toLowerCase();
-        const rows = document.querySelectorAll("#bookTable tr");
-        rows.forEach(row => {
-            const cells = row.querySelectorAll("td");
-            const text = Array.from(cells).map(cell => cell.textContent.toLowerCase()).join(" ");
-            row.style.display = text.includes(input) ? "" : "none";
-        });
+    @if (Model != null && Model.Any())
+    {
+        <table class="table mt-4">
+            <thead>
+                <tr>
+                    <th>Title</th>
+                    <th>Author</th>
+                    <th>Genre</th>
+                    <th>Available Copies</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var book in Model)
+                {
+                    <tr>
+                        <td>@book.Title</td>
+                        <td>@book.Author</td>
+                        <td>@book.Genre</td>
+                        <td>@book.AvailableCopies</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
     }
-</script>
+    else if (Model != null)
+    {
+        <p class="text-danger mt-4">No books found.</p>
+    }
+</div>

@@ -1,53 +1,39 @@
 ﻿@model IEnumerable<LibraryManagementSystem.Models.IssuedBook>
 
-<div>
-    <h3>Return Books</h3>
-    <table class="table mt-3">
-        <thead>
-            <tr>
-                <th>Title</th>
-                <th>Author</th>
-                <th>Issue Date</th>
-                <th>Due Date</th>
-                <th>Action</th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach (var issuedBook in Model)
-            {
+<div class="mt-4">
+    <h4>Return Issued Books</h4>
+    <p class="text-muted">Select a book to mark as returned.</p>
+    @if (Model != null && Model.Any())
+    {
+        <table class="table">
+            <thead>
                 <tr>
-                    <td>@issuedBook.Book.Title</td>
-                    <td>@issuedBook.Book.Author</td>
-                    <td>@issuedBook.IssueDate.ToString("MM/dd/yyyy")</td>
-                    <td>@issuedBook.DueDate.ToString("MM/dd/yyyy")</td>
-                    <td>
-                        @if (issuedBook.ReturnDate == null)
-                        {
-                            <button class="btn btn-primary btn-sm" onclick="returnBook(@issuedBook.IssuedBookId)">Return</button>
-                        }
-                        else
-                        {
-                            <span class="text-muted">Already Returned</span>
-                        }
-                    </td>
+                    <th>Book Title</th>
+                    <th>Issue Date</th>
+                    <th>Due Date</th>
+                    <th>Action</th>
                 </tr>
-            }
-        </tbody>
-    </table>
-</div>
-
-<script>
-    function returnBook(issuedBookId) {
-        $.ajax({
-            url: `/Student/ReturnBook/${issuedBookId}`,
-            type: "POST",
-            success: function () {
-                alert("Book returned successfully!");
-                location.reload();
-            },
-            error: function () {
-                alert("An error occurred while returning the book.");
-            }
-        });
+            </thead>
+            <tbody>
+                @foreach (var book in Model)
+                {
+                    <tr>
+                        <td>@book.Book.Title</td>
+                        <td>@book.IssueDate.ToShortDateString()</td>
+                        <td>@book.DueDate.ToShortDateString()</td>
+                        <td>
+                            <form method="post" action="@Url.Action("ReturnBook", "Student")">
+                                <input type="hidden" name="IssuedBookId" value="@book.IssuedBookId" />
+                                <button type="submit" class="btn btn-success btn-sm">Return</button>
+                            </form>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
     }
-</script>
+    else
+    {
+        <p class="text-danger">No issued books to return.</p>
+    }
+</div>

@@ -31,8 +31,6 @@
     #content {
         margin-top: 20px;
     }
-
-     
 </style>
 
 <div class="container mt-4" id="one">
@@ -90,6 +88,10 @@
                 </li>
                 <li class="nav-item mb-2">
                     <a class="nav-link text-primary" onclick="loadContent('GenerateReports')">Generate Reports</a>
+                </li>
+                <!-- Logout Link -->
+                <li class="nav-item mb-2">
+                    <a href="@Url.Action("Logout", "Account")" class="nav-link text-danger">Logout</a>
                 </li>
             </ul>
         </div>

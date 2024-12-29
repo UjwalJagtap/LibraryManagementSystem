@@ -53,7 +53,16 @@
                     <li class="nav-item mb-2">
                         <a href="#" class="nav-link text-primary" onclick="loadContent('ViewFines')">View Fines</a>
                     </li>
-                    <!-- Add more links as needed -->
+                    <li class="nav-item mb-2">
+                        <a href="#" class="nav-link text-primary" onclick="loadContent('RenewBooks')">Renew Books</a>
+                    </li>
+                    <li class="nav-item mb-2">
+                        <a href="#" class="nav-link text-primary" onclick="loadContent('ReturnBooks')">Return Books</a>
+                    </li>
+                    <!-- Logout Link -->
+                    <li class="nav-item mb-2">
+                        <a href="@Url.Action("Logout", "Account")" class="nav-link text-danger">Logout</a>
+                    </li>
                 </ul>
             </div>
 
@@ -68,10 +77,10 @@
 <script>
     function loadContent(action) {
         $.ajax({
-            url: `/Student/${action}`,
+            url: `/Student/${action}`, // Ensure correct action is specified
             type: "GET",
             success: function (data) {
-                $("#content").html(data);
+                $("#content").html(data); // Populate the content area
             },
             error: function () {
                 alert("An error occurred while loading the content.");
@@ -80,59 +89,25 @@
     }
 </script>
 
-<!-- Add the following CSS to match the admin dashboard style -->
+<!-- CSS -->
 <style>
-    /* New White Background div for the dashboard */
     .dashboard-bg {
-         background: rgba(255, 255, 255, 0.9);
+        background: rgba(255, 255, 255, 0.9);
         padding: 20px;
         border-radius: 10px;
-        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); /* Similar to admin dashboard box-shadow */
+        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
     }
 
-    /* Styling for the main container */
     .container {
         margin-top: 30px;
     }
 
     .card {
-        border-radius: 10px; /* Rounded corners */
+        border-radius: 10px;
     }
 
-    /* Optional: Add some spacing for the welcome message and metrics */
-    .welcome-text {
-        padding-top: 5px;
-        margin-bottom: 20px;
-    }
-
-        .welcome-text h1 {
-            font-size: 2rem;
-        }
-
-        .welcome-text p {
-            font-size: 1.2rem;
-            margin-top: 10px;
-        }
-
-    /* Add some padding and shadow to the navigation panel */
-    .nav-item a {
-        
-        color: #007bff; /* Blue color for the links */
-    }
-
-        .nav-item a:hover {
-            color: #0056b3; /* Darker blue color on hover */
-        }
-
-    /* Card styles to match Admin Dashboard */
-    .card {
-        border-radius: 10px; /* Rounded corners */
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Slight shadow */
-    }
-
-    /* Adjust card spacing and text style */
-    .card-header { 
-        font-size: 1.1rem; /* Slightly larger text for header */
+    .card-header {
+        font-size: 1.1rem;
     }
 
     .card-body {
@@ -140,29 +115,20 @@
         padding: 10px;
     }
 
-    /* Adjust button and link colors */
     .nav-link {
-        color: #007bff; /* Default link color */
-        
+        color: #007bff;
     }
 
         .nav-link:hover {
-            color: #0056b3; /* Darker on hover */
+            color: #0056b3;
         }
 
-    /* Enhance the appearance of the container and columns */
     .col-md-3 {
         padding-right: 15px;
     }
 
     .col-md-9 {
         padding-left: 15px;
-    }
-
-    /* Fix the size and padding for better UX */
-    .nav-link {
-        padding: 8px 16px;
-        font-size: 1.1rem;
     }
 
     .nav-item {
