@@ -88,6 +88,25 @@ public class StudentController : Controller
     }
 
     // Renew Book
+    // Renew Book
+    [HttpGet]
+    public IActionResult RenewBooks()
+    {
+        var userId = HttpContext.Session.GetInt32("UserId");
+
+        if (!userId.HasValue)
+        {
+            return Unauthorized();
+        }
+
+        var issuedBooks = _context.IssuedBooks
+            .Include(ib => ib.Book)
+            .Where(ib => ib.UserId == userId.Value && ib.ReturnDate == null && DateTime.Now <= ib.DueDate)
+            .ToList();
+
+        return PartialView("_RenewBooks", issuedBooks);
+    }
+
     [HttpPost]
     public IActionResult RenewBook(int issuedBookId)
     {
@@ -102,6 +121,24 @@ public class StudentController : Controller
     }
 
     // Return Book
+    [HttpGet]
+    public IActionResult ReturnBooks()
+    {
+        var userId = HttpContext.Session.GetInt32("UserId");
+
+        if (!userId.HasValue)
+        {
+            return Unauthorized();
+        }
+
+        var issuedBooks = _context.IssuedBooks
+            .Include(ib => ib.Book)
+            .Where(ib => ib.UserId == userId.Value && ib.ReturnDate == null)
+            .ToList();
+
+        return PartialView("_ReturnBooks", issuedBooks);
+    }
+
     [HttpPost]
     public IActionResult ReturnBook(int issuedBookId)
     {

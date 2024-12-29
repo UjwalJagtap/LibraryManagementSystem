@@ -77,16 +77,17 @@
 <script>
     function loadContent(action) {
         $.ajax({
-            url: `/Student/${action}`, // Ensure correct action is specified
+            url: `/Student/${action}`, // Ensure correct action
             type: "GET",
             success: function (data) {
-                $("#content").html(data); // Populate the content area
+                $("#content").html(data); // Populate content
             },
-            error: function () {
-                alert("An error occurred while loading the content.");
+            error: function (xhr) {
+                alert(`Error: ${xhr.status} - ${xhr.responseText}`);
             }
         });
     }
+
 </script>
 
 <!-- CSS -->

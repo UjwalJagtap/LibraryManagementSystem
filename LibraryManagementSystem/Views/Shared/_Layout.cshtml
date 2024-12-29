@@ -78,7 +78,7 @@
     <script>
         // JavaScript to handle header and footer visibility
         const header = document.getElementById('main-header');
-        const footer = document.getElementById('main-footer');
+        const footer = document.querySelector('footer'); // Fix footer selector
 
         window.addEventListener('scroll', function () {
             const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
@@ -95,11 +95,14 @@
             const clientHeight = document.documentElement.clientHeight;
 
             if (scrollTop + clientHeight >= scrollHeight - 10) {
-                footer.classList.add('visible');
+                footer.style.opacity = 1; // Show the footer
+                footer.style.pointerEvents = 'auto'; // Enable interactions
             } else {
-                footer.classList.remove('visible');
+                footer.style.opacity = 0; // Hide the footer
+                footer.style.pointerEvents = 'none'; // Disable interactions
             }
         });
     </script>
+
 </body>
 </html>
