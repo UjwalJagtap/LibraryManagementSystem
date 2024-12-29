@@ -4,6 +4,9 @@ using LibraryManagementSystem.Data; // Include your DbContext namespace
 using BCrypt.Net; // For password hashing
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.Authentication;
+using System.Security.Claims;
 
 namespace LibraryManagementSystem.Controllers
 {
@@ -81,6 +84,18 @@ namespace LibraryManagementSystem.Controllers
                 TempData["ErrorMessage"] = "Invalid username, password, or role.";
                 return RedirectToAction("Index", "Home");
             }
+            var claims = new List<Claim>
+    {
+        new Claim(ClaimTypes.Name, user.Username),
+        new Claim(ClaimTypes.Role, user.Role)
+    };
+
+            // Create claims identity
+            var claimsIdentity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
+
+            // Sign in the user
+            await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, new ClaimsPrincipal(claimsIdentity));
+
             // Store Role and UserId in the session on successful login
             HttpContext.Session.SetString("Role", user.Role); // Storing Role
             HttpContext.Session.SetInt32("UserId", user.UserId); // Storing UserId

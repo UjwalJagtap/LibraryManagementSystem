@@ -1,6 +1,7 @@
 using LibraryManagementSystem.Data;
 using LibraryManagementSystem.Models;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Authentication.Cookies;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -20,8 +21,13 @@ builder.Services.AddSession(options =>
     options.Cookie.IsEssential = true;
 });
 
- 
-
+// Add cookie authentication
+builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
+    .AddCookie(options =>
+    {
+        options.LoginPath = "/Account/Login"; // Redirect to Login page if not authenticated
+        options.AccessDeniedPath = "/Account/AccessDenied"; // Redirect if access is denied
+    });
 
 var app = builder.Build();
 
@@ -37,6 +43,7 @@ app.UseStaticFiles(); // Serve static files (CSS, JS, images, etc.)
 
 app.UseRouting(); // Enable request routing
 app.UseSession(); // Enable session middleware
+app.UseAuthentication(); // Enable authentication middleware
 app.UseAuthorization(); // Enable authorization middleware
 
 // Default route configuration

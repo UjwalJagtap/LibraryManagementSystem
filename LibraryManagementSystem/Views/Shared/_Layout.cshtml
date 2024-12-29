@@ -21,11 +21,13 @@
             display: flex;
             justify-content: center; /* Center horizontally */
             align-items: center; /* Center vertically */
-            transition: transform 0.3s ease-in-out; /* Smooth hide/show */
+            transition: opacity 0.3s ease-in-out; /* Smooth hide/show */
+            opacity: 1;
         }
 
             header.hidden {
-                transform: translateY(-100%); /* Hide the header */
+                opacity: 0; /* Hide the header */
+                pointer-events: none; /* Prevent interaction when hidden */
             }
 
         main {
@@ -35,13 +37,15 @@
         }
 
         footer {
-            background: Transparent;
-            text-align: right;
-            padding: 10px 10px;
-            width: 100%;
-            box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
-            position: fixed;
+             
+            position: relative; /* Ensure it doesn't overlap content */
             bottom: 0;
+            width: 100%;
+            text-align: right;
+            background: Transparent; 
+            padding: 10px;
+            box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1); /* Optional shadow for elevation */
+            transition: all 0.3s ease-in-out;
         }
     </style>
 </head>
@@ -55,11 +59,6 @@
             </a>
             <h1 style="font-size: 1.5rem; font-weight: bold; margin: 0;">Library Management System</h1>
         </div>
-      
-            <!-- Other header content -->
-            
-        
-
     </header>
 
     <!-- Main Content -->
@@ -76,22 +75,29 @@
     @RenderSection("Scripts", required: false)
 
     <script>
-        // JavaScript to hide/show the header on scroll
-        let lastScrollTop = 0; // Track the last scroll position
+        // JavaScript to handle header and footer visibility
         const header = document.getElementById('main-header');
+        const footer = document.getElementById('main-footer');
 
         window.addEventListener('scroll', function () {
             const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
 
-            if (scrollTop > lastScrollTop) {
-                // Scrolling down: Hide the header
-                header.classList.add('hidden');
-            } else {
-                // Scrolling up: Show the header
+            // Show header only when at the top of the page
+            if (scrollTop === 0) {
                 header.classList.remove('hidden');
+            } else {
+                header.classList.add('hidden');
             }
 
-            lastScrollTop = scrollTop <= 0 ? 0 : scrollTop; // For Mobile or negative scrolling
+            // Show footer only when scrolled to the bottom
+            const scrollHeight = document.documentElement.scrollHeight;
+            const clientHeight = document.documentElement.clientHeight;
+
+            if (scrollTop + clientHeight >= scrollHeight - 10) {
+                footer.classList.add('visible');
+            } else {
+                footer.classList.remove('visible');
+            }
         });
     </script>
 </body>

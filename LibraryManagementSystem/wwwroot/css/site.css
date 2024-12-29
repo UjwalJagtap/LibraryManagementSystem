@@ -42,13 +42,14 @@ main {
 }
 
 footer {
-    background: transparent;
-    text-align: center;
-    padding: 10px 0;
-    width: 100%;
-    box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
-    position: fixed;
+    position: relative; /* Ensure it doesn't overlap content */
     bottom: 0;
+    width: 100%;
+    text-align: right;
+    background: Transparent;
+    padding: 10px;
+    box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1); /* Optional shadow for elevation */
+    transition: all 0.3s ease-in-out;
 }
 
 /* Responsive fixes for small screens */
