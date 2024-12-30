@@ -120,6 +120,36 @@ public class StudentController : Controller
         return BadRequest("Unable to renew the book.");
     }
 
+    [HttpPost]
+    public IActionResult RequestBook(int bookId)
+    {
+        var userId = HttpContext.Session.GetInt32("UserId");
+        if (!userId.HasValue)
+            return Unauthorized();
+
+        var book = _context.Books.FirstOrDefault(b => b.BookId == bookId && b.AvailableCopies > 0);
+        if (book == null)
+            return BadRequest("The book is unavailable.");
+
+        var existingRequest = _context.BookRequests.FirstOrDefault(r => r.BookId == bookId && r.UserId == userId.Value && r.Status == "Pending");
+        if (existingRequest != null)
+            return BadRequest("You have already requested this book.");
+
+        var request = new BookRequest
+        {
+            BookId = bookId,
+            UserId = userId.Value,
+            RequestDate = DateTime.Now,
+            Status = "Pending"
+        };
+
+        _context.BookRequests.Add(request);
+        _context.SaveChanges();
+
+        TempData["SuccessMessage"] = "Book request submitted successfully!";
+        return RedirectToAction("SearchBooks");
+    }
+
     // Return Book
     [HttpGet]
     public IActionResult ReturnBooks()
