@@ -74,7 +74,10 @@ namespace LibraryManagementSystem.Controllers
         public async Task<IActionResult> Login(LoginViewModel model)
         {
             if (!ModelState.IsValid)
+            {
+                TempData["ErrorMessage"] = "Please fill in all required fields.";
                 return RedirectToAction("Index", "Home");
+            }
 
             var user = await _context.Users
                 .FirstOrDefaultAsync(u => u.Username == model.Username && u.Role == model.Role);
@@ -84,11 +87,12 @@ namespace LibraryManagementSystem.Controllers
                 TempData["ErrorMessage"] = "Invalid username, password, or role.";
                 return RedirectToAction("Index", "Home");
             }
+
             var claims = new List<Claim>
-    {
-        new Claim(ClaimTypes.Name, user.Username),
-        new Claim(ClaimTypes.Role, user.Role)
-    };
+            {
+                new Claim(ClaimTypes.Name, user.Username),
+                new Claim(ClaimTypes.Role, user.Role)
+            };
 
             // Create claims identity
             var claimsIdentity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
@@ -100,7 +104,6 @@ namespace LibraryManagementSystem.Controllers
             HttpContext.Session.SetString("Role", user.Role); // Storing Role
             HttpContext.Session.SetInt32("UserId", user.UserId); // Storing UserId
 
-
             // Redirect based on role
             if (user.Role == "Student")
                 return RedirectToAction("Dashboard", "Student");
@@ -110,14 +113,19 @@ namespace LibraryManagementSystem.Controllers
             TempData["ErrorMessage"] = "Unknown role.";
             return RedirectToAction("Index", "Home");
         }
-        
+
         [HttpGet]
         public IActionResult Logout()
         {
-            HttpContext.Session.Clear(); // Clear session data
-            return RedirectToAction("Index", "Home"); // Redirect to Home page
-        }
+            // Clear session data
+            HttpContext.Session.Clear();
 
+            // Set the logout message
+            TempData["SuccessMessage"] = "You have successfully logged out.";
+
+            // Redirect to Home page
+            return RedirectToAction("Index", "Home");
+        }
 
     }
 }

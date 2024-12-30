@@ -14,14 +14,14 @@
             left: 0;
             width: 100%;
             z-index: 1000;
-            background: Transparent;
+            background:transparent;
             padding: 10px;
             height: 70px; /* Fixed height */
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
             display: flex;
-            justify-content: center; /* Center horizontally */
-            align-items: center; /* Center vertically */
-            transition: opacity 0.3s ease-in-out; /* Smooth hide/show */
+            justify-content: center;
+            align-items: center;
+            transition: opacity 0.3s ease-in-out;
             opacity: 1;
         }
 
@@ -37,15 +37,16 @@
         }
 
         footer {
-             
-            position: relative; /* Ensure it doesn't overlap content */
+            position: relative;
             bottom: 0;
             width: 100%;
             text-align: right;
-            background: Transparent; 
+            background: transparent;
             padding: 10px;
-            box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1); /* Optional shadow for elevation */
-            transition: all 0.3s ease-in-out;
+            box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
+            opacity: 0; /* Hidden by default */
+            pointer-events: none; /* Disable interactions by default */
+            transition: opacity 0.3s ease-in-out;
         }
     </style>
 </head>
@@ -67,7 +68,7 @@
     </main>
 
     <!-- Footer -->
-    <footer>
+    <footer id="main-footer">
         <p>&copy; 2024 Library Management System</p>
     </footer>
 
@@ -78,7 +79,7 @@
     <script>
         // JavaScript to handle header and footer visibility
         const header = document.getElementById('main-header');
-        const footer = document.querySelector('footer'); // Fix footer selector
+        const footer = document.getElementById('main-footer');
 
         window.addEventListener('scroll', function () {
             const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
@@ -103,6 +104,5 @@
             }
         });
     </script>
-
 </body>
 </html>

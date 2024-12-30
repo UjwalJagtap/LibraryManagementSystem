@@ -4,16 +4,20 @@
 @{
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
- @* @if (TempData["ErrorMessage"] != null)
- {
-     <div class="alert alert-danger">@TempData["ErrorMessage"]</div>
- }
 
- @if (TempData["SuccessMessage"] != null)
- {
-     <div class="alert alert-success">@TempData["SuccessMessage"]</div>
- }
- *@
+@if (TempData["ErrorMessage"] != null)
+{
+    <div class="alert alert-danger text-center" role="alert">
+        @TempData["ErrorMessage"]
+    </div>
+}
+@if (TempData["SuccessMessage"] != null)
+{
+    <div class="alert alert-success text-center" role="alert">
+        @TempData["SuccessMessage"]
+    </div>
+}
+
 <style>
     body {
         background-image: url('/images/homeBG.jpg');
@@ -34,17 +38,16 @@
         justify-content: center;
         align-items: center;
         text-align: center;
+        padding: 20px;
     }
 
     .welcome-text {
         color: black;
-        padding-top:5px;
         margin-bottom: 20px;
     }
 
         .welcome-text h1 {
             font-size: 2rem;
-            
         }
 
         .welcome-text p {
@@ -54,28 +57,28 @@
 
     .login-card {
         background: rgba(255, 255, 255, 0.9);
-        padding: 30px;
-        margin-left: 10px;
+        padding: 20px;
         border-radius: 10px;
-        width: 400px;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    }
-
-    footer {
-        background: transparent;
-        text-align: right;
-        padding: 10px 10px;
-        color: #333;
-        position: absolute;
-        bottom: 0;
         width: 100%;
+        max-width: 350px; /* Reduced max-width for smaller form */
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        margin: 20px auto;
     }
 
-</style>
+    .alert {
+        margin: 10px auto;
+        max-width: 350px;
+        text-align: center;
+    }
 
-<header>
-    <!-- Header content is already implemented in _Layout.cshtml -->
-</header>
+    .form-group {
+        text-align: left;
+    }
+
+    .btn {
+        margin-top: 10px;
+    }
+</style>
 
 <div class="main-container">
     <!-- Welcome Text -->
@@ -83,12 +86,6 @@
         <h1>Welcome To Our Library</h1>
         <p>Access • Organize • Enquire</p>
     </div>
-    @if (TempData["SuccessMessage"] != null)
-    {
-        <div class="alert alert-success text-center" role="alert">
-            @TempData["SuccessMessage"]
-        </div>
-    }
 
     <!-- Login Form -->
     <div class="login-card">
@@ -118,8 +115,3 @@
         <a href="@Url.Action("Register", "Account")" class="btn btn-secondary mt-3 w-100">Create New Account</a>
     </div>
 </div>
-
-@* <footer>
-    <p>&copy; 2024 Library Management System</p>
-</footer>
- *@
