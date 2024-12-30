@@ -41,11 +41,11 @@ namespace LibraryManagementSystem.Data
             // Optional: Add additional table seeds here if needed
         }
 
-        /// <summary>
-        /// Hashes the provided password using SHA256.
-        /// </summary>
-        /// <param name="password">Password to hash.</param>
-        /// <returns>SHA256 hashed password as a string.</returns>
+        //<summary>
+        // Hashes the provided password using SHA256.
+        // </summary>
+        // <param name="password">Password to hash.</param>
+        // <returns>SHA256 hashed password as a string.</returns>
         private static string HashPassword(string password)
         {
             using (var sha256 = System.Security.Cryptography.SHA256.Create())
