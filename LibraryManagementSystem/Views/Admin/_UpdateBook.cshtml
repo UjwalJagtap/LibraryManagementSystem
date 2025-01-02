@@ -1,0 +1,80 @@
+﻿ @model LibraryManagementSystem.Models.Book
+
+<h4>Update Book</h4>
+<form asp-action="UpdateBook" asp-controller="Admin" method="post">
+    <input type="hidden" asp-for="BookId" />
+    <div class="form-group">
+        <label asp-for="Title"></label>
+        <input asp-for="Title" class="form-control" placeholder="Enter book title" />
+        <span asp-validation-for="Title" class="text-danger"></span>
+    </div>
+    <div class="form-group mt-3">
+        <label asp-for="Author"></label>
+        <input asp-for="Author" class="form-control" placeholder="Enter author name" />
+        <span asp-validation-for="Author" class="text-danger"></span>
+    </div>
+    <div class="form-group mt-3">
+        <label asp-for="Publisher"></label>
+        <input asp-for="Publisher" class="form-control" placeholder="Enter publisher name" />
+        <span asp-validation-for="Publisher" class="text-danger"></span>
+    </div>
+    <div class="form-group mt-3">
+        <label asp-for="ISBN"></label>
+        <input asp-for="ISBN" class="form-control" placeholder="Enter ISBN" />
+        <span asp-validation-for="ISBN" class="text-danger"></span>
+    </div>
+    <div class="form-group mt-3">
+        <label asp-for="PublishedYear"></label>
+        <input asp-for="PublishedYear" type="number" class="form-control" placeholder="Enter published year" />
+        <span asp-validation-for="PublishedYear" class="text-danger"></span>
+    </div>
+    <div class="form-group mt-3">
+        <label asp-for="Genre"></label>
+        <input asp-for="Genre" class="form-control" placeholder="Enter genre" />
+        <span asp-validation-for="Genre" class="text-danger"></span>
+    </div>
+    <div class="form-group mt-3">
+        <label asp-for="TotalCopies"></label>
+        <input asp-for="TotalCopies" type="number" class="form-control" placeholder="Enter total copies" />
+        <span asp-validation-for="TotalCopies" class="text-danger"></span>
+    </div>
+    <div class="form-group mt-3">
+        <label asp-for="AvailableCopies"></label>
+        <input asp-for="AvailableCopies" type="number" class="form-control" placeholder="Enter available copies" />
+        <span asp-validation-for="AvailableCopies" class="text-danger"></span>
+    </div>
+    <div class="mt-4">
+        <button type="submit" class="btn btn-primary">Update Book</button>
+        <button type="button" class="btn btn-secondary" onclick="cancelForm()">Cancel</button>
+    </div>
+</form>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
+
+
+<script>
+    // Submit the update book form via AJAX
+    $("#updateBookForm").on("submit", function (e) {
+        e.preventDefault();
+        const form = $(this);
+
+        $.ajax({
+            url: form.attr("action"),
+            type: form.attr("method"),
+            data: form.serialize(),
+            success: function (response) {
+                if (response.success) {
+                    alert(response.message);
+                    loadBooks(); // Reload books after update
+                } else {
+                    alert(response.message);
+                }
+            },
+            error: function () {
+                alert("An error occurred while updating the book.");
+            }
+        });
+    });
+</script>

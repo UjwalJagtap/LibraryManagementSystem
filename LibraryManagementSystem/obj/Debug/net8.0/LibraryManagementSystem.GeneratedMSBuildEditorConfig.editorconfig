@@ -40,6 +40,10 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cX0FkZEJvb2tzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/jagta/OneDrive/Desktop/LibraryManagementSystem/LibraryManagementSystem/Views/Admin/_Books.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cX0Jvb2tzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/jagta/OneDrive/Desktop/LibraryManagementSystem/LibraryManagementSystem/Views/Admin/_GenerateReports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cX0dlbmVyYXRlUmVwb3J0cy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
@@ -50,6 +54,10 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/Users/jagta/OneDrive/Desktop/LibraryManagementSystem/LibraryManagementSystem/Views/Admin/_ManageFines.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cX01hbmFnZUZpbmVzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/jagta/OneDrive/Desktop/LibraryManagementSystem/LibraryManagementSystem/Views/Admin/_UpdateBook.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cX1VwZGF0ZUJvb2suY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/jagta/OneDrive/Desktop/LibraryManagementSystem/LibraryManagementSystem/Views/Error/Error.cshtml]

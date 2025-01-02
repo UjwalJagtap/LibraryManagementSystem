@@ -1,43 +1,56 @@
-﻿
-@{
-    ViewData["Title"] = "_AddBooks";
+﻿@model LibraryManagementSystem.Models.Book
+
+<div>
+    <h4>Add Book</h4>
+    <form method="post" action="/Admin/AddBook" id="addBookForm">
+        <div class="form-group">
+            <label asp-for="Title"></label>
+            <input asp-for="Title" class="form-control" placeholder="Enter the book title" />
+            <span asp-validation-for="Title" class="text-danger"></span>
+        </div>
+        <div class="form-group mt-3">
+            <label asp-for="Author"></label>
+            <input asp-for="Author" class="form-control" placeholder="Enter the author's name" />
+            <span asp-validation-for="Author" class="text-danger"></span>
+        </div>
+        <div class="form-group mt-3">
+            <label asp-for="Publisher"></label>
+            <input asp-for="Publisher" class="form-control" placeholder="Enter the publisher" />
+            <span asp-validation-for="Publisher" class="text-danger"></span>
+        </div>
+        <div class="form-group mt-3">
+            <label asp-for="ISBN"></label>
+            <input asp-for="ISBN" class="form-control" placeholder="Enter the ISBN" />
+            <span asp-validation-for="ISBN" class="text-danger"></span>
+        </div>
+        <div class="form-group mt-3">
+            <label asp-for="PublishedYear"></label>
+            <input asp-for="PublishedYear" class="form-control" placeholder="Enter the published year" />
+            <span asp-validation-for="PublishedYear" class="text-danger"></span>
+        </div>
+        <div class="form-group mt-3">
+            <label asp-for="Genre"></label>
+            <input asp-for="Genre" class="form-control" placeholder="Enter the genre" />
+            <span asp-validation-for="Genre" class="text-danger"></span>
+        </div>
+        <div class="form-group mt-3">
+            <label asp-for="TotalCopies"></label>
+            <input asp-for="TotalCopies" type="number" class="form-control" placeholder="Enter the total copies" />
+            <span asp-validation-for="TotalCopies" class="text-danger"></span>
+        </div>
+        <div class="form-group mt-3">
+            <label asp-for="AvailableCopies"></label>
+            <input asp-for="AvailableCopies" type="number" class="form-control" placeholder="Enter the available copies" />
+            <span asp-validation-for="AvailableCopies" class="text-danger"></span>
+        </div>
+        <div class="mt-4">
+            <button type="submit" class="btn btn-primary">Add Book</button>
+            <button type="button" class="btn btn-secondary" onclick="cancelForm()">Cancel</button>
+
+        </div>
+    </form>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
 }
-
-<h4>Add Books</h4>
-<form method="post" action="/Admin/AddBooks">
-    <div class="form-group">
-        <label for="title">Book Title</label>
-        <input type="text" id="title" name="title" class="form-control" required />
-    </div>
-    <div class="form-group mt-3">
-        <label for="author">Author</label>
-        <input type="text" id="author" name="author" class="form-control" required />
-    </div>
-    <div class="form-group mt-3">
-        <label for="publisher">Publisher</label>
-        <input type="text" id="publisher" name="publisher" class="form-control" required />
-    </div>
-    <div class="form-group mt-3">
-        <label for="isbn">ISBN</label>
-        <input type="text" id="isbn" name="isbn" class="form-control" required />
-    </div>
-    <div class="form-group mt-3">
-        <label for="publishedYear">Published Year</label>
-        <input type="number" id="publishedYear" name="publishedYear" class="form-control" required />
-    </div>
-    <div class="form-group mt-3">
-        <label for="genre">Genre</label>
-        <input type="text" id="genre" name="genre" class="form-control" required />
-    </div>
-    <div class="form-group mt-3">
-        <label for="totalCopies">Total Copies</label>
-        <input type="number" id="totalCopies" name="totalCopies" class="form-control" required />
-    </div>
-    <div class="form-group mt-3">
-        <label for="availableCopies">Available Copies</label>
-        <input type="number" id="availableCopies" name="availableCopies" class="form-control" required />
-    </div>
-    <button type="submit" class="btn btn-primary mt-4">Add Book</button>
-</form>
-
-

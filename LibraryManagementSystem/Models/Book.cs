@@ -26,9 +26,11 @@ namespace LibraryManagementSystem.Models
         public string Genre { get; set; }
 
         [Required(ErrorMessage = "Total Copies are required.")]
+        [Range(1, int.MaxValue, ErrorMessage = "Total copies must be at least 1.")]
         public int TotalCopies { get; set; }
 
         [Required(ErrorMessage = "Available Copies are required.")]
+        [Range(0, int.MaxValue, ErrorMessage = "Available copies cannot be negative.")]
         public int AvailableCopies { get; set; }
     }
 }

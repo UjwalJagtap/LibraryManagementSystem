@@ -1,4 +1,11 @@
-﻿<!DOCTYPE html>
+﻿@if (TempData["SuccessMessage"] != null && ViewContext.RouteData.Values["Controller"].ToString() == "Admin")
+{
+    <div class="alert alert-success text-center" role="alert">
+        @TempData["SuccessMessage"]
+    </div>
+}
+
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
