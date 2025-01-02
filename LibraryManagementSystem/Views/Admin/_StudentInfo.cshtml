@@ -1,0 +1,110 @@
+﻿@model IEnumerable<LibraryManagementSystem.Models.User>
+
+<div id="studentsTable">
+    <h4>Registered Students</h4>
+    @if (Model != null && Model.Any())
+    {
+        <table class="table table-bordered">
+            <thead class="thead-light">
+                <tr>
+                    <th>User ID</th>
+                    <th>Full Name</th>
+                    <th>Email</th>
+                    <th>Role</th>
+                    <th>Phone</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var student in Model)
+                {
+                    <tr id="student-row-@student.UserId">
+                        <td>@student.UserId</td>
+                        <td>@student.FullName</td>
+                        <td>@student.Email</td>
+                        <td>@student.Role</td>
+                        <td>@student.Phone</td>
+                        <td>
+                            @* <button class="btn btn-warning btn-sm" onclick="loadUpdateStudentForm(@student.UserId)">Update</button> *@
+                            <button class="btn btn-danger btn-sm" onclick="deleteStudent(@student.UserId)">Remove</button>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+    else
+    {
+        <p class="text-danger">No registered students found.</p>
+    }
+</div>
+<script>
+    function deleteStudent(userId) {
+        if (!confirm("Are you sure you want to delete this student?")) return;
+
+        $.ajax({
+            url: `/Admin/DeleteStudent/${userId}`,
+            type: "POST",
+            success: function (response) {
+                if (response.success) {
+                    // Replace the table content with the updated student list
+                    $("#studentsTable").html(renderStudentsHtml(response.students));
+                    displaySuccessMessage(response.message);
+                } else {
+                    alert(response.message);
+                }
+            },
+            error: function () {
+                alert("An error occurred while deleting the student.");
+            }
+        });
+    }
+
+    function renderStudentsHtml(students) {
+        let html = `
+            <table class="table table-bordered">
+                <thead class="thead-light">
+                    <tr>
+                        <th>User ID</th>
+                        <th>Full Name</th>
+                        <th>Email</th>
+                        <th>Role</th>
+                        <th>Phone</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+        `;
+
+        students.forEach(student => {
+            html += `
+                <tr id="student-row-${student.userId}">
+                    <td>${student.userId}</td>
+                    <td>${student.fullName}</td>
+                    <td>${student.email}</td>
+                    <td>${student.role}</td>
+                    <td>${student.phone}</td>
+                    <td>
+                        <button class="btn btn-danger btn-sm" onclick="deleteStudent(${student.userId})">Remove</button>
+                    </td>
+                </tr>
+            `;
+        });
+
+        html += `</tbody></table>`;
+        return html;
+    }
+
+    function displaySuccessMessage(message) {
+        const successMessage = $("<div>", {
+            class: "alert alert-success",
+            text: message,
+        });
+        $("#studentsTable").before(successMessage);
+        successMessage.fadeOut(3000, function () {
+            $(this).remove();
+        });
+    }
+
+</script>
+

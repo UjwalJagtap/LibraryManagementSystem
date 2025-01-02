@@ -186,6 +186,34 @@ namespace LibraryManagementSystem.Controllers
                 return Json(new { success = false, message = $"Error deleting book: {ex.Message}" });
             }
         }
+        public IActionResult StudentInfo()
+        {
+            var students = _context.Users.Where(u => u.Role == "Student").ToList();
+            return PartialView("_StudentInfo", students);
+        }
+        [HttpPost]
+        public IActionResult DeleteStudent(int id)
+        {
+            try
+            {
+                var student = _context.Users.FirstOrDefault(u => u.UserId == id && u.Role == "Student");
+                if (student == null)
+                {
+                    return Json(new { success = false, message = "Student not found." });
+                }
+
+                _context.Users.Remove(student);
+                _context.SaveChanges();
+
+                var students = _context.Users.Where(u => u.Role == "Student").ToList();
+                return Json(new { success = true, message = "Student removed successfully!", students });
+            }
+            catch (Exception ex)
+            {
+                return Json(new { success = false, message = $"Error deleting student: {ex.Message}" });
+            }
+        }
+
 
         public IActionResult IssueBooks()
         {
