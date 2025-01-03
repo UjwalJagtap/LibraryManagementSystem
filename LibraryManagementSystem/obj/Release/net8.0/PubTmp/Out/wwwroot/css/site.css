@@ -1,0 +1,60 @@
+html {
+  font-size: 14px;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
+  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+}
+/* General layout fixes */
+html, body {
+    height: 100%;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    background-image: url('/images/homeBG.jpg'); /* Path to your shared background image */
+    background-size: cover;
+    background-position: center;
+    background-repeat: repeat-y;
+}
+
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    background: transparent;
+    padding: 10px;
+    height: 70px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+main {
+    flex: 1;
+    padding-top: 80px;
+    padding-bottom: 60px;
+}
+
+footer {
+    position: relative; /* Ensure it doesn't overlap content */
+    bottom: 0;
+    width: 100%;
+    text-align: right;
+    background: Transparent;
+    padding: 10px;
+    box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1); /* Optional shadow for elevation */
+    transition: all 0.3s ease-in-out;
+}
+
+/* Responsive fixes for small screens */
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 1.2rem;
+    }
+}
