@@ -38,6 +38,9 @@ namespace LibraryManagementSystem.Controllers
         {
             try
             {
+                ViewBag.HeaderController = "Admin";
+                ViewBag.HeaderAction = "Dashboard";
+
                 UpdateMetrics();
                 return View();
             }
@@ -204,9 +207,10 @@ namespace LibraryManagementSystem.Controllers
 
                 _context.Users.Remove(student);
                 _context.SaveChanges();
-
+                
                 var students = _context.Users.Where(u => u.Role == "Student").ToList();
-                return Json(new { success = true, message = "Student removed successfully!", students });
+                var metrics = GetMetrics();
+                return Json(new { success = true, message = "Student removed successfully!", students,metrics });
             }
             catch (Exception ex)
             {

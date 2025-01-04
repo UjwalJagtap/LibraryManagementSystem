@@ -7,8 +7,14 @@ namespace LibraryManagementSystem.Controllers
     public class HomeController : Controller
     {
         [HttpGet]
+        //public IActionResult Index()
+        //{
+        //    return View();
+        //}
         public IActionResult Index()
         {
+            ViewBag.HeaderController = "Home";
+            ViewBag.HeaderAction = "Index";
             return View();
         }
 

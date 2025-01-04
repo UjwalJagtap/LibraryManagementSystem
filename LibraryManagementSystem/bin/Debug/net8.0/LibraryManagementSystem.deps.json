@@ -9,7 +9,6 @@
       "LibraryManagementSystem/1.0.0": {
         "dependencies": {
           "BCrypt.Net-Next": "4.0.3",
-          "Glimpse.Mvc5": "1.5.3",
           "Microsoft.EntityFrameworkCore": "9.0.0",
           "Microsoft.EntityFrameworkCore.Abstractions": "9.0.0",
           "Microsoft.EntityFrameworkCore.Relational": "9.0.0",
@@ -61,36 +60,6 @@
           "lib/net6.0/BCrypt.Net-Next.dll": {
             "assemblyVersion": "4.0.3.0",
             "fileVersion": "4.0.3.0"
-          }
-        }
-      },
-      "Glimpse/1.8.2": {
-        "runtime": {
-          "lib/net45/Glimpse.Core.dll": {
-            "assemblyVersion": "1.8.2.0",
-            "fileVersion": "1.8.2.0"
-          }
-        }
-      },
-      "Glimpse.AspNet/1.8.0": {
-        "dependencies": {
-          "Glimpse": "1.8.2"
-        },
-        "runtime": {
-          "lib/net45/Glimpse.AspNet.dll": {
-            "assemblyVersion": "1.8.0.0",
-            "fileVersion": "1.8.0.0"
-          }
-        }
-      },
-      "Glimpse.Mvc5/1.5.3": {
-        "dependencies": {
-          "Glimpse.AspNet": "1.8.0"
-        },
-        "runtime": {
-          "lib/net45/Glimpse.Mvc5.dll": {
-            "assemblyVersion": "1.5.3.0",
-            "fileVersion": "1.5.3.0"
           }
         }
       },
@@ -2117,27 +2086,6 @@
       "sha512": "sha512-W+U9WvmZQgi5cX6FS5GDtDoPzUCV4LkBLkywq/kRZhuDwcbavOzcDAr3LXJFqHUi952Yj3LEYoWW0jbEUQChsA==",
       "path": "bcrypt.net-next/4.0.3",
       "hashPath": "bcrypt.net-next.4.0.3.nupkg.sha512"
-    },
-    "Glimpse/1.8.2": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-2/F5542Pey/z2BYbfuGRDCpyFMSLsbCObn17WElXV9QWgOPa53goZ6Qq4eTXkpqd2+bR56VLmdSJALpfMfNghA==",
-      "path": "glimpse/1.8.2",
-      "hashPath": "glimpse.1.8.2.nupkg.sha512"
-    },
-    "Glimpse.AspNet/1.8.0": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-j0RHna8TyN/dM4tZNXaNYcFjHb0G82EqGraOhBE1DTZ8PpYXCby1xYghTzmI1WbSVEGpk1rTUW6CrVFzVpnm9A==",
-      "path": "glimpse.aspnet/1.8.0",
-      "hashPath": "glimpse.aspnet.1.8.0.nupkg.sha512"
-    },
-    "Glimpse.Mvc5/1.5.3": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-CRSTu7iqsZy5sw4z65SrJVq5YjDlGsdaAiDvMx4/iCYnCA4+HLttiF4A0/xAVWtJFcLMsKPgOMxu1PKNJzjezw==",
-      "path": "glimpse.mvc5/1.5.3",
-      "hashPath": "glimpse.mvc5.1.5.3.nupkg.sha512"
     },
     "Humanizer/2.14.1": {
       "type": "package",

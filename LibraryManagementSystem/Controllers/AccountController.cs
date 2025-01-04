@@ -23,6 +23,9 @@ namespace LibraryManagementSystem.Controllers
         [HttpGet]
         public IActionResult Register()
         {
+            ViewBag.HeaderController = "Home";
+            ViewBag.HeaderAction = "Index";
+            
             return View();
         }
 
@@ -30,7 +33,7 @@ namespace LibraryManagementSystem.Controllers
         [HttpPost]
         public async Task<IActionResult> Register(RegisterViewModel model)
         {
-            if (!ModelState.IsValid)
+             if (!ModelState.IsValid)
                 return View(model);
 
             // Check if the username or email already exists

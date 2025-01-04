@@ -59,10 +59,19 @@
 </head>
 <body>
     <!-- Header -->
-    <header id="main-header">
+    @* <header id="main-header">
         <div class="d-flex justify-content-center align-items-center">
             <!-- Logo with Link to Home Page -->
             <a href="@Url.Action("Index", "Home")">
+                <img src="~/images/logo.png" alt="Library Logo" style="height: 50px; margin-right: 10px;">
+            </a>
+            <h1 style="font-size: 1.5rem; font-weight: bold; margin: 0;">Library Management System</h1>
+        </div>
+    </header> *@
+    <header id="main-header">
+        <div class="d-flex justify-content-center align-items-center">
+            <!-- Logo with Link to Dynamic Dashboard -->
+            <a href="@Url.Action((string)ViewBag.HeaderAction, (string)ViewBag.HeaderController)">
                 <img src="~/images/logo.png" alt="Library Logo" style="height: 50px; margin-right: 10px;">
             </a>
             <h1 style="font-size: 1.5rem; font-weight: bold; margin: 0;">Library Management System</h1>

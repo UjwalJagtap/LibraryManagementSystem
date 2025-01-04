@@ -50,7 +50,10 @@
                     // Replace the table content with the updated student list
                     $("#studentsTable").html(renderStudentsHtml(response.students));
                     displaySuccessMessage(response.message);
-                } else {
+                    updateMetrics(response.metrics);
+                } 
+                else 
+                {
                     alert(response.message);
                 }
             },
@@ -105,6 +108,11 @@
             $(this).remove();
         });
     }
-
+    function updateMetrics(metrics) {
+        $("#totalBooks").text(metrics.totalBooks);
+        $("#totalStudents").text(metrics.totalStudents);
+        $("#totalIssuedBooks").text(metrics.totalIssuedBooks);
+        $("#totalOverdueBooks").text(metrics.totalOverdueBooks);
+    }
 </script>
 

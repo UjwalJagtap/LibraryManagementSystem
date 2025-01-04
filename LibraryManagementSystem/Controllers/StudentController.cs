@@ -20,6 +20,7 @@ public class StudentController : Controller
 
         if (!userId.HasValue)
         {
+
             return RedirectToAction("Index", "Home"); // Redirect to home if not logged in
         }
 
@@ -29,6 +30,8 @@ public class StudentController : Controller
         {
             return Unauthorized(); // Deny access if the user is not a student
         }
+        ViewBag.HeaderController = "Student";
+        ViewBag.HeaderAction = "Dashboard";
 
         // Populate dashboard metrics
         ViewBag.TotalBooks = _context.Books.Count();
