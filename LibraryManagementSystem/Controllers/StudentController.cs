@@ -2,6 +2,8 @@
 using LibraryManagementSystem.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using System;
+using System.Linq;
 
 public class StudentController : Controller
 {
@@ -11,27 +13,19 @@ public class StudentController : Controller
     {
         _context = context;
     }
-
-    // Student Dashboard
     public IActionResult Dashboard()
     {
-        // Retrieve the userId from the session
         var userId = HttpContext.Session.GetInt32("UserId");
 
+        // Redirect to home if not logged in
         if (!userId.HasValue)
-        {
-
-            return RedirectToAction("Index", "Home"); // Redirect to home if not logged in
-        }
+            return RedirectToAction("Index", "Home");
 
         // Check the user's role
         var role = HttpContext.Session.GetString("Role");
         if (role != "Student")
-        {
-            return Unauthorized(); // Deny access if the user is not a student
-        }
-        ViewBag.HeaderController = "Student";
-        ViewBag.HeaderAction = "Dashboard";
+            return Unauthorized();
+ 
 
         // Populate dashboard metrics
         ViewBag.TotalBooks = _context.Books.Count();
@@ -41,148 +35,127 @@ public class StudentController : Controller
             .Where(f => !f.IsPaid && f.IssuedBook.UserId == userId.Value)
             .Sum(f => (decimal?)f.FineAmount) ?? 0;
 
-        return View();
+        return View("Dashboard"); // Return the Dashboard view
     }
 
-    // Fetch all books for Search Books functionality
-    public IActionResult SearchBooks(string query)
+    // Display all books with search functionality
+    public IActionResult Books()
     {
-        var books = string.IsNullOrEmpty(query)
-            ? _context.Books.ToList()
-            : _context.Books.Where(b => b.Title.Contains(query) || b.Author.Contains(query) || b.Genre.Contains(query)).ToList();
-
-        return PartialView("_SearchBooks", books);
-    }
-
-    // View Issued Books
-    public IActionResult ViewIssuedBooks()
-    {
-        var userId = HttpContext.Session.GetInt32("UserId");
-
-        if (!userId.HasValue)
-        {
-            return Unauthorized();
-        }
-
-        var issuedBooks = _context.IssuedBooks
-            .Include(ib => ib.Book)
-            .Where(ib => ib.UserId == userId.Value)
-            .ToList();
-
-        return PartialView("_ViewIssuedBooks", issuedBooks);
-    }
-
-    // View Fines
-    public IActionResult ViewFines()
-    {
-        var userId = HttpContext.Session.GetInt32("UserId");
-
-        if (!userId.HasValue)
-        {
-            return Unauthorized();
-        }
-
-        var fines = _context.Fines
-            .Include(f => f.IssuedBook.Book)
-            .Where(f => f.IssuedBook.UserId == userId.Value && !f.IsPaid)
-            .ToList();
-
-        return PartialView("_ViewFines", fines);
-    }
-
-    // Renew Book
-    // Renew Book
-    [HttpGet]
-    public IActionResult RenewBooks()
-    {
-        var userId = HttpContext.Session.GetInt32("UserId");
-
-        if (!userId.HasValue)
-        {
-            return Unauthorized();
-        }
-
-        var issuedBooks = _context.IssuedBooks
-            .Include(ib => ib.Book)
-            .Where(ib => ib.UserId == userId.Value && ib.ReturnDate == null && DateTime.Now <= ib.DueDate)
-            .ToList();
-
-        return PartialView("_RenewBooks", issuedBooks);
+        var books = _context.Books.ToList(); // Fetch all books initially
+        return PartialView("_Books", books); // Render the list of all books
     }
 
     [HttpPost]
-    public IActionResult RenewBook(int issuedBookId)
+    public IActionResult Books(string searchQuery)
     {
-        var issuedBook = _context.IssuedBooks.Include(ib => ib.Book).FirstOrDefault(ib => ib.IssuedBookId == issuedBookId);
-        if (issuedBook != null && issuedBook.ReturnDate == null && DateTime.Now <= issuedBook.DueDate)
-        {
-            issuedBook.DueDate = issuedBook.DueDate.AddDays(7); // Extend due date by 7 days
-            _context.SaveChanges();
-            return Ok("Book renewed successfully.");
-        }
-        return BadRequest("Unable to renew the book.");
+        var books = string.IsNullOrWhiteSpace(searchQuery)
+            ? _context.Books.ToList() // Return all books if no query
+            : _context.Books.Where(b => b.Title.Contains(searchQuery) ||
+                                        b.Author.Contains(searchQuery) ||
+                                        b.Genre.Contains(searchQuery)).ToList(); // Filter by title, author, or genre
+
+        return PartialView("_Books", books); // Return updated list in the same partial view
     }
+
 
     [HttpPost]
     public IActionResult RequestBook(int bookId)
     {
         var userId = HttpContext.Session.GetInt32("UserId");
         if (!userId.HasValue)
-            return Unauthorized();
+            return Json(new { success = false, message = "User not logged in." });
 
-        var book = _context.Books.FirstOrDefault(b => b.BookId == bookId && b.AvailableCopies > 0);
-        if (book == null)
-            return BadRequest("The book is unavailable.");
+        var book = _context.Books.FirstOrDefault(b => b.BookId == bookId);
+        if (book == null || book.AvailableCopies <= 0)
+            return Json(new { success = false, message = "Book is unavailable." });
 
+        // Check if there is an existing issued book or pending request
+        var existingIssuedBook = _context.IssuedBooks.FirstOrDefault(ib => ib.BookId == bookId && ib.UserId == userId.Value && ib.ReturnDate == null);
         var existingRequest = _context.BookRequests.FirstOrDefault(r => r.BookId == bookId && r.UserId == userId.Value && r.Status == "Pending");
-        if (existingRequest != null)
-            return BadRequest("You have already requested this book.");
 
-        var request = new BookRequest
+        if (existingIssuedBook != null)
+            return Json(new { success = false, message = "You have already issued this book." });
+
+        if (existingRequest != null)
+            return Json(new { success = false, message = "You have already requested this book." });
+
+        // Add new book request
+        var bookRequest = new BookRequest
         {
-            BookId = bookId,
             UserId = userId.Value,
+            BookId = bookId,
             RequestDate = DateTime.Now,
             Status = "Pending"
         };
 
-        _context.BookRequests.Add(request);
+        book.AvailableCopies -= 1; // Decrease available copies
+        _context.BookRequests.Add(bookRequest);
         _context.SaveChanges();
 
-        TempData["SuccessMessage"] = "Book request submitted successfully!";
-        return RedirectToAction("SearchBooks");
+        var updatedMetrics = GetStudentMetrics(userId.Value);
+        return Json(new { success = true, message = "Book request submitted successfully!", updatedMetrics });
     }
+    public IActionResult ViewBookRequests()
+{
+    var userId = HttpContext.Session.GetInt32("UserId");
+    if (!userId.HasValue)
+        return Unauthorized();
 
-    // Return Book
-    [HttpGet]
-    public IActionResult ReturnBooks()
-    {
-        var userId = HttpContext.Session.GetInt32("UserId");
+    var bookRequests = _context.BookRequests
+        .Include(br => br.Book)  // Eagerly load the Book entity to avoid null references
+        .Where(br => br.UserId == userId.Value)
+        .OrderByDescending(br => br.RequestDate)
+        .ToList();
 
-        if (!userId.HasValue)
-        {
-            return Unauthorized();
-        }
+    return PartialView("_ViewBookRequests", bookRequests);
+}
 
-        var issuedBooks = _context.IssuedBooks
-            .Include(ib => ib.Book)
-            .Where(ib => ib.UserId == userId.Value && ib.ReturnDate == null)
-            .ToList();
-
-        return PartialView("_ReturnBooks", issuedBooks);
-    }
 
     [HttpPost]
-    public IActionResult ReturnBook(int issuedBookId)
+    public IActionResult CancelRequest(int requestId)
     {
-        var issuedBook = _context.IssuedBooks.Include(ib => ib.Book).FirstOrDefault(ib => ib.IssuedBookId == issuedBookId);
-        if (issuedBook != null && issuedBook.ReturnDate == null)
+        var userId = HttpContext.Session.GetInt32("UserId");
+        if (!userId.HasValue)
+            return Json(new { success = false, message = "User not logged in." });
+
+        var request = _context.BookRequests.Include(r => r.Book).FirstOrDefault(r => r.RequestId == requestId && r.UserId == userId.Value);
+        if (request == null || request.Status != "Pending")
+            return Json(new { success = false, message = "Request not found or already processed." });
+
+        // Update the status to "Cancelled"
+        request.Status = "Cancelled";
+        request.Book.AvailableCopies += 1; // Increment the available copies
+        _context.SaveChanges();
+
+        return Json(new { success = true, message = "Request cancelled successfully!" });
+    }
+    [HttpPost]
+    public IActionResult ClearCancelledRequests()
+    {
+        var userId = HttpContext.Session.GetInt32("UserId");
+        if (!userId.HasValue)
+            return Json(new { success = false, message = "User not logged in." });
+
+        var cancelledRequests = _context.BookRequests.Where(r => r.UserId == userId.Value && r.Status == "Cancelled").ToList();
+        if (!cancelledRequests.Any())
+            return Json(new { success = false, message = "No cancelled requests to clear." });
+
+        _context.BookRequests.RemoveRange(cancelledRequests);
+        _context.SaveChanges();
+
+        return Json(new { success = true, message = "All cancelled requests cleared successfully!" });
+    }
+
+    private object GetStudentMetrics(int userId)
+    {
+        return new
         {
-            issuedBook.ReturnDate = DateTime.Now; // Mark as returned
-            issuedBook.Book.AvailableCopies += 1; // Increment the available copies
-            _context.SaveChanges();
-            return Ok("Book returned successfully.");
-        }
-        return BadRequest("Unable to return the book.");
+            TotalBooks = _context.Books.Count(),
+            BooksIssued = _context.IssuedBooks.Count(ib => ib.UserId == userId),
+            OverdueFines = _context.Fines
+                .Include(f => f.IssuedBook)
+                .Where(f => !f.IsPaid && f.IssuedBook.UserId == userId)
+                .Sum(f => (decimal?)f.FineAmount) ?? 0
+        };
     }
 }

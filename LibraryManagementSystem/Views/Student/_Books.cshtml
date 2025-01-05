@@ -1,0 +1,86 @@
+﻿@model IEnumerable<LibraryManagementSystem.Models.Book>
+
+<div>
+    <h4>Books</h4>
+    <!-- Search Input -->
+    <div class="form-group">
+        <input type="text" class="form-control" id="searchQuery" placeholder="Enter book title, author, or genre" />
+    </div>
+    <button class="btn btn-primary mt-2" onclick="searchBooks()">Search</button>
+
+    <!-- Table Section -->
+    @if (Model != null && Model.Any())
+    {
+        <table class="table table-bordered mt-3">
+            <thead class="thead-light">
+                <tr>
+                    <th>Title</th>
+                    <th>Author</th>
+                    <th>Genre</th>
+                    <th>Available Copies</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var book in Model)
+                {
+                    <tr>
+                        <td>@book.Title</td>
+                        <td>@book.Author</td>
+                        <td>@book.Genre</td>
+                        <td>@book.AvailableCopies</td>
+                        <td>
+                            @if (book.AvailableCopies > 0)
+                            {
+                                <button class="btn btn-success btn-sm" onclick="requestBook(@book.BookId)">Request Book</button>
+                            }
+                            else
+                            {
+                                <span class="text-danger">Unavailable</span>
+                            }
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+    else
+    {
+        <p class="text-danger">No books available.</p>
+    }
+</div>
+
+<script>
+    function searchBooks() {
+        const query = $("#searchQuery").val().trim();
+
+        $.ajax({
+            url: "/Student/Books", // POST request for filtering
+            type: "POST",
+            data: { searchQuery: query },
+            success: function (response) {
+                $("#content").html(response); // Replace content with updated book list
+            },
+            error: function (xhr) {
+                alert(`Error: ${xhr.status} - ${xhr.statusText}`);
+            }
+        });
+    }
+
+    function requestBook(bookId) {
+        $.ajax({
+            url: "/Student/RequestBook",
+            type: "POST",
+            data: { bookId: bookId },
+            success: function (response) {
+                alert(response.message);
+                if (response.success) {
+                    searchBooks(); // Refresh list after requesting a book
+                }
+            },
+            error: function () {
+                alert("An error occurred while requesting the book.");
+            }
+        });
+    }
+</script>

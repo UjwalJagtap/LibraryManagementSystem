@@ -1,69 +1,61 @@
-﻿@model IEnumerable<LibraryManagementSystem.Models.Book>
+﻿@{
+    ViewData["Title"] = "Search Books";
+}
 
-<div class="mt-4">
-    <h4>Search Books</h4>
-    <form method="get" action="@Url.Action("SearchBooks", "Student")" class="row g-3">
-        <div class="col-md-4">
-            <input type="text" name="query" class="form-control" placeholder="Search by Title, Author, or Genre" />
-        </div>
-        <div class="col-md-4">
-            <button type="submit" class="btn btn-primary">Search</button>
-        </div>
-    </form>
+<div class="container mt-4">
+    <h2>Search for Books</h2>
 
-    @if (TempData["SuccessMessage"] != null)
-    {
-        <div class="alert alert-success text-center mt-4" role="alert">
-            @TempData["SuccessMessage"]
-        </div>
-    }
-    @if (TempData["ErrorMessage"] != null)
-    {
-        <div class="alert alert-danger text-center mt-4" role="alert">
-            @TempData["ErrorMessage"]
-        </div>
-    }
+    <div class="form-group">
+        <input type="text" class="form-control" id="searchQuery" placeholder="Enter book title, author, or genre" />
+    </div>
+    <button class="btn btn-primary mt-2" onclick="searchBooks()">Search</button>
 
-    @if (Model != null && Model.Any())
-    {
-        <table class="table mt-4">
-            <thead>
-                <tr>
-                    <th>Title</th>
-                    <th>Author</th>
-                    <th>Genre</th>
-                    <th>Available Copies</th>
-                    <th>Action</th>
-                </tr>
-            </thead>
-            <tbody>
-                @foreach (var book in Model)
-                {
-                    <tr>
-                        <td>@book.Title</td>
-                        <td>@book.Author</td>
-                        <td>@book.Genre</td>
-                        <td>@book.AvailableCopies</td>
-                        <td>
-                            @if (book.AvailableCopies > 0)
-                            {
-                                <form asp-action="RequestBook" asp-controller="Student" method="post" style="display:inline;">
-                                    <input type="hidden" name="bookId" value="@book.BookId" />
-                                    <button type="submit" class="btn btn-primary btn-sm">Request Book</button>
-                                </form>
-                            }
-                            else
-                            {
-                                <button class="btn btn-secondary btn-sm" disabled>Not Available</button>
-                            }
-                        </td>
-                    </tr>
-                }
-            </tbody>
-        </table>
-    }
-    else if (Model != null)
-    {
-        <p class="text-danger mt-4">No books found.</p>
-    }
+    <!-- Feedback message -->
+    <div id="successMessage" class="alert alert-success mt-3" style="display:none;"></div>
+    <div id="errorMessage" class="alert alert-danger mt-3" style="display:none;"></div>
+
+    <div class="mt-4" id="booksResult">
+        <!-- Results will be populated here -->
+    </div>
 </div>
+<script>
+    function searchBooks() {
+        const query = $("#searchQuery").val().trim();
+
+        if (!query) {
+            alert("Please enter a search query.");
+            return;
+        }
+
+        $.ajax({
+            url: "/Student/SearchBooks",
+            type: "POST",
+            data: { searchQuery: query },
+            success: function (data) {
+                $("#booksResult").html(data); // Load partial view HTML directly
+            },
+            error: function () {
+                alert("An error occurred while searching for books.");
+            }
+        });
+    }
+
+    function requestBook(bookId) {
+        $.ajax({
+            url: "/Student/RequestBook",
+            type: "POST",
+            data: { bookId: bookId },
+            success: function (response) {
+                if (response.success) {
+                    alert(response.message);
+                    searchBooks(); // Refresh the book list after the request
+                } else {
+                    alert(response.message);
+                }
+            },
+            error: function () {
+                alert("An error occurred while requesting the book.");
+            }
+        });
+    }
+</script>

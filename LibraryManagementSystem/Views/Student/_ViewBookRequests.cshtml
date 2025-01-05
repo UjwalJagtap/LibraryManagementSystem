@@ -1,0 +1,105 @@
+﻿@model IEnumerable<LibraryManagementSystem.Models.BookRequest>
+
+<div class="container mt-4">
+    <h3>Your Book Requests</h3>
+
+    <table class="table table-bordered mt-3">
+        <thead class="thead-light">
+            <tr>
+                <th>Title</th>
+                <th>Request Date</th>
+                <th>Status</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            @if (Model.Any())
+            {
+                @foreach (var request in Model)
+                {
+                    <tr>
+                        <td>@(request.Book != null ? request.Book.Title : "Book not found")</td>
+                        <td>@request.RequestDate.ToString("dd MMM yyyy")</td>
+                        <td>
+                            @switch (request.Status)
+                            {
+                                case "Approved":
+                                    <span class="badge bg-success">Approved</span>
+                                    break;
+                                case "Rejected":
+                                    <span class="badge bg-danger">Rejected</span>
+                                    break;
+                                case "Cancelled":
+                                    <span class="badge bg-secondary">Cancelled</span>
+                                    break;
+                                default:
+                                    <span class="badge bg-warning">Pending</span>
+                                    break;
+                            }
+                        </td>
+                        <td>
+                            @if (request.Status == "Pending")
+                            {
+                                <button class="btn btn-danger btn-sm" onclick="cancelRequest(@request.RequestId)">Cancel Request</button>
+                            }
+                            else
+                            {
+                                <span class="text-muted">No Actions Available</span>
+                            }
+                        </td>
+                    </tr>
+                }
+            }
+            else
+            {
+                <tr>
+                    <td colspan="4" class="text-center">No book requests found.</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+    <!-- Clear All Cancelled Requests Button (Positioned Bottom Right) -->
+    <div class="d-flex justify-content-end mt-3">
+        <button class="btn btn-secondary" onclick="clearCancelledRequests()">Clear All Cancelled Requests</button>
+    </div>
+</div>
+
+<script>
+    function cancelRequest(requestId) {
+        if (!confirm("Are you sure you want to cancel this request?")) return;
+
+        $.ajax({
+            url: "/Student/CancelRequest",
+            type: "POST",
+            data: { requestId: requestId },
+            success: function (response) {
+                alert(response.message);
+                if (response.success) {
+                    loadContent('ViewBookRequests');
+                }
+            },
+            error: function () {
+                alert("An error occurred while canceling the request.");
+            }
+        });
+    }
+
+    function clearCancelledRequests() {
+        if (!confirm("Are you sure you want to clear all cancelled requests?")) return;
+
+        $.ajax({
+            url: "/Student/ClearCancelledRequests",
+            type: "POST",
+            success: function (response) {
+                alert(response.message);
+                if (response.success) {
+                    loadContent('ViewBookRequests'); // Refresh the view after clearing
+                }
+            },
+            error: function () {
+                alert("An error occurred while clearing the cancelled requests.");
+            }
+        });
+    }
+</script>
