@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "oMe7l9qeEmFe5OqtquCOb3jpSNQTpC9oabfhbAhrkkQ=",
+  "Hash": "y1fUBJKNmL/2zSW34CYDlTiddeqWYzo5f3XBn55os4E=",
   "Source": "LibraryManagementSystem",
   "BasePath": "_content/LibraryManagementSystem",
   "Mode": "Default",
@@ -73,8 +73,8 @@
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
-      "Fingerprint": "617v7f357d",
-      "Integrity": "plenyLVs5+SsyHEVLzRTnwGtzoRPivsM8te9zDXKlNw=",
+      "Fingerprint": "p3x9mmiqcn",
+      "Integrity": "K2IhlUyWVQfZdB9NCpCSTXFsOM5tJN3naDVGTmC0H7s=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\css\\site.css"
@@ -1384,51 +1384,6 @@
   ],
   "Endpoints": [
     {
-      "Route": "css/site.617v7f357d.css",
-      "AssetFile": "C:\\Users\\jagta\\OneDrive\\Desktop\\LibraryManagementSystem\\LibraryManagementSystem\\wwwroot\\css\\site.css",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "2068"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/css"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"plenyLVs5+SsyHEVLzRTnwGtzoRPivsM8te9zDXKlNw=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Mon, 30 Dec 2024 16:50:04 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "max-age=31536000, immutable"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "fingerprint",
-          "Value": "617v7f357d"
-        },
-        {
-          "Name": "label",
-          "Value": "css/site.css"
-        },
-        {
-          "Name": "integrity",
-          "Value": "sha256-plenyLVs5+SsyHEVLzRTnwGtzoRPivsM8te9zDXKlNw="
-        }
-      ]
-    },
-    {
       "Route": "css/site.css",
       "AssetFile": "C:\\Users\\jagta\\OneDrive\\Desktop\\LibraryManagementSystem\\LibraryManagementSystem\\wwwroot\\css\\site.css",
       "Selectors": [],
@@ -1439,7 +1394,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "2068"
+          "Value": "2103"
         },
         {
           "Name": "Content-Type",
@@ -1447,11 +1402,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"plenyLVs5+SsyHEVLzRTnwGtzoRPivsM8te9zDXKlNw=\""
+          "Value": "\"K2IhlUyWVQfZdB9NCpCSTXFsOM5tJN3naDVGTmC0H7s=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Mon, 30 Dec 2024 16:50:04 GMT"
+          "Value": "Mon, 06 Jan 2025 17:57:51 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -1461,7 +1416,52 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-plenyLVs5+SsyHEVLzRTnwGtzoRPivsM8te9zDXKlNw="
+          "Value": "sha256-K2IhlUyWVQfZdB9NCpCSTXFsOM5tJN3naDVGTmC0H7s="
+        }
+      ]
+    },
+    {
+      "Route": "css/site.p3x9mmiqcn.css",
+      "AssetFile": "C:\\Users\\jagta\\OneDrive\\Desktop\\LibraryManagementSystem\\LibraryManagementSystem\\wwwroot\\css\\site.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "2103"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"K2IhlUyWVQfZdB9NCpCSTXFsOM5tJN3naDVGTmC0H7s=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 06 Jan 2025 17:57:51 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "p3x9mmiqcn"
+        },
+        {
+          "Name": "label",
+          "Value": "css/site.css"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-K2IhlUyWVQfZdB9NCpCSTXFsOM5tJN3naDVGTmC0H7s="
         }
       ]
     },
