@@ -88,7 +88,7 @@ public class StudentController : Controller
             Status = "Pending"
         };
 
-        book.AvailableCopies -= 1; // Decrease available copies
+        //book.AvailableCopies -= 1; // Decrease available copies
         _context.BookRequests.Add(bookRequest);
         _context.SaveChanges();
 

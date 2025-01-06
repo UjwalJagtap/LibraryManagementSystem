@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Http;
 using System.Linq;
 using System;
 using Microsoft.AspNetCore.Mvc.Filters;
+using Microsoft.EntityFrameworkCore;
 
 namespace LibraryManagementSystem.Controllers
 {
@@ -222,10 +223,81 @@ namespace LibraryManagementSystem.Controllers
             }
         }
 
-
-        public IActionResult IssueBooks()
+        // Load all book requests
+        public IActionResult ManageBookRequests()
         {
-            return PartialView("IssueBooks");
+            var requests = _context.BookRequests
+                .Include(r => r.Book)  // Eager loading to include Book details
+                .Include(r => r.User)  // Eager loading to include User details
+                .Select(r => new BookRequest
+                {
+                    RequestId = r.RequestId,
+                    Book = r.Book,
+                    User = r.User,
+                    RequestDate = r.RequestDate,
+                    Status = r.Status
+                })
+                .ToList();
+
+            return PartialView("ManageBookRequests", requests);
+        }
+
+
+        // Approve book request
+        [HttpPost]
+        public IActionResult ApproveRequest(int requestId)
+        {
+            var request = _context.BookRequests.FirstOrDefault(r => r.RequestId == requestId);
+            if (request == null)
+                return Json(new { success = false, message = "Request not found." });
+
+            var book = _context.Books.FirstOrDefault(b => b.BookId == request.BookId);
+            if (book == null)
+                return Json(new { success = false, message = "Book not found." });
+
+            // Check if available copies exist before approval
+            if (book.AvailableCopies <= 0)
+            {
+                request.Status = "Rejected";
+                _context.SaveChanges();
+                return Json(new { success = false, message = "Book is unavailable and the request is rejected." });
+            }
+
+            request.Status = "Approved";
+
+            // Decrease available copies here
+            book.AvailableCopies -= 1;
+
+            // Issue the book to the student
+            var issuedBook = new IssuedBook
+            {
+                BookId = request.BookId,
+                UserId = request.UserId,
+                IssueDate = DateTime.Now,
+                DueDate = DateTime.Now.AddDays(14) // 2 weeks borrowing time
+            };
+            _context.IssuedBooks.Add(issuedBook);
+
+            _context.SaveChanges();
+
+            // Fetch updated metrics
+            var metrics = GetMetrics();
+
+            return Json(new { success = true, message = "Request approved successfully!", metrics });
+        }
+
+        [HttpPost]
+        public IActionResult RejectRequest(int requestId)
+        {
+            var request = _context.BookRequests.FirstOrDefault(r => r.RequestId == requestId);
+            if (request == null)
+                return Json(new { success = false, message = "Request not found." });
+
+            request.Status = "Rejected";
+
+            _context.SaveChanges();
+
+            return Json(new { success = true, message = "Request rejected successfully!" });
         }
 
         public IActionResult ManageFines()
