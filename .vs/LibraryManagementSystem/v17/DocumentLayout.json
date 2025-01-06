@@ -233,19 +233,19 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "Books.cshtml",
-              "DocumentMoniker": "C:\\Users\\jagta\\OneDrive\\Desktop\\LibraryManagementSystem\\LibraryManagementSystem\\Views\\Admin\\Books.cshtml",
-              "RelativeDocumentMoniker": "LibraryManagementSystem\\Views\\Admin\\Books.cshtml",
-              "ToolTip": "C:\\Users\\jagta\\OneDrive\\Desktop\\LibraryManagementSystem\\LibraryManagementSystem\\Views\\Admin\\Books.cshtml",
-              "RelativeToolTip": "LibraryManagementSystem\\Views\\Admin\\Books.cshtml",
-              "ViewState": "AgIAAH4AAAAAAAAAAAAAAMsAAAALAAAAAAAAAA==",
+              "DocumentIndex": 0,
+              "Title": "ManageBookRequests.cshtml",
+              "DocumentMoniker": "C:\\Users\\jagta\\OneDrive\\Desktop\\LibraryManagementSystem\\LibraryManagementSystem\\Views\\Admin\\ManageBookRequests.cshtml",
+              "RelativeDocumentMoniker": "LibraryManagementSystem\\Views\\Admin\\ManageBookRequests.cshtml",
+              "ToolTip": "C:\\Users\\jagta\\OneDrive\\Desktop\\LibraryManagementSystem\\LibraryManagementSystem\\Views\\Admin\\ManageBookRequests.cshtml",
+              "RelativeToolTip": "LibraryManagementSystem\\Views\\Admin\\ManageBookRequests.cshtml",
+              "ViewState": "AgIAABsAAAAAAAAAAADwv48AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-01-02T16:42:53.817Z",
+              "WhenOpened": "2024-12-24T17:15:08.567Z",
               "EditorCaption": ""
             },
             {
@@ -256,7 +256,7 @@
               "RelativeDocumentMoniker": "LibraryManagementSystem\\Controllers\\AdminController.cs",
               "ToolTip": "C:\\Users\\jagta\\OneDrive\\Desktop\\LibraryManagementSystem\\LibraryManagementSystem\\Controllers\\AdminController.cs",
               "RelativeToolTip": "LibraryManagementSystem\\Controllers\\AdminController.cs",
-              "ViewState": "AgIAACoBAAAAAAAAAAAIwAMBAAANAAAAAAAAAA==",
+              "ViewState": "AgIAABwBAAAAAAAAAAAcwD0BAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-12-12T15:56:31.99Z",
               "EditorCaption": ""
@@ -271,21 +271,19 @@
               "RelativeToolTip": "LibraryManagementSystem\\Controllers\\StudentController.cs",
               "ViewState": "AgIAADcAAAAAAAAAAAAkwFoAAAAKAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-03T11:24:08.806Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-01-03T11:24:08.806Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "ManageBookRequests.cshtml",
-              "DocumentMoniker": "C:\\Users\\jagta\\OneDrive\\Desktop\\LibraryManagementSystem\\LibraryManagementSystem\\Views\\Admin\\ManageBookRequests.cshtml",
-              "RelativeDocumentMoniker": "LibraryManagementSystem\\Views\\Admin\\ManageBookRequests.cshtml",
-              "ToolTip": "C:\\Users\\jagta\\OneDrive\\Desktop\\LibraryManagementSystem\\LibraryManagementSystem\\Views\\Admin\\ManageBookRequests.cshtml",
-              "RelativeToolTip": "LibraryManagementSystem\\Views\\Admin\\ManageBookRequests.cshtml",
-              "ViewState": "AgIAABYAAAAAAAAAAAAAACYAAAAAAAAAAAAAAA==",
+              "DocumentIndex": 3,
+              "Title": "Books.cshtml",
+              "DocumentMoniker": "C:\\Users\\jagta\\OneDrive\\Desktop\\LibraryManagementSystem\\LibraryManagementSystem\\Views\\Admin\\Books.cshtml",
+              "RelativeDocumentMoniker": "LibraryManagementSystem\\Views\\Admin\\Books.cshtml",
+              "ToolTip": "C:\\Users\\jagta\\OneDrive\\Desktop\\LibraryManagementSystem\\LibraryManagementSystem\\Views\\Admin\\Books.cshtml",
+              "RelativeToolTip": "LibraryManagementSystem\\Views\\Admin\\Books.cshtml",
+              "ViewState": "AgIAAH4AAAAAAAAAAAAAAMsAAAALAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-12-24T17:15:08.567Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-01-02T16:42:53.817Z"
             },
             {
               "$type": "Document",
@@ -297,8 +295,7 @@
               "RelativeToolTip": "LibraryManagementSystem\\Views\\Admin\\AddBooks.cshtml",
               "ViewState": "AgIAAA8AAAAAAAAAAAAswBMAAAAOAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-12-24T17:10:16.072Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-12-24T17:10:16.072Z"
             },
             {
               "$type": "Document",
@@ -310,8 +307,7 @@
               "RelativeToolTip": "LibraryManagementSystem\\Views\\Admin\\Dashboard.cshtml",
               "ViewState": "AgIAACQAAAAAAAAAAAAAAD4AAAASAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-12-12T15:57:44.482Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-12-12T15:57:44.482Z"
             },
             {
               "$type": "Document",
@@ -323,8 +319,7 @@
               "RelativeToolTip": "LibraryManagementSystem\\Views\\Student\\Books.cshtml",
               "ViewState": "AgIAACQAAAAAAAAAAAAAADIAAAAGAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-01-05T17:45:09.052Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-01-05T17:45:09.052Z"
             },
             {
               "$type": "Document",
@@ -336,8 +331,7 @@
               "RelativeToolTip": "LibraryManagementSystem\\Views\\Admin\\UpdateBook.cshtml",
               "ViewState": "AgIAAAYAAAAAAAAAAAAAADYAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-01-02T18:18:29.877Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-01-02T18:18:29.877Z"
             },
             {
               "$type": "Document",
@@ -349,8 +343,7 @@
               "RelativeToolTip": "LibraryManagementSystem\\Views\\Admin\\GenerateReports.cshtml",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABwAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-12-24T17:16:09.032Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-12-24T17:16:09.032Z"
             },
             {
               "$type": "Document",
@@ -362,8 +355,7 @@
               "RelativeToolTip": "LibraryManagementSystem\\Controllers\\AccountController.cs",
               "ViewState": "AgIAAGsAAAAAAAAAAAAgwF8AAAA6AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-23T17:48:07.16Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-12-23T17:48:07.16Z"
             },
             {
               "$type": "Document",
@@ -375,8 +367,7 @@
               "RelativeToolTip": "LibraryManagementSystem\\Views\\Admin\\StudentInfo.cshtml",
               "ViewState": "AgIAAB4AAAAAAAAAAAAAAC0AAAApAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-01-02T20:27:59.772Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-01-02T20:27:59.772Z"
             },
             {
               "$type": "Document",
@@ -388,8 +379,7 @@
               "RelativeToolTip": "LibraryManagementSystem\\appsettings.json",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2024-12-12T15:05:19.336Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-12-12T15:05:19.336Z"
             },
             {
               "$type": "Document",
@@ -401,8 +391,7 @@
               "RelativeToolTip": "LibraryManagementSystem\\Views\\Admin\\ManageFines.cshtml",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABUAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-12-24T17:15:50.454Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-12-24T17:15:50.454Z"
             },
             {
               "$type": "Document",
@@ -414,8 +403,7 @@
               "RelativeToolTip": "LibraryManagementSystem\\Views\\Student\\ViewBookRequests.cshtml",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAFYAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-01-05T18:28:33.816Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-01-05T18:28:33.816Z"
             },
             {
               "$type": "Document",

@@ -299,6 +299,24 @@ namespace LibraryManagementSystem.Controllers
 
             return Json(new { success = true, message = "Request rejected successfully!" });
         }
+        [HttpGet]
+        public IActionResult FilterBookRequests(string status)
+        {
+            IQueryable<BookRequest> requestsQuery = _context.BookRequests
+                .Include(r => r.Book)  // Eager load Book details
+                .Include(r => r.User); // Eager load User details
+
+            if (!string.IsNullOrWhiteSpace(status) && status != "All")
+            {
+                // Apply the status filter if it's not "All"
+                requestsQuery = requestsQuery.Where(r => r.Status == status);
+            }
+
+            var filteredRequests = requestsQuery.ToList(); // Convert query to list
+            return PartialView("ManageBookRequests", filteredRequests); // Return the same view with filtered data
+        }
+
+
 
         public IActionResult ManageFines()
         {
