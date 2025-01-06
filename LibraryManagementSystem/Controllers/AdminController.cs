@@ -56,7 +56,7 @@ namespace LibraryManagementSystem.Controllers
             try
             {
                 var books = _context.Books.ToList();
-                return PartialView("_Books", books);
+                return PartialView("Books", books);
             }
             catch (Exception ex)
             {
@@ -67,7 +67,7 @@ namespace LibraryManagementSystem.Controllers
 
         public IActionResult AddBooks()
         {
-            return PartialView("_AddBooks");
+            return PartialView("AddBooks");
         }
 
         [HttpPost]
@@ -75,11 +75,15 @@ namespace LibraryManagementSystem.Controllers
         {
             if (!ModelState.IsValid)
             {
-                return PartialView("_AddBooks", model);
+                return PartialView("AddBooks", model);
             }
 
             try
             {
+                if (model.AvailableCopies > model.TotalCopies)
+                {
+                    return Json(new { success = false, message = "Available copies cannot exceed total copies." });
+                }
                 _context.Books.Add(model);
                 _context.SaveChanges();
 
@@ -108,7 +112,7 @@ namespace LibraryManagementSystem.Controllers
             if (book == null)
                 return NotFound();
 
-            return PartialView("_UpdateBook", book);
+            return PartialView("UpdateBook", book);
         }
 
         [HttpPost]
@@ -116,7 +120,7 @@ namespace LibraryManagementSystem.Controllers
         {
             if (!ModelState.IsValid)
             {
-                return PartialView("_UpdateBook", model);
+                return PartialView("UpdateBook", model);
             }
 
             try
@@ -192,7 +196,7 @@ namespace LibraryManagementSystem.Controllers
         public IActionResult StudentInfo()
         {
             var students = _context.Users.Where(u => u.Role == "Student").ToList();
-            return PartialView("_StudentInfo", students);
+            return PartialView("StudentInfo", students);
         }
         [HttpPost]
         public IActionResult DeleteStudent(int id)
@@ -221,17 +225,17 @@ namespace LibraryManagementSystem.Controllers
 
         public IActionResult IssueBooks()
         {
-            return PartialView("_IssueBooks");
+            return PartialView("IssueBooks");
         }
 
         public IActionResult ManageFines()
         {
-            return PartialView("_ManageFines");
+            return PartialView("ManageFines");
         }
 
         public IActionResult GenerateReports()
         {
-            return PartialView("_GenerateReports");
+            return PartialView("GenerateReports");
         }
 
         private void UpdateMetrics()

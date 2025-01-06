@@ -572,9 +572,6 @@ C:\Users\2369942\OneDrive - Cognizant\Desktop\LibraryManagementSystem\LibraryMan
 C:\Users\2369942\OneDrive - Cognizant\Desktop\LibraryManagementSystem\LibraryManagementSystem\obj\Debug\net8.0\LibraryManagementSystem.pdb
 C:\Users\2369942\OneDrive - Cognizant\Desktop\LibraryManagementSystem\LibraryManagementSystem\obj\Debug\net8.0\LibraryManagementSystem.genruntimeconfig.cache
 C:\Users\2369942\OneDrive - Cognizant\Desktop\LibraryManagementSystem\LibraryManagementSystem\obj\Debug\net8.0\ref\LibraryManagementSystem.dll
-C:\Users\2369942\OneDrive - Cognizant\Desktop\LibraryManagementSystem\LibraryManagementSystem\bin\Debug\net8.0\Glimpse.Core.dll
-C:\Users\2369942\OneDrive - Cognizant\Desktop\LibraryManagementSystem\LibraryManagementSystem\bin\Debug\net8.0\Glimpse.AspNet.dll
-C:\Users\2369942\OneDrive - Cognizant\Desktop\LibraryManagementSystem\LibraryManagementSystem\bin\Debug\net8.0\Glimpse.Mvc5.dll
 C:\Users\jagta\OneDrive\Desktop\LibraryManagementSystem\LibraryManagementSystem\bin\Debug\net8.0\appsettings.Development.json
 C:\Users\jagta\OneDrive\Desktop\LibraryManagementSystem\LibraryManagementSystem\bin\Debug\net8.0\appsettings.json
 C:\Users\jagta\OneDrive\Desktop\LibraryManagementSystem\LibraryManagementSystem\bin\Debug\net8.0\LibraryManagementSystem.staticwebassets.runtime.json

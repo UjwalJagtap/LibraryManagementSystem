@@ -42,7 +42,7 @@ public class StudentController : Controller
     public IActionResult Books()
     {
         var books = _context.Books.ToList(); // Fetch all books initially
-        return PartialView("_Books", books); // Render the list of all books
+        return PartialView("Books", books); // Render the list of all books
     }
 
     [HttpPost]
@@ -54,7 +54,7 @@ public class StudentController : Controller
                                         b.Author.Contains(searchQuery) ||
                                         b.Genre.Contains(searchQuery)).ToList(); // Filter by title, author, or genre
 
-        return PartialView("_Books", books); // Return updated list in the same partial view
+        return PartialView("Books", books); // Return updated list in the same partial view
     }
 
 
@@ -107,7 +107,7 @@ public class StudentController : Controller
         .OrderByDescending(br => br.RequestDate)
         .ToList();
 
-    return PartialView("_ViewBookRequests", bookRequests);
+    return PartialView("ViewBookRequests", bookRequests);
 }
 
 

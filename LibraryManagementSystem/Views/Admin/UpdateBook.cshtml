@@ -52,29 +52,3 @@
 @section Scripts {
     <partial name="_ValidationScriptsPartial" />
 }
-
-
-<script>
-    // Submit the update book form via AJAX
-    $("#updateBookForm").on("submit", function (e) {
-        e.preventDefault();
-        const form = $(this);
-
-        $.ajax({
-            url: form.attr("action"),
-            type: form.attr("method"),
-            data: form.serialize(),
-            success: function (response) {
-                if (response.success) {
-                    alert(response.message);
-                    loadBooks(); // Reload books after update
-                } else {
-                    alert(response.message);
-                }
-            },
-            error: function () {
-                alert("An error occurred while updating the book.");
-            }
-        });
-    });
-</script>
