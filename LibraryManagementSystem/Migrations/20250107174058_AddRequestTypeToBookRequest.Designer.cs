@@ -4,6 +4,7 @@ using LibraryManagementSystem.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace LibraryManagementSystem.Migrations
 {
     [DbContext(typeof(LibraryContext))]
-    partial class LibraryContextModelSnapshot : ModelSnapshot
+    [Migration("20250107174058_AddRequestTypeToBookRequest")]
+    partial class AddRequestTypeToBookRequest
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -78,9 +81,8 @@ namespace LibraryManagementSystem.Migrations
                     b.Property<DateTime>("RequestDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<string>("RequestType")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<bool>("RequestType")
+                        .HasColumnType("bit");
 
                     b.Property<string>("Status")
                         .IsRequired()
@@ -231,7 +233,7 @@ namespace LibraryManagementSystem.Migrations
                             UserId = 1,
                             Email = "admin@library.com",
                             FullName = "Library Admin",
-                            PasswordHash = "$2a$11$XVNR68ArvG3goNx8Fwdtv.NvdjuTHHDBCqt54wwYEcQZOopra8K/W",
+                            PasswordHash = "$2a$11$50Q8La.WJK0X9XBpPLRtb.Qu2poXLIU5GHGgCoqQRfIR2dwc8ZRBe",
                             Phone = "9234567810",
                             Role = "Librarian",
                             Username = "admin"

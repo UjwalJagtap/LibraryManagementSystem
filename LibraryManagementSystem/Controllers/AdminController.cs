@@ -277,16 +277,16 @@ namespace LibraryManagementSystem.Controllers
         [HttpPost]
         public IActionResult ApproveRequest(int requestId)
         {
-            var request = _context.BookRequests.FirstOrDefault(r => r.RequestId == requestId);
+            var request = _context.BookRequests.Include(r => r.Book).Include(r => r.User).FirstOrDefault(r => r.RequestId == requestId);
             if (request == null)
                 return Json(new { success = false, message = "Request not found." });
 
-            var book = _context.Books.FirstOrDefault(b => b.BookId == request.BookId);
+            var book = request.Book;
             if (book == null)
                 return Json(new { success = false, message = "Book not found." });
 
-            // Check if available copies exist before approval
-            if (book.AvailableCopies <= 0)
+            // Check for available copies only for new requests
+            if (request.RequestType == "New" && book.AvailableCopies <= 0)
             {
                 request.Status = "Rejected";
                 _context.SaveChanges();
@@ -295,26 +295,59 @@ namespace LibraryManagementSystem.Controllers
 
             request.Status = "Approved";
 
-            // Decrease available copies here
-            book.AvailableCopies -= 1;
-
-            // Issue the book to the student
-            var issuedBook = new IssuedBook
+            // Handle the different types of requests
+            if (request.RequestType == "New")
             {
-                BookId = request.BookId,
-                UserId = request.UserId,
-                IssueDate = DateTime.Now,
-                DueDate = DateTime.Now.AddDays(14) // 2 weeks borrowing time
-            };
-            _context.IssuedBooks.Add(issuedBook);
+                book.AvailableCopies -= 1; // Decrease available copies for new request
+                _context.IssuedBooks.Add(new IssuedBook
+                {
+                    BookId = request.BookId,
+                    UserId = request.UserId,
+                    IssueDate = DateTime.Now,
+                    DueDate = DateTime.Now.AddDays(14) // Default borrowing period
+                });
+            }
+            else if (request.RequestType == "Renewal")
+            {
+                var issuedBook = _context.IssuedBooks.FirstOrDefault(ib => ib.BookId == request.BookId && ib.UserId == request.UserId && ib.ReturnDate == null);
+                if (issuedBook != null)
+                {
+                    issuedBook.DueDate = issuedBook.DueDate.AddDays(14); // Extend due date by 14 days
+                }
+            }
 
             _context.SaveChanges();
-
-            // Fetch updated metrics
             var metrics = GetMetrics();
-
             return Json(new { success = true, message = "Request approved successfully!", metrics });
         }
+
+        [HttpPost]
+        public IActionResult RenewBook(int issuedBookId)
+        {
+            var userId = HttpContext.Session.GetInt32("UserId");
+            if (!userId.HasValue)
+                return Json(new { success = false, message = "User not logged in." });
+
+            var issuedBook = _context.IssuedBooks.FirstOrDefault(ib => ib.IssuedBookId == issuedBookId && ib.UserId == userId.Value && ib.ReturnDate == null);
+            if (issuedBook == null)
+                return Json(new { success = false, message = "Issued book not found." });
+
+            // Add renewal request to BookRequests table
+            var renewalRequest = new BookRequest
+            {
+                UserId = userId.Value,
+                BookId = issuedBook.BookId,
+                RequestDate = DateTime.Now,
+                Status = "Pending",
+                RequestType = "Renewal" // Set the request type as "Renewal"
+            };
+
+            _context.BookRequests.Add(renewalRequest);
+            _context.SaveChanges();
+
+            return Json(new { success = true, message = "Renewal request has been successfully submitted!" });
+        }
+
 
         [HttpPost]
         public IActionResult RejectRequest(int requestId)
@@ -329,21 +362,29 @@ namespace LibraryManagementSystem.Controllers
 
             return Json(new { success = true, message = "Request rejected successfully!" });
         }
+
         [HttpGet]
         public IActionResult FilterBookRequests(string status)
         {
-            IQueryable<BookRequest> requestsQuery = _context.BookRequests
-                .Include(r => r.Book)  // Eager load Book details
-                .Include(r => r.User); // Eager load User details
-
-            if (!string.IsNullOrWhiteSpace(status) && status != "All")
+            try
             {
-                // Apply the status filter if it's not "All"
-                requestsQuery = requestsQuery.Where(r => r.Status == status);
-            }
+                IQueryable<BookRequest> requestsQuery = _context.BookRequests
+                    .Include(r => r.Book)  // Eager load Book details
+                    .Include(r => r.User); // Eager load User details
 
-            var filteredRequests = requestsQuery.ToList(); // Convert query to list
-            return PartialView("ManageBookRequests", filteredRequests); // Return the same view with filtered data
+                if (!string.IsNullOrWhiteSpace(status) && status != "All")
+                {
+                    // Apply the status filter if it's not "All"
+                    requestsQuery = requestsQuery.Where(r => r.Status == status);
+                }
+
+                var filteredRequests = requestsQuery.ToList(); // Convert query to list
+                return PartialView("ManageBookRequests", filteredRequests); // Return the same view with filtered data
+            }
+            catch (Exception ex)
+            {
+                return Json(new { success = false, message = $"Error loading filtered requests: {ex.Message}" });
+            }
         }
 
 

@@ -11,7 +11,9 @@
                     <th>Author</th>
                     <th>Issue Date</th>
                     <th>Due Date</th>
+                    <th>Return Date</th> <!-- Added new column for return date -->
                     <th>Status</th>
+                    <th>Actions</th>
                 </tr>
             </thead>
             <tbody>
@@ -22,14 +24,50 @@
                         <td>@book.Author</td>
                         <td>@book.IssueDate.ToString("dd MMM yyyy")</td>
                         <td>@book.DueDate.ToString("dd MMM yyyy")</td>
+
+                        <!-- Return Date Column -->
                         <td>
-                            @if (book.DueDate < DateTime.Now)
-                            {
-                                <span class="badge bg-danger">Overdue</span>
+                            @{
+                                if (book.ReturnDate == null)
+                                {
+                                    <span class="badge bg-warning">Not Returned</span>
+                                }
+                                else
+                                {
+                                    <span>@book.ReturnDate?.ToString("dd MMM yyyy")</span>
+                                }
                             }
-                            else
-                            {
-                                <span class="badge bg-success">On Time</span>
+                        </td>
+
+                        <!-- Book Status (Overdue or On Time) -->
+                        <td>
+                            @{
+                                if (book.DueDate < DateTime.Now && book.ReturnDate == null)
+                                {
+                                    <span class="badge bg-danger">Overdue</span>
+                                }
+                                else if (book.ReturnDate != null)
+                                {
+                                    <span class="badge bg-info">Returned</span>
+                                }
+                                else
+                                {
+                                    <span class="badge bg-success">On Time</span>
+                                }
+                            }
+                        </td>
+
+                        <!-- Actions Column (Renew Button) -->
+                        <td>
+                            @{
+                                if (book.ReturnDate == null)
+                                {
+                                    <button class="btn btn-warning btn-sm" onclick="renewBook(@book.IssuedBookId)">Renew Book</button>
+                                }
+                                else
+                                {
+                                    <span class="text-muted">No Actions Available</span>
+                                }
                             }
                         </td>
                     </tr>
@@ -42,6 +80,7 @@
         <p class="text-danger">No books have been issued to you.</p>
     }
 </div>
+
 <script>
     function loadIssuedBooks() {
         $.ajax({
@@ -55,6 +94,26 @@
             }
         });
     }
-</script>
 
- 
+    function renewBook(issuedBookId) {
+        if (!confirm("Are you sure you want to renew this book?")) return;
+
+        $.ajax({
+            url: "/Student/RenewBook",
+            type: "POST",
+            data: { issuedBookId: issuedBookId },
+            success: function (response) {
+                if (response.success) {
+                    alert(response.message || "Renewal request submitted successfully!");
+                    loadIssuedBooks(); // Reload the issued books table after renewal
+                } else {
+                    alert(response.message || "An error occurred while submitting the renewal request.");
+                }
+            },
+            error: function (xhr) {
+                console.error("Error:", xhr.responseText);
+                alert("An unexpected error occurred while processing the request.");
+            }
+        });
+    }
+</script>

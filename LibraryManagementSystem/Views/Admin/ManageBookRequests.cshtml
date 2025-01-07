@@ -5,7 +5,7 @@
 
     <!-- Filter Dropdown -->
     <div class="d-flex justify-content-between mb-3">
-        <label for="filterStatus">Filter by Status:</label>
+        <label for="filterStatus" class="fw-bold">Filter by Status:</label>
         <select id="filterStatus" class="form-select w-auto" onchange="filterRequests()">
             <option value="All">All</option>
             <option value="Pending">Pending</option>
@@ -15,93 +15,81 @@
     </div>
 
     <!-- Requests Table -->
-    <table class="table table-bordered mt-3">
-        <thead>
-            <tr>
-                <th>Title</th>
-                <th>Student Name</th>
-                <th>Request Date</th>
-                <th>Status</th>
-                <th>Actions</th>
-            </tr>
-        </thead>
-        <tbody id="bookRequestsTableBody">
-            @if (Model.Any())
-            {
-                @foreach (var request in Model)
+    <div class="table-wrapper">
+        <table class="table table-bordered mt-3">
+            <thead>
+                <tr>
+                    <th>Title</th>
+                    <th>Student Name</th>
+                    <th>Request Type</th> <!-- New Column -->
+                    <th>Request Date</th>
+                    <th>Status</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody id="bookRequestsTableBody">
+                @if (Model.Any())
+                {
+                    @foreach (var request in Model)
+                    {
+                        <tr>
+                            <td>@(request.Book?.Title ?? "<span class='text-danger'>Book not found</span>")</td>
+                            <td>@(request.User?.FullName ?? "<span class='text-danger'>Student not found</span>")</td>
+                            <td>@request.RequestType</td> <!-- Display the request type -->
+                            <td>@request.RequestDate.ToString("dd MMM yyyy")</td>
+                            <td>
+                                @switch (request.Status)
+                                {
+                                    case "Approved":
+                                        <span class="badge bg-success">Approved</span>
+                                        break;
+                                    case "Rejected":
+                                        <span class="badge bg-danger">Rejected</span>
+                                        break;
+                                    default:
+                                        <span class="badge bg-warning">Pending</span>
+                                        break;
+                                }
+                            </td>
+                            <td>
+                                @if (request.Status == "Pending")
+                                {
+                                    <button class="btn btn-success btn-sm" onclick="approveRequest(@request.RequestId)">Approve</button>
+                                    <button class="btn btn-danger btn-sm" onclick="rejectRequest(@request.RequestId)">Reject</button>
+                                }
+                                else
+                                {
+                                    <span class="text-muted">No Actions Available</span>
+                                }
+                            </td>
+                        </tr>
+                    }
+                }
+                else
                 {
                     <tr>
-                        <td>
-                            @if (request.Book != null)
-                            {
-                                @request.Book.Title
-                            }
-                            else
-                            {
-                                <span class="text-danger">Book not found</span>
-                            }
-                        </td>
-                        <td>
-                            @if (request.User != null)
-                            {
-                                @request.User.FullName
-                            }
-                            else
-                            {
-                                <span class="text-danger">Student not found</span>
-                            }
-                        </td>
-                        <td>@request.RequestDate.ToString("dd MMM yyyy")</td>
-                        <td>
-                            @switch (request.Status)
-                            {
-                                case "Approved":
-                                    <span class="badge bg-success">Approved</span>
-                                    break;
-                                case "Rejected":
-                                    <span class="badge bg-danger">Rejected</span>
-                                    break;
-                                default:
-                                    <span class="badge bg-warning">Pending</span>
-                                    break;
-                            }
-                        </td>
-                        <td>
-                            @if (request.Status == "Pending")
-                            {
-                                <button class="btn btn-success btn-sm" onclick="approveRequest(@request.RequestId)">Approve</button>
-                                <button class="btn btn-danger btn-sm" onclick="rejectRequest(@request.RequestId)">Reject</button>
-                            }
-                            else
-                            {
-                                <span class="text-muted">No Actions Available</span>
-                            }
-                        </td>
+                        <td colspan="6" class="text-center text-danger">No book requests found.</td>
                     </tr>
                 }
-            }
-            else
-            {
-                <tr>
-                    <td colspan="5" class="text-center">No book requests found.</td>
-                </tr>
-            }
-        </tbody>
-    </table>
+            </tbody>
+
+        </table>
+    </div>
 </div>
 
 <script>
     function filterRequests() {
-        const status = $("#filterStatus").val(); // Get selected filter status
+        const status = $("#filterStatus").val();
 
         $.ajax({
             url: `/Admin/FilterBookRequests?status=${status}`,
             type: "GET",
             success: function (data) {
-                // Replace the table body with the filtered content
-                $("#bookRequestsTableBody").html($(data).find("#bookRequestsTableBody").html());
+                const tableBody = $(data).find("#bookRequestsTableBody").html();
+                $("#bookRequestsTableBody").html(tableBody.trim() !== "" ? tableBody : "<tr><td colspan='6' class='text-center text-danger'>No matching requests found.</td></tr>");
             },
-            error: function () {
+            error: function (xhr) {
+                console.error("Error:", xhr.responseText);
                 alert("Error loading filtered requests.");
             }
         });
@@ -117,8 +105,10 @@
             success: function (response) {
                 alert(response.message);
                 filterRequests(); // Refresh the view after approval
+                updateMetrics(response.metrics);
             },
-            error: function () {
+            error: function (xhr) {
+                console.error("Error:", xhr.responseText);
                 alert("Error approving request.");
             }
         });
@@ -135,9 +125,17 @@
                 alert(response.message);
                 filterRequests(); // Refresh the view after rejection
             },
-            error: function () {
+            error: function (xhr) {
+                console.error("Error:", xhr.responseText);
                 alert("Error rejecting request.");
             }
         });
+
+    }
+    function updateMetrics(metrics) {
+        $("#totalBooks").text(metrics.totalBooks);
+        $("#totalStudents").text(metrics.totalStudents);
+        $("#totalIssuedBooks").text(metrics.totalIssuedBooks);
+        $("#totalOverdueBooks").text(metrics.totalOverdueBooks);
     }
 </script>

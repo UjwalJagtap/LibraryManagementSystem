@@ -57,7 +57,6 @@ public class StudentController : Controller
         return PartialView("Books", books); // Return updated list in the same partial view
     }
 
-
     [HttpPost]
     public IActionResult RequestBook(int bookId)
     {
@@ -65,36 +64,59 @@ public class StudentController : Controller
         if (!userId.HasValue)
             return Json(new { success = false, message = "User not logged in." });
 
-        var book = _context.Books.FirstOrDefault(b => b.BookId == bookId);
-        if (book == null || book.AvailableCopies <= 0)
-            return Json(new { success = false, message = "Book is unavailable." });
+        // Check if the book already exists in IssuedBooks
+        bool alreadyIssued = _context.IssuedBooks.Any(ib => ib.BookId == bookId && ib.UserId == userId.Value && ib.ReturnDate == null);
+        if (alreadyIssued)
+            return Json(new { success = false, message = "This book is already issued to you." });
 
-        // Check if there is an existing issued book or pending request
-        var existingIssuedBook = _context.IssuedBooks.FirstOrDefault(ib => ib.BookId == bookId && ib.UserId == userId.Value && ib.ReturnDate == null);
-        var existingRequest = _context.BookRequests.FirstOrDefault(r => r.BookId == bookId && r.UserId == userId.Value && r.Status == "Pending");
-
-        if (existingIssuedBook != null)
-            return Json(new { success = false, message = "You have already issued this book." });
-
-        if (existingRequest != null)
-            return Json(new { success = false, message = "You have already requested this book." });
-
-        // Add new book request
+        // Add a new request to the BookRequests table
         var bookRequest = new BookRequest
         {
             UserId = userId.Value,
             BookId = bookId,
             RequestDate = DateTime.Now,
-            Status = "Pending"
+            Status = "Pending",
+            RequestType = "New" // Request type for new book requests
         };
 
-        //book.AvailableCopies -= 1; // Decrease available copies
         _context.BookRequests.Add(bookRequest);
         _context.SaveChanges();
 
-        var updatedMetrics = GetStudentMetrics(userId.Value);
-        return Json(new { success = true, message = "Book request submitted successfully!", updatedMetrics });
+        return Json(new { success = true, message = "Your book request has been submitted!" });
     }
+
+    [HttpPost]
+    public IActionResult RenewBook(int issuedBookId)
+    {
+        var userId = HttpContext.Session.GetInt32("UserId");
+        if (!userId.HasValue)
+            return Json(new { success = false, message = "User not logged in." });
+
+        var issuedBook = _context.IssuedBooks.FirstOrDefault(ib => ib.IssuedBookId == issuedBookId && ib.UserId == userId.Value);
+        if (issuedBook == null)
+            return Json(new { success = false, message = "Issued book not found." });
+
+        // Check if a renewal request already exists for the same book
+        bool renewalPending = _context.BookRequests.Any(br => br.BookId == issuedBook.BookId && br.UserId == userId.Value && br.RequestType == "Renewal" && br.Status == "Pending");
+        if (renewalPending)
+            return Json(new { success = false, message = "Renewal request already submitted for this book." });
+
+        // Add a renewal request to the BookRequests table
+        var renewalRequest = new BookRequest
+        {
+            UserId = userId.Value,
+            BookId = issuedBook.BookId,
+            RequestDate = DateTime.Now,
+            Status = "Pending",
+            RequestType = "Renewal" // Request type for renewals
+        };
+
+        _context.BookRequests.Add(renewalRequest);
+        _context.SaveChanges();
+
+        return Json(new { success = true, message = "Renewal request has been submitted successfully!" });
+    }
+
     public IActionResult ViewBookRequests()
 {
     var userId = HttpContext.Session.GetInt32("UserId");
@@ -149,25 +171,29 @@ public class StudentController : Controller
     {
         var userId = HttpContext.Session.GetInt32("UserId");
         if (!userId.HasValue)
-        {
-            TempData["ErrorMessage"] = "User not logged in.";
-            return RedirectToAction("Login", "Account");
-        }
+            return RedirectToAction("Index", "Home");
 
         var issuedBooks = _context.IssuedBooks
-            .Where(ib => ib.UserId == userId.Value && ib.ReturnDate == null) // Only show currently issued books
+            .Where(ib => ib.UserId == userId.Value && ib.ReturnDate == null)
             .Select(ib => new
             {
                 ib.IssuedBookId,
+                BookTitle = ib.Book.Title,
+                Author = ib.Book.Author,
                 ib.IssueDate,
                 ib.DueDate,
-                BookTitle = ib.Book.Title,
-                Author = ib.Book.Author
+                ib.ReturnDate
             })
             .ToList();
 
         return PartialView("ViewIssuedBooks", issuedBooks);
     }
+
+
+    
+
+
+
 
     [HttpGet]
     public IActionResult ViewFines()
