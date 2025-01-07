@@ -209,6 +209,26 @@ namespace LibraryManagementSystem.Controllers
             var students = _context.Users.Where(u => u.Role == "Student").ToList();
             return PartialView("StudentInfo", students);
         }
+
+        [HttpPost]
+        public IActionResult SearchStudents(string searchQuery)
+        {
+            if (string.IsNullOrWhiteSpace(searchQuery))
+            {
+                return Json(new { success = false, message = "Please enter a search query." });
+            }
+
+            // Search students based on name, email, or phone
+            var students = _context.Users
+                .Where(u => u.Role == "Student" &&
+                            (u.FullName.Contains(searchQuery) ||
+                             u.Email.Contains(searchQuery) ||
+                             u.Phone.Contains(searchQuery)))
+                .ToList();
+
+            return Json(new { success = true, students });
+        }
+
         [HttpPost]
         public IActionResult DeleteStudent(int id)
         {
