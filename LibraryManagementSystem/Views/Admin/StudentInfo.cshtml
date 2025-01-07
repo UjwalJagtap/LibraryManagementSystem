@@ -120,4 +120,31 @@
             }
         });
     }
+    function deleteStudent(userId) {
+        if (!confirm("Are you sure you want to delete this student?")) return;
+
+        $.ajax({
+            url: `/Admin/DeleteStudent/${userId}`,  // Make sure the URL matches your route
+            type: "POST",
+            success: function (response) {
+                if (response.success) {
+                    alert(response.message);  // Success message
+                    loadAllStudents();        // Reload the student list after deletion
+                    updateMetrics(response.metrics);
+                } else {
+                    alert(response.message);  // Error message if student not found
+                }
+            },
+            error: function () {
+                alert("An error occurred while deleting the student.");
+            }
+        });
+    }
+    function updateMetrics(metrics) {
+        $("#totalBooks").text(metrics.totalBooks);
+        $("#totalStudents").text(metrics.totalStudents);
+        $("#totalIssuedBooks").text(metrics.totalIssuedBooks);
+        $("#totalOverdueBooks").text(metrics.totalOverdueBooks);
+    }
+
 </script>

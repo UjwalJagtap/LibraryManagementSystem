@@ -3,6 +3,7 @@
 <div>
     <h4>Add Book</h4>
     <form method="post" action="/Admin/AddBook" id="addBookForm">
+        <div class="scrollable-form">
         <div class="form-group">
             <label asp-for="Title"></label>
             <input asp-for="Title" class="form-control" placeholder="Enter the book title" />
@@ -47,6 +48,7 @@
             <button type="submit" class="btn btn-primary">Add Book</button>
             <button type="button" class="btn btn-secondary" onclick="cancelForm()">Cancel</button>
 
+        </div>
         </div>
     </form>
 </div>
