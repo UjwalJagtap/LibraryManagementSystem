@@ -1,0 +1,42 @@
+﻿@{
+    ViewData["Title"] = "Search Books";
+}
+
+<div class="container mt-4">
+    <h2>Search for Books</h2>
+
+    <div class="form-group">
+        <input type="text" class="form-control" id="searchQuery" placeholder="Enter book title, author, or genre" />
+    </div>
+    <button class="btn btn-primary mt-2" onclick="searchBooks()">Search</button>
+
+    <!-- Feedback message -->
+    <div id="successMessage" class="alert alert-success mt-3" style="display:none;"></div>
+    <div id="errorMessage" class="alert alert-danger mt-3" style="display:none;"></div>
+
+    <div class="mt-4" id="booksResult">
+        <!-- Results will be populated here -->
+    </div>
+</div>
+<script>
+    function searchBooks() {
+        const query = $("#searchQuery").val().trim();
+
+        if (!query) {
+            alert("Please enter a search query.");
+            return;
+        }
+
+        $.ajax({
+            url: "/Admin/SearchBooks",
+            type: "POST",
+            data: { searchQuery: query },
+            success: function (data) {
+                $("#booksResult").html(data); // Load partial view HTML directly
+            },
+            error: function () {
+                alert("An error occurred while searching for books.");
+            }
+        });
+    }
+</script>

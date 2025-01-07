@@ -65,7 +65,17 @@ namespace LibraryManagementSystem.Controllers
                 return RedirectToAction("Dashboard");
             }
         }
+        [HttpPost]
+        public IActionResult Books(string searchQuery)
+        {
+            var books = string.IsNullOrWhiteSpace(searchQuery)
+                ? _context.Books.ToList() // Return all books if no query
+                : _context.Books.Where(b => b.Title.Contains(searchQuery) ||
+                                            b.Author.Contains(searchQuery) ||
+                                            b.Genre.Contains(searchQuery)).ToList(); // Filter by title, author, or genre
 
+            return PartialView("Books", books); // Return updated list in the same partial view
+        }
         public IActionResult AddBooks()
         {
             return PartialView("AddBooks");

@@ -1,10 +1,16 @@
 ﻿@model IEnumerable<LibraryManagementSystem.Models.Book>
-
+<div class="form-group">
+    <input type="text" class="form-control" id="searchQuery" placeholder="Enter book title, author, or genre" />
+</div>
+<div class="d-flex justify-content-end mt-3">
+    <button class="btn btn-primary ml-auto" onclick="searchBooks()">Search</button>
+</div>
 <div>
     <h4>Books</h4>
     <!-- Button to load the Add Book form -->
     <button class="btn btn-primary mb-3" id="addBookButton" onclick="toggleAddBookForm()">Add Book</button>
 </div>
+
 
 <div id="booksTable">
     @if (Model != null && Model.Any())
@@ -47,6 +53,21 @@
 <div id="bookFormContainer" class="mt-4" style="display: none;"></div>
 
 <script>
+    function searchBooks() {
+        const query = $("#searchQuery").val().trim();
+
+        $.ajax({
+            url: "/Admin/Books", // POST request for filtering
+            type: "POST",
+            data: { searchQuery: query },
+            success: function (response) {
+                $("#content").html(response); // Replace content with updated book list
+            },
+            error: function (xhr) {
+                alert(`Error: ${xhr.status} - ${xhr.statusText}`);
+            }
+        });
+    }
     function toggleAddBookForm() {
         clearFormContainer();
         $("#booksTable").hide(); // Hide the table
