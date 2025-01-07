@@ -61,7 +61,7 @@
 
     <!-- Clear All Cancelled Requests Button (Positioned Bottom Right) -->
     <div class="d-flex justify-content-end mt-3">
-        <button class="btn btn-secondary" onclick="clearCancelledRequests()">Clear All Cancelled Requests</button>
+        <button class="btn btn-danger" onclick="clearAllRequests()">Clear All Requests</button>
     </div>
 </div>
 
@@ -85,20 +85,20 @@
         });
     }
 
-    function clearCancelledRequests() {
-        if (!confirm("Are you sure you want to clear all cancelled requests?")) return;
+    function clearAllRequests() {
+        if (!confirm("Are you sure you want to clear all your book requests?")) return;
 
         $.ajax({
-            url: "/Student/ClearCancelledRequests",
+            url: "/Student/ClearAllRequests",
             type: "POST",
             success: function (response) {
                 alert(response.message);
                 if (response.success) {
-                    loadContent('ViewBookRequests'); // Refresh the view after clearing
+                    loadContent('ViewBookRequests'); // Reloads the requests list to reflect changes
                 }
             },
             error: function () {
-                alert("An error occurred while clearing the cancelled requests.");
+                alert("An error occurred while clearing the requests.");
             }
         });
     }

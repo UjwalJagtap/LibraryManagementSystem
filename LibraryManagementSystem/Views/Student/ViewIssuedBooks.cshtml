@@ -1,24 +1,60 @@
-﻿@model IEnumerable<LibraryManagementSystem.Models.IssuedBook>
+﻿@model IEnumerable<dynamic>
 
-<div class="mt-4">
-    <h4>Issued Books</h4>
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Title</th>
-                <th>Issue Date</th>
-                <th>Due Date</th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach (var book in Model)
-            {
+<div class="container mt-4">
+    <h4>Your Issued Books</h4>
+    @if (Model != null && Model.Any())
+    {
+        <table class="table table-bordered">
+            <thead class="thead-light">
                 <tr>
-                    <td>@book.Book.Title</td>
-                    <td>@book.IssueDate.ToShortDateString()</td>
-                    <td>@book.DueDate.ToShortDateString()</td>
+                    <th>Book Title</th>
+                    <th>Author</th>
+                    <th>Issue Date</th>
+                    <th>Due Date</th>
+                    <th>Status</th>
                 </tr>
-            }
-        </tbody>
-    </table>
+            </thead>
+            <tbody>
+                @foreach (var book in Model)
+                {
+                    <tr>
+                        <td>@book.BookTitle</td>
+                        <td>@book.Author</td>
+                        <td>@book.IssueDate.ToString("dd MMM yyyy")</td>
+                        <td>@book.DueDate.ToString("dd MMM yyyy")</td>
+                        <td>
+                            @if (book.DueDate < DateTime.Now)
+                            {
+                                <span class="badge bg-danger">Overdue</span>
+                            }
+                            else
+                            {
+                                <span class="badge bg-success">On Time</span>
+                            }
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+    else
+    {
+        <p class="text-danger">No books have been issued to you.</p>
+    }
 </div>
+<script>
+    function loadIssuedBooks() {
+        $.ajax({
+            url: "/Student/ViewIssuedBooks",
+            type: "GET",
+            success: function (data) {
+                $("#content").html(data); // Replace content with the issued books table
+            },
+            error: function () {
+                alert("An error occurred while loading the issued books.");
+            }
+        });
+    }
+</script>
+
+ 

@@ -130,21 +130,70 @@ public class StudentController : Controller
         return Json(new { success = true, message = "Request cancelled successfully!" });
     }
     [HttpPost]
-    public IActionResult ClearCancelledRequests()
+    public IActionResult ClearAllRequests()
     {
         var userId = HttpContext.Session.GetInt32("UserId");
         if (!userId.HasValue)
             return Json(new { success = false, message = "User not logged in." });
 
-        var cancelledRequests = _context.BookRequests.Where(r => r.UserId == userId.Value && r.Status == "Cancelled").ToList();
-        if (!cancelledRequests.Any())
-            return Json(new { success = false, message = "No cancelled requests to clear." });
+        var allRequests = _context.BookRequests.Where(r => r.UserId == userId.Value).ToList();
+        if (!allRequests.Any())
+            return Json(new { success = false, message = "No requests to clear." });
 
-        _context.BookRequests.RemoveRange(cancelledRequests);
+        _context.BookRequests.RemoveRange(allRequests);
         _context.SaveChanges();
 
-        return Json(new { success = true, message = "All cancelled requests cleared successfully!" });
+        return Json(new { success = true, message = "All requests cleared successfully!" });
     }
+    public IActionResult ViewIssuedBooks()
+    {
+        var userId = HttpContext.Session.GetInt32("UserId");
+        if (!userId.HasValue)
+        {
+            TempData["ErrorMessage"] = "User not logged in.";
+            return RedirectToAction("Login", "Account");
+        }
+
+        var issuedBooks = _context.IssuedBooks
+            .Where(ib => ib.UserId == userId.Value && ib.ReturnDate == null) // Only show currently issued books
+            .Select(ib => new
+            {
+                ib.IssuedBookId,
+                ib.IssueDate,
+                ib.DueDate,
+                BookTitle = ib.Book.Title,
+                Author = ib.Book.Author
+            })
+            .ToList();
+
+        return PartialView("ViewIssuedBooks", issuedBooks);
+    }
+
+    [HttpGet]
+    public IActionResult ViewFines()
+    {
+        var userId = HttpContext.Session.GetInt32("UserId");
+
+        if (!userId.HasValue)
+            return RedirectToAction("Login", "Account");
+
+        // Fetch fines related to the student's issued books
+        var fines = _context.Fines
+            .Where(f => f.IssuedBook.UserId == userId.Value)
+            .Select(f => new
+            {
+                f.FineId,
+                BookTitle = f.IssuedBook.Book.Title,
+                f.IssuedBook.IssueDate,
+                f.FineDate,
+                f.FineAmount,
+                f.IsPaid  // Just for displaying the status
+            })
+            .ToList();
+
+        return PartialView("ViewFines", fines);
+    }
+
 
     private object GetStudentMetrics(int userId)
     {
