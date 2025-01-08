@@ -387,13 +387,99 @@ namespace LibraryManagementSystem.Controllers
                 return Json(new { success = false, message = $"Error loading filtered requests: {ex.Message}" });
             }
         }
+        public IActionResult ViewIssuedBooks()
+        {
+            try
+            {
+                var issuedBooks = _context.IssuedBooks
+                    .Include(ib => ib.Book) // Include Book details
+                    .Include(ib => ib.User) // Include Student details
+                    .Select(ib => new
+                    {
+                        ib.BookId,
+                        BookTitle = ib.Book.Title,
+                        StudentName = ib.User.FullName,
+                        ib.IssueDate,
+                        ib.DueDate,
+                        ib.ReturnDate,
+                        Status = ib.ReturnDate != null ? "Returned" : (ib.DueDate < DateTime.Now ? "Overdue" : "On Time")
+                    }).ToList();
+
+                return PartialView("ViewIssuedBooks", issuedBooks);
+            }
+            catch (Exception ex)
+            {
+                TempData["ErrorMessage"] = $"Error loading issued books: {ex.Message}";
+                return Json(new { success = false, message = $"Error loading issued books view: {ex.Message}" });
+            }
+        }
+        [HttpGet]
+        public IActionResult SearchIssuedBooks(string searchQuery)
+        {
+            var issuedBooksQuery = _context.IssuedBooks
+                .Include(ib => ib.Book)
+                .Include(ib => ib.User)
+                .Select(ib => new
+                {
+                    ib.BookId,
+                    BookTitle = ib.Book.Title,
+                    StudentName = ib.User.FullName,
+                    ib.IssueDate,
+                    ib.DueDate,
+                    ib.ReturnDate,
+                    Status = ib.ReturnDate != null ? "Returned" : (ib.DueDate < DateTime.Now ? "Overdue" : "On Time")
+                });
+
+            // Apply search filter
+            if (!string.IsNullOrWhiteSpace(searchQuery))
+            {
+                issuedBooksQuery = issuedBooksQuery.Where(ib =>
+                    ib.BookTitle.Contains(searchQuery) ||
+                    ib.StudentName.Contains(searchQuery));
+            }
+
+            var filteredIssuedBooks = issuedBooksQuery.ToList();
+            return PartialView("ViewIssuedBooks", filteredIssuedBooks); // Return filtered results
+        }
 
 
-
+        [HttpGet]
         public IActionResult ManageFines()
         {
-            return PartialView("ManageFines");
+            var overdueBooks = _context.IssuedBooks
+                .Where(ib => ib.DueDate < DateTime.Now && ib.ReturnDate == null)
+                .Include(ib => ib.Book)
+                .Include(ib => ib.User)
+                .Select(ib => new
+                {
+                    BookId = ib.BookId,
+                    BookTitle = ib.Book.Title,
+                    StudentName = ib.User.FullName,
+                    RequestDate = ib.IssueDate,
+                    DueDate = ib.DueDate,
+                    ReturnDate = ib.ReturnDate,
+                    FineAmount = (DateTime.Now - ib.DueDate).Days * 10, // Assuming Rs.10/day
+                    IsPaid = _context.Fines.Any(f => f.IssuedBookId == ib.IssuedBookId && f.IsPaid)
+                })
+                .ToList();
+
+            return PartialView("ManageFines", overdueBooks);
         }
+        [HttpPost]
+        public IActionResult PayFine(int bookId)
+        {
+            var fine = _context.Fines.FirstOrDefault(f => f.IssuedBookId == bookId && !f.IsPaid);
+            if (fine == null)
+            {
+                return Json(new { success = false, message = "Fine not found or already paid." });
+            }
+
+            fine.IsPaid = true;
+            _context.SaveChanges();
+
+            return Json(new { success = true, message = "Fine marked as paid successfully!" });
+        }
+
 
         public IActionResult GenerateReports()
         {

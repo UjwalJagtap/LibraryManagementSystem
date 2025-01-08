@@ -190,7 +190,7 @@ public class StudentController : Controller
     }
 
 
-    
+
 
 
 
@@ -199,26 +199,39 @@ public class StudentController : Controller
     public IActionResult ViewFines()
     {
         var userId = HttpContext.Session.GetInt32("UserId");
-
         if (!userId.HasValue)
             return RedirectToAction("Login", "Account");
 
-        // Fetch fines related to the student's issued books
         var fines = _context.Fines
-            .Where(f => f.IssuedBook.UserId == userId.Value)
+            .Include(f => f.IssuedBook)
+            .ThenInclude(ib => ib.Book)
+            .Where(f => f.IssuedBook.UserId == userId.Value && !f.IsPaid)
             .Select(f => new
             {
                 f.FineId,
                 BookTitle = f.IssuedBook.Book.Title,
-                f.IssuedBook.IssueDate,
-                f.FineDate,
                 f.FineAmount,
-                f.IsPaid  // Just for displaying the status
-            })
-            .ToList();
+                f.FineDate,
+                f.IsPaid
+            }).ToList();
 
         return PartialView("ViewFines", fines);
     }
+
+
+    [HttpPost]
+    public IActionResult PayFine(int fineId)
+    {
+        var fine = _context.Fines.FirstOrDefault(f => f.FineId == fineId);
+        if (fine == null)
+            return Json(new { success = false, message = "Fine not found." });
+
+        fine.IsPaid = true; // Mark fine as paid
+        _context.SaveChanges();
+
+        return Json(new { success = true, message = "Fine paid successfully!" });
+    }
+
 
 
     private object GetStudentMetrics(int userId)
