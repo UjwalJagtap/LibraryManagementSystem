@@ -441,46 +441,6 @@ namespace LibraryManagementSystem.Controllers
             var filteredIssuedBooks = issuedBooksQuery.ToList();
             return PartialView("ViewIssuedBooks", filteredIssuedBooks); // Return filtered results
         }
-
-
-        [HttpGet]
-        public IActionResult ManageFines()
-        {
-            var overdueBooks = _context.IssuedBooks
-                .Where(ib => ib.DueDate < DateTime.Now && ib.ReturnDate == null)
-                .Include(ib => ib.Book)
-                .Include(ib => ib.User)
-                .Select(ib => new
-                {
-                    BookId = ib.BookId,
-                    BookTitle = ib.Book.Title,
-                    StudentName = ib.User.FullName,
-                    RequestDate = ib.IssueDate,
-                    DueDate = ib.DueDate,
-                    ReturnDate = ib.ReturnDate,
-                    FineAmount = (DateTime.Now - ib.DueDate).Days * 10, // Assuming Rs.10/day
-                    IsPaid = _context.Fines.Any(f => f.IssuedBookId == ib.IssuedBookId && f.IsPaid)
-                })
-                .ToList();
-
-            return PartialView("ManageFines", overdueBooks);
-        }
-        [HttpPost]
-        public IActionResult PayFine(int bookId)
-        {
-            var fine = _context.Fines.FirstOrDefault(f => f.IssuedBookId == bookId && !f.IsPaid);
-            if (fine == null)
-            {
-                return Json(new { success = false, message = "Fine not found or already paid." });
-            }
-
-            fine.IsPaid = true;
-            _context.SaveChanges();
-
-            return Json(new { success = true, message = "Fine marked as paid successfully!" });
-        }
-
-
         public IActionResult GenerateReports()
         {
             return PartialView("GenerateReports");

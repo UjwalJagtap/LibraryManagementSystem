@@ -64,27 +64,31 @@ public class StudentController : Controller
         if (!userId.HasValue)
             return Json(new { success = false, message = "User not logged in." });
 
-        // Check if the book already exists in IssuedBooks
-        bool alreadyIssued = _context.IssuedBooks.Any(ib => ib.BookId == bookId && ib.UserId == userId.Value && ib.ReturnDate == null);
-        if (alreadyIssued)
-            return Json(new { success = false, message = "This book is already issued to you." });
+        // Check if a pending or approved request already exists for the same book and user
+        bool requestExists = _context.BookRequests.Any(r =>
+            r.BookId == bookId &&
+            r.UserId == userId.Value &&
+            (r.Status == "Pending" || r.Status == "Approved"));
 
-        // Add a new request to the BookRequests table
-        var bookRequest = new BookRequest
+        if (requestExists)
         {
-            UserId = userId.Value,
+            return Json(new { success = false, message = "You have already requested or issued this book." });
+        }
+
+        var newRequest = new BookRequest
+        {
             BookId = bookId,
+            UserId = userId.Value,
             RequestDate = DateTime.Now,
             Status = "Pending",
-            RequestType = "New" // Request type for new book requests
+            RequestType = "New"
         };
 
-        _context.BookRequests.Add(bookRequest);
+        _context.BookRequests.Add(newRequest);
         _context.SaveChanges();
 
-        return Json(new { success = true, message = "Your book request has been submitted!" });
+        return Json(new { success = true, message = "Book request submitted successfully!" });
     }
-
     [HttpPost]
     public IActionResult RenewBook(int issuedBookId)
     {
@@ -96,25 +100,32 @@ public class StudentController : Controller
         if (issuedBook == null)
             return Json(new { success = false, message = "Issued book not found." });
 
-        // Check if a renewal request already exists for the same book
-        bool renewalPending = _context.BookRequests.Any(br => br.BookId == issuedBook.BookId && br.UserId == userId.Value && br.RequestType == "Renewal" && br.Status == "Pending");
-        if (renewalPending)
-            return Json(new { success = false, message = "Renewal request already submitted for this book." });
+        // Check if a pending or approved renewal request already exists for the same book
+        bool renewalExists = _context.BookRequests.Any(r =>
+            r.BookId == issuedBook.BookId &&
+            r.UserId == userId.Value &&
+            r.RequestType == "Renewal" &&
+            (r.Status == "Pending" || r.Status == "Approved"));
 
-        // Add a renewal request to the BookRequests table
+        if (renewalExists)
+        {
+            return Json(new { success = false, message = "You have already requested a renewal for this book." });
+        }
+
+        // Add new renewal request
         var renewalRequest = new BookRequest
         {
-            UserId = userId.Value,
             BookId = issuedBook.BookId,
+            UserId = userId.Value,
             RequestDate = DateTime.Now,
             Status = "Pending",
-            RequestType = "Renewal" // Request type for renewals
+            RequestType = "Renewal"
         };
 
         _context.BookRequests.Add(renewalRequest);
         _context.SaveChanges();
 
-        return Json(new { success = true, message = "Renewal request has been submitted successfully!" });
+        return Json(new { success = true, message = "Renewal request submitted successfully!" });
     }
 
     public IActionResult ViewBookRequests()
@@ -188,52 +199,6 @@ public class StudentController : Controller
 
         return PartialView("ViewIssuedBooks", issuedBooks);
     }
-
-
-
-
-
-
-
-    [HttpGet]
-    public IActionResult ViewFines()
-    {
-        var userId = HttpContext.Session.GetInt32("UserId");
-        if (!userId.HasValue)
-            return RedirectToAction("Login", "Account");
-
-        var fines = _context.Fines
-            .Include(f => f.IssuedBook)
-            .ThenInclude(ib => ib.Book)
-            .Where(f => f.IssuedBook.UserId == userId.Value && !f.IsPaid)
-            .Select(f => new
-            {
-                f.FineId,
-                BookTitle = f.IssuedBook.Book.Title,
-                f.FineAmount,
-                f.FineDate,
-                f.IsPaid
-            }).ToList();
-
-        return PartialView("ViewFines", fines);
-    }
-
-
-    [HttpPost]
-    public IActionResult PayFine(int fineId)
-    {
-        var fine = _context.Fines.FirstOrDefault(f => f.FineId == fineId);
-        if (fine == null)
-            return Json(new { success = false, message = "Fine not found." });
-
-        fine.IsPaid = true; // Mark fine as paid
-        _context.SaveChanges();
-
-        return Json(new { success = true, message = "Fine paid successfully!" });
-    }
-
-
-
     private object GetStudentMetrics(int userId)
     {
         return new

@@ -52,10 +52,6 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cTWFuYWdlQm9va1JlcXVlc3RzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/jagta/OneDrive/Desktop/LibraryManagementSystem/LibraryManagementSystem/Views/Admin/ManageFines.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cTWFuYWdlRmluZXMuY3NodG1s
-build_metadata.AdditionalFiles.CssScope = 
-
 [C:/Users/jagta/OneDrive/Desktop/LibraryManagementSystem/LibraryManagementSystem/Views/Admin/SearchBooks.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cU2VhcmNoQm9va3MuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
@@ -106,10 +102,6 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/Users/jagta/OneDrive/Desktop/LibraryManagementSystem/LibraryManagementSystem/Views/Student/ViewBookRequests.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3R1ZGVudFxWaWV3Qm9va1JlcXVlc3RzLmNzaHRtbA==
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/jagta/OneDrive/Desktop/LibraryManagementSystem/LibraryManagementSystem/Views/Student/ViewFines.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3R1ZGVudFxWaWV3RmluZXMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/jagta/OneDrive/Desktop/LibraryManagementSystem/LibraryManagementSystem/Views/Student/ViewIssuedBooks.cshtml]
