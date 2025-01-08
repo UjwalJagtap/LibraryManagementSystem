@@ -865,3 +865,6 @@ C:\Users\jagta\OneDrive\Desktop\LibraryManagementSystem\LibraryManagementSystem\
 C:\Users\jagta\OneDrive\Desktop\LibraryManagementSystem\LibraryManagementSystem\bin\Debug\net8.0\X.PagedList.dll
 C:\Users\jagta\OneDrive\Desktop\LibraryManagementSystem\LibraryManagementSystem\bin\Debug\net8.0\X.PagedList.Mvc.Core.dll
 C:\Users\jagta\OneDrive\Desktop\LibraryManagementSystem\LibraryManagementSystem\obj\Debug\net8.0\LibraryManagementSystem.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\2369942\OneDrive - Cognizant\Desktop\LibraryManagementSystem\LibraryManagementSystem\bin\Debug\net8.0\X.PagedList.dll
+C:\Users\2369942\OneDrive - Cognizant\Desktop\LibraryManagementSystem\LibraryManagementSystem\bin\Debug\net8.0\X.PagedList.Mvc.Core.dll
+C:\Users\2369942\OneDrive - Cognizant\Desktop\LibraryManagementSystem\LibraryManagementSystem\obj\Debug\net8.0\LibraryManagementSystem.MvcApplicationPartsAssemblyInfo.cs

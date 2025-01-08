@@ -19,7 +19,7 @@ namespace LibraryManagementSystem.Models
 
         public DateTime RequestDate { get; set; }
         public string Status { get; set; } // Pending, Approved, Rejected
-        public string RequestType { get; set; } = "New";
+        public string RequestType { get; set; }
 
     }
 }

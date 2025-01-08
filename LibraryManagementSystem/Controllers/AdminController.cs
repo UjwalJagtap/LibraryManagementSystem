@@ -264,6 +264,7 @@ namespace LibraryManagementSystem.Controllers
                     RequestId = r.RequestId,
                     Book = r.Book,
                     User = r.User,
+                    RequestType = r.RequestType,
                     RequestDate = r.RequestDate,
                     Status = r.Status
                 })

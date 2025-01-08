@@ -231,7 +231,7 @@ namespace LibraryManagementSystem.Migrations
                             UserId = 1,
                             Email = "admin@library.com",
                             FullName = "Library Admin",
-                            PasswordHash = "$2a$11$XVNR68ArvG3goNx8Fwdtv.NvdjuTHHDBCqt54wwYEcQZOopra8K/W",
+                            PasswordHash = "$2a$11$u4VDUjSawKfULEXH/g/dM.3lmHzQKHdhgc2aFzO.PCSzxAmIQPQJK",
                             Phone = "9234567810",
                             Role = "Librarian",
                             Username = "admin"
