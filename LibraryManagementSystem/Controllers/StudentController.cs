@@ -29,7 +29,7 @@ public class StudentController : Controller
 
         // Populate dashboard metrics
         ViewBag.TotalBooks = _context.Books.Count();
-        ViewBag.BooksIssued = _context.IssuedBooks.Count(i => i.UserId == userId.Value);
+        ViewBag.BooksIssued = _context.IssuedBooks.Count(i => i.UserId == userId.Value && i.ReturnDate == null);
         ViewBag.OverdueFines = _context.Fines
             .Include(f => f.IssuedBook)
             .Where(f => !f.IsPaid && f.IssuedBook.UserId == userId.Value)
@@ -204,7 +204,7 @@ public class StudentController : Controller
         return new
         {
             TotalBooks = _context.Books.Count(),
-            BooksIssued = _context.IssuedBooks.Count(ib => ib.UserId == userId),
+            BooksIssued = _context.IssuedBooks.Count(ib => ib.UserId == userId && ib.ReturnDate == null),
             OverdueFines = _context.Fines
                 .Include(f => f.IssuedBook)
                 .Where(f => !f.IsPaid && f.IssuedBook.UserId == userId)

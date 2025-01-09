@@ -441,6 +441,79 @@ namespace LibraryManagementSystem.Controllers
             var filteredIssuedBooks = issuedBooksQuery.ToList();
             return PartialView("ViewIssuedBooks", filteredIssuedBooks); // Return filtered results
         }
+        [HttpGet]
+        public IActionResult ManageFines()
+        {
+            try
+            {
+                // Get all overdue issued books that are not returned
+                var overdueBooks = _context.IssuedBooks
+                    .Where(ib => ib.DueDate < DateTime.Now && ib.ReturnDate == null)
+                    .Include(ib => ib.Book)
+                    .Include(ib => ib.User)
+                    .ToList();
+                // Create fines for overdue books if they don't already have a fine
+                foreach (var issuedBook in overdueBooks)
+                {
+                    if (!_context.Fines.Any(f => f.IssuedBookId == issuedBook.IssuedBookId))
+                    {
+                        int overdueDays = (DateTime.Now.Date - issuedBook.DueDate.Date).Days;
+                        double fineAmount = overdueDays * 10; // Rs.10 per day
+                        var fine = new Fine
+                        {
+                            IssuedBookId = issuedBook.IssuedBookId,
+                            FineAmount = fineAmount,
+                            FineDate = DateTime.Now,
+                            IsPaid = false
+                        };
+                        _context.Fines.Add(fine);
+                    }
+                }
+                _context.SaveChanges(); // Save changes to DB
+                UpdateMetrics();
+                // Get all fines (both paid and unpaid)
+                var fines = _context.Fines
+                    .Include(f => f.IssuedBook)
+                    .ThenInclude(ib => ib.Book)
+                    .Include(f => f.IssuedBook.User)
+                    .Select(f => new
+                    {
+                        f.FineId,
+                        StudentName = f.IssuedBook.User.FullName,
+                        BookTitle = f.IssuedBook.Book.Title,
+                        f.FineAmount,
+                        DueDate = f.IssuedBook.DueDate,
+                        ReturnDate = f.IssuedBook.ReturnDate,
+                        IsPaid = f.IsPaid
+                    })
+                    .ToList();
+                return PartialView("ManageFines", fines);
+            }
+            catch (Exception ex)
+            {
+                return Json(new { success = false, message = $"Error loading ManageFines view: {ex.Message}" });
+            }
+        }
+        [HttpPost]
+        public IActionResult PayFine(int fineId)
+        {
+            var fine = _context.Fines.Include(f => f.IssuedBook).FirstOrDefault(f => f.FineId == fineId);
+            if (fine == null)
+                return Json(new { success = false, message = "Fine not found." });
+            // Mark fine as paid
+            fine.IsPaid = true;
+            // Update the return date of the issued book
+            var issuedBook = fine.IssuedBook;
+            if (issuedBook != null)
+            {
+                issuedBook.ReturnDate = DateTime.Now; // Set today's date as the return date
+            }
+            _context.SaveChanges(); // Save changes to the database
+            // Update metrics after marking the fine as paid
+            var metrics = GetMetrics();
+            return Json(new { success = true, message = "Fine marked as paid successfully!", metrics });
+        }
+
         public IActionResult GenerateReports()
         {
             return PartialView("GenerateReports");
@@ -450,7 +523,7 @@ namespace LibraryManagementSystem.Controllers
         {
             ViewBag.TotalBooks = _context.Books.Count();
             ViewBag.TotalStudents = _context.Users.Count(u => u.Role == "Student");
-            ViewBag.TotalIssuedBooks = _context.IssuedBooks.Count();
+            ViewBag.TotalIssuedBooks = _context.IssuedBooks.Count(ib => ib.ReturnDate == null);
             ViewBag.TotalOverdueBooks = _context.IssuedBooks.Count(ib => ib.DueDate < DateTime.Now && ib.ReturnDate == null);
         }
 
@@ -460,7 +533,7 @@ namespace LibraryManagementSystem.Controllers
             {
                 TotalBooks = _context.Books.Count(),
                 TotalStudents = _context.Users.Count(u => u.Role == "Student"),
-                TotalIssuedBooks = _context.IssuedBooks.Count(),
+                TotalIssuedBooks = _context.IssuedBooks.Count(ib => ib.ReturnDate == null),
                 TotalOverdueBooks = _context.IssuedBooks.Count(ib => ib.DueDate < DateTime.Now && ib.ReturnDate == null)
             };
         }

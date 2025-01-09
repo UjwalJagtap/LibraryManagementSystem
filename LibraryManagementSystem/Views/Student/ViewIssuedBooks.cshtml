@@ -60,7 +60,7 @@
                         <!-- Actions Column (Renew Button) -->
                         <td>
                             @{
-                                if (book.ReturnDate == null)
+                                if (book.ReturnDate == null && !(book.DueDate < DateTime.Now))
                                 {
                                     <button class="btn btn-warning btn-sm" onclick="renewBook(@book.IssuedBookId)">Renew Book</button>
                                 }

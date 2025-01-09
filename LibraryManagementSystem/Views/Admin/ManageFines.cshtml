@@ -1,0 +1,93 @@
+﻿@model IEnumerable<dynamic>
+
+<div class="container mt-4">
+    <h3>Manage Fines</h3>
+    <div class="table-wrapper">
+        <table class="table table-bordered mt-3">
+            <thead>
+                <tr>
+                    <th>Student Name</th>
+                    <th>Book Title</th>
+                    <th>Fine Amount (INR)</th>
+                    <th>Due Date</th>
+                    <th>Return Date</th>
+                    <th>Status</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                @if (Model.Any())
+                {
+                    @foreach (var fine in Model)
+                    {
+                        <tr>
+                            <td>@fine.StudentName</td>
+                            <td>@fine.BookTitle</td>
+                            <td>@fine.FineAmount</td>
+                            <td>@fine.DueDate.ToString("dd MMM yyyy")</td>
+                            <td>@(fine.ReturnDate != null ? fine.ReturnDate?.ToString("dd MMM yyyy") : "Not Returned")</td>
+                            <td>
+                                @if (fine.IsPaid)
+                                {
+                                    <span class="badge bg-success">Paid</span>
+                                }
+                                else
+                                {
+                                    <span class="badge bg-danger">Unpaid</span>
+                                }
+                            </td>
+                            <td>
+                                @if (!fine.IsPaid)
+                                {
+                                    <button class="btn btn-primary btn-sm" onclick="payFine(@fine.FineId)">Mark as Paid</button>
+                                }
+                            </td>
+                        </tr>
+                    }
+                }
+                else
+                {
+                    <tr>
+                        <td colspan="7" class="text-center text-danger">No fines to manage.</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<script>
+
+    
+    function payFine(fineId) {
+        if (!confirm("Are you sure you want to mark this fine as paid?")) return;
+
+        $.ajax({
+            url: "/Admin/PayFine",
+            type: "POST",
+            data: { fineId: fineId },
+            success: function (response) {
+                alert(response.message);
+                if (response.success) {
+                    console.log(response.metrics);
+                    updateMetrics(response.metrics);
+                    loadContent('ManageFines'); // Reload fines view after payment
+                     // Update metrics dynamically
+                }
+            },
+            error: function () {
+                alert("Error marking fine as paid.");
+            }
+        });
+    }
+
+    function updateMetrics(metrics) {
+        console.log("hello");
+        console.log(metrics.totalOverdueBooks);
+        $("#totalBooks").text(metrics.totalBooks);
+        $("#totalStudents").text(metrics.totalStudents);
+        $("#totalIssuedBooks").text(metrics.totalIssuedBooks);
+        $("#totalOverdueBooks").text(metrics.totalOverdueBooks);
+    }
+
+</script>
