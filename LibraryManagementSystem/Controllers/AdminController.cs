@@ -257,18 +257,20 @@ namespace LibraryManagementSystem.Controllers
         public IActionResult ManageBookRequests()
         {
             var requests = _context.BookRequests
-                .Include(r => r.Book)  // Eager loading to include Book details
-                .Include(r => r.User)  // Eager loading to include User details
-                .Select(r => new BookRequest
-                {
-                    RequestId = r.RequestId,
-                    Book = r.Book,
-                    User = r.User,
-                    RequestType = r.RequestType,
-                    RequestDate = r.RequestDate,
-                    Status = r.Status
-                })
-                .ToList();
+             .Include(r => r.Book)  // Eager loading to include Book details
+             .Include(r => r.User)  // Eager loading to include User details
+             .Where(r => r.Status != "Returned")  // Filter out requests with status "Returned"
+             .Select(r => new BookRequest
+             {
+                 RequestId = r.RequestId,
+                 Book = r.Book,
+                 User = r.User,
+                 RequestType = r.RequestType,
+                 RequestDate = r.RequestDate,
+                 Status = r.Status
+             })
+             .ToList();
+
 
             return PartialView("ManageBookRequests", requests);
         }
@@ -371,7 +373,8 @@ namespace LibraryManagementSystem.Controllers
             {
                 IQueryable<BookRequest> requestsQuery = _context.BookRequests
                     .Include(r => r.Book)  // Eager load Book details
-                    .Include(r => r.User); // Eager load User details
+                    .Include(r => r.User)
+                    .Where(r => r.Status != "Returned"); 
 
                 if (!string.IsNullOrWhiteSpace(status) && status != "All")
                 {
@@ -507,6 +510,13 @@ namespace LibraryManagementSystem.Controllers
             if (issuedBook != null)
             {
                 issuedBook.ReturnDate = DateTime.Now; // Set today's date as the return date
+                var bookRequest = _context.BookRequests.FirstOrDefault(r => r.BookId == issuedBook.BookId
+                                                                         && r.UserId==issuedBook.UserId
+                                                                         && r.Status=="Approved");
+                if (bookRequest != null)
+                {
+                    bookRequest.Status = "Returned";
+                }
             }
             _context.SaveChanges(); // Save changes to the database
             // Update metrics after marking the fine as paid

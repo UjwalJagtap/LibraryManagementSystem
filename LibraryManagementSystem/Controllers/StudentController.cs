@@ -65,6 +65,12 @@ public class StudentController : Controller
             return Json(new { success = false, message = "User not logged in." });
 
         // Check if a pending or approved request already exists for the same book and user
+        var requests = _context.BookRequests.Where(r => r.BookId == bookId && r.UserId == userId.Value).ToList();
+
+        foreach (var request in requests)
+        {
+            Console.WriteLine($"Request ID: {request.RequestId}, Status: {request.Status}");
+        }
         bool requestExists = _context.BookRequests.Any(r =>
             r.BookId == bookId &&
             r.UserId == userId.Value &&
