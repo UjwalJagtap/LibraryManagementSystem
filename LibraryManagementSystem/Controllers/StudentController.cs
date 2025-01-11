@@ -205,6 +205,43 @@ public class StudentController : Controller
 
         return PartialView("ViewIssuedBooks", issuedBooks);
     }
+    [HttpGet]
+    public IActionResult ViewFines()
+    {
+        try
+        {
+            // Get the logged-in student ID from session
+            var userId = HttpContext.Session.GetInt32("UserId");
+            if (!userId.HasValue)
+            {
+                return RedirectToAction("Login", "Home");
+            }
+
+            // Get all fines related to the student
+            var fines = _context.Fines
+                .Include(f => f.IssuedBook)
+                .ThenInclude(ib => ib.Book)
+                .Where(f => f.IssuedBook.UserId == userId.Value)
+                .Select(f => new
+                {
+                    f.FineId,
+                    BookTitle = f.IssuedBook.Book.Title,
+                    f.FineAmount,
+                    FineDate = f.FineDate,
+                    DueDate = f.IssuedBook.DueDate,
+                    ReturnDate = f.IssuedBook.ReturnDate,
+                    Status = f.IsPaid ? "Paid" : "Unpaid"
+                })
+                .ToList();
+
+            return PartialView("ViewFines", fines);
+        }
+        catch (Exception ex)
+        {
+            return Json(new { success = false, message = $"Error loading fines: {ex.Message}" });
+        }
+    }
+
     private object GetStudentMetrics(int userId)
     {
         return new

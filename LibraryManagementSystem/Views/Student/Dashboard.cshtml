@@ -15,7 +15,7 @@
                 <div class="card text-white bg-primary mb-3 shadow-sm">
                     <div class="card-header">Total Books</div>
                     <div class="card-body">
-                        <h5 class="card-title">@ViewBag.TotalBooks</h5>
+                        <h5 class="card-title" id="totalBooks">@ViewBag.TotalBooks</h5>
                     </div>
                 </div>
             </div>
@@ -23,7 +23,7 @@
                 <div class="card text-white bg-warning mb-3 shadow-sm">
                     <div class="card-header">Books Issued</div>
                     <div class="card-body">
-                        <h5 class="card-title">@ViewBag.BooksIssued</h5>
+                        <h5 class="card-title" id="">@ViewBag.BooksIssued</h5>
                     </div>
                 </div>
             </div>
@@ -31,7 +31,7 @@
                 <div class="card text-white bg-danger mb-3 shadow-sm">
                     <div class="card-header">Overdue Fines</div>
                     <div class="card-body">
-                        <h5 class="card-title">₹@ViewBag.OverdueFines</h5>
+                        <h5 class="card-title" id="">₹@ViewBag.OverdueFines</h5>
                     </div>
                 </div>
             </div>
@@ -56,7 +56,6 @@
                     <li class="nav-item mb-2">
                         <a href="#" class="nav-link text-primary" onclick="loadContent('ViewFines')">View Fines</a>
                     </li>
-
                     <li class="nav-item mb-2">
                         <a href="#" class="nav-link text-primary" onclick="loadContent('ReturnBooks')">Return Books</a>
                     </li>
@@ -82,11 +81,23 @@
             type: "GET",
             success: function (data) {
                 $("#content").html(data); // Populate content section with the response
+                updateMetrics(response.metrics);
             },
             error: function (xhr) {
                 alert(`Error: ${xhr.status} - ${xhr.responseText}`);
             }
         });
+    }
+
+    function updateMetrics(metrics) {
+
+        $("#totalBooks").text(metrics.totalBooks);
+        $("#booksIssued").text(metrics.booksIssued);
+        $("#overdueFines").text(metrics.overdueFines);
+       
+        // TotalBooks = _context.Books.Count(),
+        // booksIssued = _context.IssuedBooks.Count(ib => ib.UserId == userId && ib.ReturnDate == null),
+        // overdueFines = _context.Fines
     }
 </script>
 

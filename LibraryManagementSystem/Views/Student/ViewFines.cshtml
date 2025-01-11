@@ -1,0 +1,46 @@
+﻿@model IEnumerable<dynamic>
+
+<div class="container mt-4">
+    <h3>Your Fines</h3>
+    <div class="table-wrapper">
+        <table class="table table-bordered mt-3">
+            <thead>
+                <tr>
+                    <th>Book Title</th>
+                    <th>Fine Amount (INR)</th>
+                    <th>Fine Date</th>
+                    <th>Due Date</th>
+                    <th>Return Date</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                @if (Model.Any())
+                {
+                    @foreach (var fine in Model)
+                    {
+                        <tr>
+                            <td>@fine.BookTitle</td>
+                            <td>@fine.FineAmount</td>
+                            <td>@fine.FineDate.ToString("dd MMM yyyy")</td>
+                            <td>@fine.DueDate.ToString("dd MMM yyyy")</td>
+                            <!-- Updated Return Date logic -->
+                            <td>@(fine.ReturnDate is DateTime date ? date.ToString("dd MMM yyyy") : "Not Returned")</td>
+                            <td>
+                                <span class="badge @(fine.Status == "Paid" ? "bg-success" : "bg-danger")">
+                                    @fine.Status
+                                </span>
+                            </td>
+                        </tr>
+                    }
+                }
+                else
+                {
+                    <tr>
+                        <td colspan="6" class="text-center text-danger">No fines to show.</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

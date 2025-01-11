@@ -523,7 +523,7 @@ namespace LibraryManagementSystem.Controllers
             var metrics = GetMetrics();
             return Json(new { success = true, message = "Fine marked as paid successfully!", metrics });
         }
-
+      
         public IActionResult GenerateReports()
         {
             return PartialView("GenerateReports");

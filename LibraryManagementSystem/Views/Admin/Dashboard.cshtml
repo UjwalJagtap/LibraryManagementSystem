@@ -117,11 +117,18 @@
             type: "GET",
             success: function (data) {
                 $("#content").html(data);
+                updateMetrics(response.metrics);
             },
             error: function () {
                 alert(`Error loading ${action} view.`);
             }
         });
     }
+    function updateMetrics(metrics) {
 
+        $("#totalBooks").text(metrics.totalBooks);
+        $("#totalStudents").text(metrics.totalStudents);
+        $("#totalIssuedBooks").text(metrics.totalIssuedBooks);
+        $("#totalOverdueBooks").text(metrics.totalOverdueBooks);
+    }
 </script>
