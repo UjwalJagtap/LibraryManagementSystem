@@ -63,7 +63,7 @@
                 alert(response.message);
 
                 if (response.success) {
-                    loadContent('ViewIssuedBooks'); // Reload issued books after return
+                    loadContent('ReturnBook'); // Reload issued books after return
                     updateMetrics(response.metrics); // Update metrics dynamically
                 } else if (response.redirectTo) {
                     // Redirect to manage fines if the book is overdue

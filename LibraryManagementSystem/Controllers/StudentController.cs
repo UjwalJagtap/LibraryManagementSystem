@@ -56,35 +56,31 @@ public class StudentController : Controller
 
         return PartialView("Books", books); // Return updated list in the same partial view
     }
-
     [HttpPost]
     public IActionResult RequestBook(int bookId)
     {
         var userId = HttpContext.Session.GetInt32("UserId");
         if (!userId.HasValue)
-            return Json(new { success = false, message = "User not logged in." });
-
-        // Check if a pending or approved request already exists for the same book and user
-        var requests = _context.BookRequests.Where(r => r.BookId == bookId && r.UserId == userId.Value).ToList();
-
-        foreach (var request in requests)
         {
-            Console.WriteLine($"Request ID: {request.RequestId}, Status: {request.Status}");
+            return Json(new { success = false, message = "User not logged in." });
         }
-        bool requestExists = _context.BookRequests.Any(r =>
+
+        // Check for any active requests (Pending/Approved) but ignore Returned requests
+        bool activeRequestExists = _context.BookRequests.Any(r =>
             r.BookId == bookId &&
             r.UserId == userId.Value &&
             (r.Status == "Pending" || r.Status == "Approved"));
 
-        if (requestExists)
+        if (activeRequestExists)
         {
             return Json(new { success = false, message = "You have already requested or issued this book." });
         }
 
+        // Create a new book request as the previous one is either returned or doesn't exist
         var newRequest = new BookRequest
         {
-            BookId = bookId,
             UserId = userId.Value,
+            BookId = bookId,
             RequestDate = DateTime.Now,
             Status = "Pending",
             RequestType = "New"
@@ -95,6 +91,7 @@ public class StudentController : Controller
 
         return Json(new { success = true, message = "Book request submitted successfully!" });
     }
+
     [HttpPost]
     public IActionResult RenewBook(int issuedBookId)
     {
@@ -148,6 +145,37 @@ public class StudentController : Controller
 
     return PartialView("ViewBookRequests", bookRequests);
     }
+    [HttpGet]
+    public IActionResult FilterBookRequests(string status)
+    {
+        try
+        {
+            var userId = HttpContext.Session.GetInt32("UserId");
+            if (!userId.HasValue)
+            {
+                return Unauthorized(); // Redirect to login if not authenticated
+            }
+
+            IQueryable<BookRequest> requestsQuery = _context.BookRequests
+                .Include(r => r.Book)
+                .Where(r => r.UserId == userId.Value);
+
+            if (!string.IsNullOrWhiteSpace(status) && status != "All")
+            {
+                requestsQuery = requestsQuery.Where(r => r.Status == status);
+            }
+
+            var filteredRequests = requestsQuery.OrderByDescending(r => r.RequestDate).ToList();
+
+            ViewBag.SelectedStatus = status; // Pass the selected status to the view
+            return PartialView("ViewBookRequests", filteredRequests);
+        }
+        catch (Exception ex)
+        {
+            return Json(new { success = false, message = $"Error loading filtered requests: {ex.Message}" });
+        }
+    }
+
 
 
     [HttpPost]
@@ -184,27 +212,92 @@ public class StudentController : Controller
 
         return Json(new { success = true, message = "All requests cleared successfully!" });
     }
-    public IActionResult ViewIssuedBooks()
+    [HttpGet]
+    public IActionResult ViewIssuedBooks(string filter = "All")
     {
         var userId = HttpContext.Session.GetInt32("UserId");
         if (!userId.HasValue)
-            return RedirectToAction("Index", "Home");
+            return Unauthorized();
 
-        var issuedBooks = _context.IssuedBooks
-            .Where(ib => ib.UserId == userId.Value && ib.ReturnDate == null)
-            .Select(ib => new
-            {
-                ib.IssuedBookId,
-                BookTitle = ib.Book.Title,
-                Author = ib.Book.Author,
-                ib.IssueDate,
-                ib.DueDate,
-                ib.ReturnDate
-            })
-            .ToList();
+        var issuedBooksQuery = _context.IssuedBooks
+            .Include(ib => ib.Book)
+            .Where(ib => ib.UserId == userId.Value);
 
+        // Apply the filter
+        if (filter == "On Time")
+        {
+            issuedBooksQuery = issuedBooksQuery.Where(ib => ib.DueDate >= DateTime.Now || ib.ReturnDate != null);
+        }
+        else if (filter == "Overdue")
+        {
+            issuedBooksQuery = issuedBooksQuery.Where(ib => ib.DueDate < DateTime.Now && ib.ReturnDate == null);
+        }
+
+        var issuedBooks = issuedBooksQuery.Select(ib => new
+        {
+            ib.IssuedBookId,
+            BookTitle = ib.Book.Title,
+            Author = ib.Book.Author,
+            IssueDate = ib.IssueDate,
+            DueDate = ib.DueDate,
+            ReturnDate = ib.ReturnDate
+        }).ToList();
+
+        ViewBag.SelectedFilter = filter; // Store the selected filter
         return PartialView("ViewIssuedBooks", issuedBooks);
     }
+
+
+    [HttpGet]
+    public IActionResult FilterIssuedBooks(string status)
+    {
+        try
+        {
+            var userId = HttpContext.Session.GetInt32("UserId");
+            if (!userId.HasValue)
+            {
+                return Unauthorized(); // Redirect to login if not authenticated
+            }
+
+            // Get issued books for the logged-in user
+            IQueryable<IssuedBook> issuedBooksQuery = _context.IssuedBooks
+                .Include(ib => ib.Book) // Eagerly load Book details
+                .Where(ib => ib.UserId == userId.Value);
+
+            if (!string.IsNullOrWhiteSpace(status) && status != "All")
+            {
+                if (status == "Overdue")
+                {
+                    issuedBooksQuery = issuedBooksQuery.Where(ib => ib.DueDate < DateTime.Now && ib.ReturnDate == null);
+                }
+                else if (status == "On Time")
+                {
+                    issuedBooksQuery = issuedBooksQuery.Where(ib => ib.DueDate >= DateTime.Now && ib.ReturnDate == null);
+                }
+            }
+
+            var filteredIssuedBooks = issuedBooksQuery
+                .Select(ib => new
+                {
+                    ib.IssuedBookId,
+                    BookTitle = ib.Book.Title,
+                    Author = ib.Book.Author,
+                    IssueDate = ib.IssueDate,
+                    DueDate = ib.DueDate,
+                    ReturnDate = ib.ReturnDate
+                })
+                .ToList();
+
+            return PartialView("ViewIssuedBooks", filteredIssuedBooks);
+        }
+        catch (Exception ex)
+        {
+            return Json(new { success = false, message = $"Error loading issued books: {ex.Message}" });
+        }
+    }
+
+
+
     [HttpGet]
     public IActionResult ViewFines()
     {

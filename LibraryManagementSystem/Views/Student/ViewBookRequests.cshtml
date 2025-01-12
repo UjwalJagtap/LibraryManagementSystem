@@ -2,6 +2,17 @@
 
 <div class="container mt-4">
     <h3>Your Book Requests</h3>
+    <div class="d-flex justify-content-between mb-3">
+        <label for="filterStatus" class="fw-bold">Filter by Status:</label>
+        <select id="filterStatus" class="form-select w-auto" onchange="filterRequests()">
+            <option value="All">All</option>
+            <option value="Pending">Pending</option>
+            <option value="Approved">Approved</option>
+            <option value="Rejected">Rejected</option>
+            <option value="Returned">Returned</option>
+            <option value="Cancelled">Cancelled</option>
+        </select>
+    </div>
 
     <table class="table table-bordered mt-3">
         <thead class="thead-light">
@@ -105,4 +116,27 @@
             }
         });
     }
+
+    function filterRequests() {
+        var selectedStatus = $("#filterStatus").val();
+
+        $.ajax({
+            url: `/Student/FilterBookRequests?status=${selectedStatus}`,
+            type: "GET",
+            success: function (response) {
+                $("#content").html(response); // Replace the table with filtered results
+                setDropdownValue(selectedStatus); // Set the dropdown to the selected value
+            },
+            error: function () {
+                alert("Error loading filtered requests.");
+            }
+        });
+    }
+
+    function setDropdownValue(status) {
+        $("#filterStatus").val(status); // Set the value of the dropdown to the selected filter
+    }
+
+ 
+
 </script>

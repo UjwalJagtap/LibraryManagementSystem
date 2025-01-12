@@ -1,7 +1,15 @@
 ﻿@model IEnumerable<dynamic>
-
 <div class="container mt-4">
     <h4>Your Issued Books</h4>
+    <div class="d-flex justify-content-between mb-3">
+        <label for="filterIssuedStatus" class="fw-bold">Filter by Status:</label>
+        <select id="filterIssuedStatus" class="form-select w-auto" onchange="filterIssuedBooks()">
+            <option value="All">All</option>
+            <option value="On Time">On Time</option>
+            <option value="Overdue">Overdue</option>
+        </select>
+    </div>
+
     @if (Model != null && Model.Any())
     {
         <table class="table table-bordered">
@@ -11,7 +19,7 @@
                     <th>Author</th>
                     <th>Issue Date</th>
                     <th>Due Date</th>
-                    <th>Return Date</th> <!-- Added new column for return date -->
+                    <th>Return Date</th>
                     <th>Status</th>
                     <th>Actions</th>
                 </tr>
@@ -24,50 +32,29 @@
                         <td>@book.Author</td>
                         <td>@book.IssueDate.ToString("dd MMM yyyy")</td>
                         <td>@book.DueDate.ToString("dd MMM yyyy")</td>
-
-                        <!-- Return Date Column -->
+                        <td>@(book.ReturnDate != null ? book.ReturnDate?.ToString("dd MMM yyyy") : "Not Returned")</td>
                         <td>
-                            @{
-                                if (book.ReturnDate == null)
-                                {
-                                    <span class="badge bg-warning">Not Returned</span>
-                                }
-                                else
-                                {
-                                    <span>@book.ReturnDate?.ToString("dd MMM yyyy")</span>
-                                }
+                            @if (book.DueDate < DateTime.Now && book.ReturnDate == null)
+                            {
+                                <span class="badge bg-danger">Overdue</span>
+                            }
+                            else if (book.ReturnDate != null)
+                            {
+                                <span class="badge bg-secondary">Returned</span>
+                            }
+                            else
+                            {
+                                <span class="badge bg-success">On Time</span>
                             }
                         </td>
-
-                        <!-- Book Status (Overdue or On Time) -->
                         <td>
-                            @{
-                                if (book.DueDate < DateTime.Now && book.ReturnDate == null)
-                                {
-                                    <span class="badge bg-danger">Overdue</span>
-                                }
-                                else if (book.ReturnDate != null)
-                                {
-                                    <span class="badge bg-info">Returned</span>
-                                }
-                                else
-                                {
-                                    <span class="badge bg-success">On Time</span>
-                                }
+                            @if (book.ReturnDate == null && !(book.DueDate < DateTime.Now))
+                            {
+                                <button class="btn btn-warning btn-sm" onclick="renewBook(@book.IssuedBookId)">Renew Book</button>
                             }
-                        </td>
-
-                        <!-- Actions Column (Renew Button) -->
-                        <td>
-                            @{
-                                if (book.ReturnDate == null && !(book.DueDate < DateTime.Now))
-                                {
-                                    <button class="btn btn-warning btn-sm" onclick="renewBook(@book.IssuedBookId)">Renew Book</button>
-                                }
-                                else
-                                {
-                                    <span class="text-muted">No Actions Available</span>
-                                }
+                            else
+                            {
+                                <span class="text-muted">No Actions Available</span>
                             }
                         </td>
                     </tr>
@@ -80,7 +67,6 @@
         <p class="text-danger">No books have been issued to you.</p>
     }
 </div>
-
 <script>
     function loadIssuedBooks() {
         $.ajax({
@@ -116,4 +102,20 @@
             }
         });
     }
+    function filterIssuedBooks() {
+        var selectedStatus = $("#filterIssuedStatus").val();
+
+        $.ajax({
+            url: `/Student/FilterIssuedBooks?status=${selectedStatus}`,
+            type: "GET",
+            success: function (data) {
+                $("#content").html(data); // Replace content with the filtered issued books table
+                $("#filterIssuedStatus").val(selectedStatus); // Preserve selected filter in the dropdown
+            },
+            error: function () {
+                alert("Error loading issued books.");
+            }
+        });
+    }
+     
 </script>

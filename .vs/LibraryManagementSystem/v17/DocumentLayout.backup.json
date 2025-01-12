@@ -3,20 +3,60 @@
   "WorkspaceRootPath": "C:\\Users\\jagta\\OneDrive\\Desktop\\LibraryManagementSystem\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{F9CD7EE4-B28B-409F-BD11-CBA987925E13}|LibraryManagementSystem\\LibraryManagementSystem.csproj|c:\\users\\jagta\\onedrive\\desktop\\librarymanagementsystem\\librarymanagementsystem\\controllers\\admincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F9CD7EE4-B28B-409F-BD11-CBA987925E13}|LibraryManagementSystem\\LibraryManagementSystem.csproj|solutionrelative:librarymanagementsystem\\controllers\\admincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F9CD7EE4-B28B-409F-BD11-CBA987925E13}|LibraryManagementSystem\\LibraryManagementSystem.csproj|c:\\users\\jagta\\onedrive\\desktop\\librarymanagementsystem\\librarymanagementsystem\\controllers\\errorcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F9CD7EE4-B28B-409F-BD11-CBA987925E13}|LibraryManagementSystem\\LibraryManagementSystem.csproj|solutionrelative:librarymanagementsystem\\controllers\\errorcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{F9CD7EE4-B28B-409F-BD11-CBA987925E13}|LibraryManagementSystem\\LibraryManagementSystem.csproj|c:\\users\\jagta\\onedrive\\desktop\\librarymanagementsystem\\librarymanagementsystem\\controllers\\studentcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{F9CD7EE4-B28B-409F-BD11-CBA987925E13}|LibraryManagementSystem\\LibraryManagementSystem.csproj|solutionrelative:librarymanagementsystem\\controllers\\studentcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F9CD7EE4-B28B-409F-BD11-CBA987925E13}|LibraryManagementSystem\\LibraryManagementSystem.csproj|c:\\users\\jagta\\onedrive\\desktop\\librarymanagementsystem\\librarymanagementsystem\\views\\student\\viewfines.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{F9CD7EE4-B28B-409F-BD11-CBA987925E13}|LibraryManagementSystem\\LibraryManagementSystem.csproj|solutionrelative:librarymanagementsystem\\views\\student\\viewfines.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F9CD7EE4-B28B-409F-BD11-CBA987925E13}|LibraryManagementSystem\\LibraryManagementSystem.csproj|c:\\users\\jagta\\onedrive\\desktop\\librarymanagementsystem\\librarymanagementsystem\\views\\student\\viewissuedbooks.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{F9CD7EE4-B28B-409F-BD11-CBA987925E13}|LibraryManagementSystem\\LibraryManagementSystem.csproj|solutionrelative:librarymanagementsystem\\views\\student\\viewissuedbooks.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{F9CD7EE4-B28B-409F-BD11-CBA987925E13}|LibraryManagementSystem\\LibraryManagementSystem.csproj|c:\\users\\jagta\\onedrive\\desktop\\librarymanagementsystem\\librarymanagementsystem\\views\\student\\viewbookrequests.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{F9CD7EE4-B28B-409F-BD11-CBA987925E13}|LibraryManagementSystem\\LibraryManagementSystem.csproj|solutionrelative:librarymanagementsystem\\views\\student\\viewbookrequests.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{F9CD7EE4-B28B-409F-BD11-CBA987925E13}|LibraryManagementSystem\\LibraryManagementSystem.csproj|c:\\users\\jagta\\onedrive\\desktop\\librarymanagementsystem\\librarymanagementsystem\\models\\issuedbook.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F9CD7EE4-B28B-409F-BD11-CBA987925E13}|LibraryManagementSystem\\LibraryManagementSystem.csproj|solutionrelative:librarymanagementsystem\\models\\issuedbook.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{F9CD7EE4-B28B-409F-BD11-CBA987925E13}|LibraryManagementSystem\\LibraryManagementSystem.csproj|c:\\users\\jagta\\onedrive\\desktop\\librarymanagementsystem\\librarymanagementsystem\\views\\admin\\returnbook.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{F9CD7EE4-B28B-409F-BD11-CBA987925E13}|LibraryManagementSystem\\LibraryManagementSystem.csproj|solutionrelative:librarymanagementsystem\\views\\admin\\returnbook.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{F9CD7EE4-B28B-409F-BD11-CBA987925E13}|LibraryManagementSystem\\LibraryManagementSystem.csproj|c:\\users\\jagta\\onedrive\\desktop\\librarymanagementsystem\\librarymanagementsystem\\controllers\\admincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F9CD7EE4-B28B-409F-BD11-CBA987925E13}|LibraryManagementSystem\\LibraryManagementSystem.csproj|solutionrelative:librarymanagementsystem\\controllers\\admincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{F9CD7EE4-B28B-409F-BD11-CBA987925E13}|LibraryManagementSystem\\LibraryManagementSystem.csproj|c:\\users\\jagta\\onedrive\\desktop\\librarymanagementsystem\\librarymanagementsystem\\views\\admin\\managebookrequests.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{F9CD7EE4-B28B-409F-BD11-CBA987925E13}|LibraryManagementSystem\\LibraryManagementSystem.csproj|solutionrelative:librarymanagementsystem\\views\\admin\\managebookrequests.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F9CD7EE4-B28B-409F-BD11-CBA987925E13}|LibraryManagementSystem\\LibraryManagementSystem.csproj|c:\\users\\jagta\\onedrive\\desktop\\librarymanagementsystem\\librarymanagementsystem\\views\\admin\\searchbooks.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{F9CD7EE4-B28B-409F-BD11-CBA987925E13}|LibraryManagementSystem\\LibraryManagementSystem.csproj|solutionrelative:librarymanagementsystem\\views\\admin\\searchbooks.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F9CD7EE4-B28B-409F-BD11-CBA987925E13}|LibraryManagementSystem\\LibraryManagementSystem.csproj|c:\\users\\jagta\\onedrive\\desktop\\librarymanagementsystem\\librarymanagementsystem\\views\\admin\\studentinfo.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{F9CD7EE4-B28B-409F-BD11-CBA987925E13}|LibraryManagementSystem\\LibraryManagementSystem.csproj|solutionrelative:librarymanagementsystem\\views\\admin\\studentinfo.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F9CD7EE4-B28B-409F-BD11-CBA987925E13}|LibraryManagementSystem\\LibraryManagementSystem.csproj|c:\\users\\jagta\\onedrive\\desktop\\librarymanagementsystem\\librarymanagementsystem\\views\\admin\\viewissuedbooks.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{F9CD7EE4-B28B-409F-BD11-CBA987925E13}|LibraryManagementSystem\\LibraryManagementSystem.csproj|solutionrelative:librarymanagementsystem\\views\\admin\\viewissuedbooks.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F9CD7EE4-B28B-409F-BD11-CBA987925E13}|LibraryManagementSystem\\LibraryManagementSystem.csproj|c:\\users\\jagta\\onedrive\\desktop\\librarymanagementsystem\\librarymanagementsystem\\views\\student\\searchbooks.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{F9CD7EE4-B28B-409F-BD11-CBA987925E13}|LibraryManagementSystem\\LibraryManagementSystem.csproj|solutionrelative:librarymanagementsystem\\views\\student\\searchbooks.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F9CD7EE4-B28B-409F-BD11-CBA987925E13}|LibraryManagementSystem\\LibraryManagementSystem.csproj|c:\\users\\jagta\\onedrive\\desktop\\librarymanagementsystem\\librarymanagementsystem\\views\\student\\dashboard.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{F9CD7EE4-B28B-409F-BD11-CBA987925E13}|LibraryManagementSystem\\LibraryManagementSystem.csproj|solutionrelative:librarymanagementsystem\\views\\student\\dashboard.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{F9CD7EE4-B28B-409F-BD11-CBA987925E13}|LibraryManagementSystem\\LibraryManagementSystem.csproj|c:\\users\\jagta\\onedrive\\desktop\\librarymanagementsystem\\librarymanagementsystem\\views\\admin\\dashboard.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
@@ -31,16 +71,8 @@
       "RelativeMoniker": "D:0:0:{F9CD7EE4-B28B-409F-BD11-CBA987925E13}|LibraryManagementSystem\\LibraryManagementSystem.csproj|solutionrelative:librarymanagementsystem\\controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{F9CD7EE4-B28B-409F-BD11-CBA987925E13}|LibraryManagementSystem\\LibraryManagementSystem.csproj|c:\\users\\jagta\\onedrive\\desktop\\librarymanagementsystem\\librarymanagementsystem\\views\\student\\dashboard.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{F9CD7EE4-B28B-409F-BD11-CBA987925E13}|LibraryManagementSystem\\LibraryManagementSystem.csproj|solutionrelative:librarymanagementsystem\\views\\student\\dashboard.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{F9CD7EE4-B28B-409F-BD11-CBA987925E13}|LibraryManagementSystem\\LibraryManagementSystem.csproj|c:\\users\\jagta\\onedrive\\desktop\\librarymanagementsystem\\librarymanagementsystem\\views\\admin\\books.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{F9CD7EE4-B28B-409F-BD11-CBA987925E13}|LibraryManagementSystem\\LibraryManagementSystem.csproj|solutionrelative:librarymanagementsystem\\views\\admin\\books.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F9CD7EE4-B28B-409F-BD11-CBA987925E13}|LibraryManagementSystem\\LibraryManagementSystem.csproj|c:\\users\\jagta\\onedrive\\desktop\\librarymanagementsystem\\librarymanagementsystem\\views\\student\\viewfines.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{F9CD7EE4-B28B-409F-BD11-CBA987925E13}|LibraryManagementSystem\\LibraryManagementSystem.csproj|solutionrelative:librarymanagementsystem\\views\\student\\viewfines.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{F9CD7EE4-B28B-409F-BD11-CBA987925E13}|LibraryManagementSystem\\LibraryManagementSystem.csproj|c:\\users\\jagta\\onedrive\\desktop\\librarymanagementsystem\\librarymanagementsystem\\views\\student\\returnbooks.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
@@ -49,10 +81,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{F9CD7EE4-B28B-409F-BD11-CBA987925E13}|LibraryManagementSystem\\LibraryManagementSystem.csproj|c:\\users\\jagta\\onedrive\\desktop\\librarymanagementsystem\\librarymanagementsystem\\wwwroot\\css\\site.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
       "RelativeMoniker": "D:0:0:{F9CD7EE4-B28B-409F-BD11-CBA987925E13}|LibraryManagementSystem\\LibraryManagementSystem.csproj|solutionrelative:librarymanagementsystem\\wwwroot\\css\\site.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F9CD7EE4-B28B-409F-BD11-CBA987925E13}|LibraryManagementSystem\\LibraryManagementSystem.csproj|c:\\users\\jagta\\onedrive\\desktop\\librarymanagementsystem\\librarymanagementsystem\\models\\issuedbook.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F9CD7EE4-B28B-409F-BD11-CBA987925E13}|LibraryManagementSystem\\LibraryManagementSystem.csproj|solutionrelative:librarymanagementsystem\\models\\issuedbook.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{F9CD7EE4-B28B-409F-BD11-CBA987925E13}|LibraryManagementSystem\\LibraryManagementSystem.csproj|c:\\users\\jagta\\onedrive\\desktop\\librarymanagementsystem\\librarymanagementsystem\\models\\fine.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -65,18 +93,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{F9CD7EE4-B28B-409F-BD11-CBA987925E13}|LibraryManagementSystem\\LibraryManagementSystem.csproj|c:\\users\\jagta\\onedrive\\desktop\\librarymanagementsystem\\librarymanagementsystem\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{F9CD7EE4-B28B-409F-BD11-CBA987925E13}|LibraryManagementSystem\\LibraryManagementSystem.csproj|solutionrelative:librarymanagementsystem\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F9CD7EE4-B28B-409F-BD11-CBA987925E13}|LibraryManagementSystem\\LibraryManagementSystem.csproj|c:\\users\\jagta\\onedrive\\desktop\\librarymanagementsystem\\librarymanagementsystem\\views\\admin\\managebookrequests.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{F9CD7EE4-B28B-409F-BD11-CBA987925E13}|LibraryManagementSystem\\LibraryManagementSystem.csproj|solutionrelative:librarymanagementsystem\\views\\admin\\managebookrequests.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F9CD7EE4-B28B-409F-BD11-CBA987925E13}|LibraryManagementSystem\\LibraryManagementSystem.csproj|c:\\users\\jagta\\onedrive\\desktop\\librarymanagementsystem\\librarymanagementsystem\\views\\student\\viewissuedbooks.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{F9CD7EE4-B28B-409F-BD11-CBA987925E13}|LibraryManagementSystem\\LibraryManagementSystem.csproj|solutionrelative:librarymanagementsystem\\views\\student\\viewissuedbooks.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F9CD7EE4-B28B-409F-BD11-CBA987925E13}|LibraryManagementSystem\\LibraryManagementSystem.csproj|c:\\users\\jagta\\onedrive\\desktop\\librarymanagementsystem\\librarymanagementsystem\\views\\admin\\viewissuedbooks.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{F9CD7EE4-B28B-409F-BD11-CBA987925E13}|LibraryManagementSystem\\LibraryManagementSystem.csproj|solutionrelative:librarymanagementsystem\\views\\admin\\viewissuedbooks.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{F9CD7EE4-B28B-409F-BD11-CBA987925E13}|LibraryManagementSystem\\LibraryManagementSystem.csproj|c:\\users\\jagta\\onedrive\\desktop\\librarymanagementsystem\\librarymanagementsystem\\models\\bookrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -107,10 +123,6 @@
       "RelativeMoniker": "D:0:0:{F9CD7EE4-B28B-409F-BD11-CBA987925E13}|LibraryManagementSystem\\LibraryManagementSystem.csproj|solutionrelative:librarymanagementsystem\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{F9CD7EE4-B28B-409F-BD11-CBA987925E13}|LibraryManagementSystem\\LibraryManagementSystem.csproj|c:\\users\\jagta\\onedrive\\desktop\\librarymanagementsystem\\librarymanagementsystem\\views\\student\\searchbooks.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{F9CD7EE4-B28B-409F-BD11-CBA987925E13}|LibraryManagementSystem\\LibraryManagementSystem.csproj|solutionrelative:librarymanagementsystem\\views\\student\\searchbooks.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{F9CD7EE4-B28B-409F-BD11-CBA987925E13}|LibraryManagementSystem\\LibraryManagementSystem.csproj|c:\\users\\jagta\\onedrive\\desktop\\librarymanagementsystem\\librarymanagementsystem\\models\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{F9CD7EE4-B28B-409F-BD11-CBA987925E13}|LibraryManagementSystem\\LibraryManagementSystem.csproj|solutionrelative:librarymanagementsystem\\models\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -123,24 +135,12 @@
       "RelativeMoniker": "D:0:0:{F9CD7EE4-B28B-409F-BD11-CBA987925E13}|LibraryManagementSystem\\LibraryManagementSystem.csproj|solutionrelative:librarymanagementsystem\\views\\admin\\addbooks.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{F9CD7EE4-B28B-409F-BD11-CBA987925E13}|LibraryManagementSystem\\LibraryManagementSystem.csproj|c:\\users\\jagta\\onedrive\\desktop\\librarymanagementsystem\\librarymanagementsystem\\views\\admin\\studentinfo.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{F9CD7EE4-B28B-409F-BD11-CBA987925E13}|LibraryManagementSystem\\LibraryManagementSystem.csproj|solutionrelative:librarymanagementsystem\\views\\admin\\studentinfo.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F9CD7EE4-B28B-409F-BD11-CBA987925E13}|LibraryManagementSystem\\LibraryManagementSystem.csproj|c:\\users\\jagta\\onedrive\\desktop\\librarymanagementsystem\\librarymanagementsystem\\views\\admin\\searchbooks.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{F9CD7EE4-B28B-409F-BD11-CBA987925E13}|LibraryManagementSystem\\LibraryManagementSystem.csproj|solutionrelative:librarymanagementsystem\\views\\admin\\searchbooks.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{F9CD7EE4-B28B-409F-BD11-CBA987925E13}|LibraryManagementSystem\\LibraryManagementSystem.csproj|c:\\users\\jagta\\onedrive\\desktop\\librarymanagementsystem\\librarymanagementsystem\\models\\studentreport.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{F9CD7EE4-B28B-409F-BD11-CBA987925E13}|LibraryManagementSystem\\LibraryManagementSystem.csproj|solutionrelative:librarymanagementsystem\\models\\studentreport.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{F9CD7EE4-B28B-409F-BD11-CBA987925E13}|LibraryManagementSystem\\LibraryManagementSystem.csproj|c:\\users\\jagta\\onedrive\\desktop\\librarymanagementsystem\\librarymanagementsystem\\models\\loginviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{F9CD7EE4-B28B-409F-BD11-CBA987925E13}|LibraryManagementSystem\\LibraryManagementSystem.csproj|solutionrelative:librarymanagementsystem\\models\\loginviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F9CD7EE4-B28B-409F-BD11-CBA987925E13}|LibraryManagementSystem\\LibraryManagementSystem.csproj|c:\\users\\jagta\\onedrive\\desktop\\librarymanagementsystem\\librarymanagementsystem\\controllers\\errorcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F9CD7EE4-B28B-409F-BD11-CBA987925E13}|LibraryManagementSystem\\LibraryManagementSystem.csproj|solutionrelative:librarymanagementsystem\\controllers\\errorcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{F9CD7EE4-B28B-409F-BD11-CBA987925E13}|LibraryManagementSystem\\LibraryManagementSystem.csproj|c:\\users\\jagta\\onedrive\\desktop\\librarymanagementsystem\\librarymanagementsystem\\views\\_viewstart.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
@@ -241,50 +241,193 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Document",
               "DocumentIndex": 3,
-              "Title": "AdminController.cs",
-              "DocumentMoniker": "C:\\Users\\jagta\\OneDrive\\Desktop\\LibraryManagementSystem\\LibraryManagementSystem\\Controllers\\AdminController.cs",
-              "RelativeDocumentMoniker": "LibraryManagementSystem\\Controllers\\AdminController.cs",
-              "ToolTip": "C:\\Users\\jagta\\OneDrive\\Desktop\\LibraryManagementSystem\\LibraryManagementSystem\\Controllers\\AdminController.cs",
-              "RelativeToolTip": "LibraryManagementSystem\\Controllers\\AdminController.cs",
-              "ViewState": "AgIAACcCAAAAAAAAAAAAwEQCAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-07T06:06:11.652Z",
+              "Title": "ViewFines.cshtml",
+              "DocumentMoniker": "C:\\Users\\jagta\\OneDrive\\Desktop\\LibraryManagementSystem\\LibraryManagementSystem\\Views\\Student\\ViewFines.cshtml",
+              "RelativeDocumentMoniker": "LibraryManagementSystem\\Views\\Student\\ViewFines.cshtml",
+              "ToolTip": "C:\\Users\\jagta\\OneDrive\\Desktop\\LibraryManagementSystem\\LibraryManagementSystem\\Views\\Student\\ViewFines.cshtml",
+              "RelativeToolTip": "LibraryManagementSystem\\Views\\Student\\ViewFines.cshtml",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAAwBEAAAAhAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-01-10T18:16:50.576Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "ReturnBook.cshtml",
-              "DocumentMoniker": "C:\\Users\\jagta\\OneDrive\\Desktop\\LibraryManagementSystem\\LibraryManagementSystem\\Views\\Admin\\ReturnBook.cshtml",
-              "RelativeDocumentMoniker": "LibraryManagementSystem\\Views\\Admin\\ReturnBook.cshtml",
-              "ToolTip": "C:\\Users\\jagta\\OneDrive\\Desktop\\LibraryManagementSystem\\LibraryManagementSystem\\Views\\Admin\\ReturnBook.cshtml",
-              "RelativeToolTip": "LibraryManagementSystem\\Views\\Admin\\ReturnBook.cshtml",
-              "ViewState": "AgIAACIAAAAAAAAAAAAAACUAAABaAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-01-11T12:10:12.442Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
               "Title": "StudentController.cs",
               "DocumentMoniker": "C:\\Users\\jagta\\OneDrive\\Desktop\\LibraryManagementSystem\\LibraryManagementSystem\\Controllers\\StudentController.cs",
               "RelativeDocumentMoniker": "LibraryManagementSystem\\Controllers\\StudentController.cs",
               "ToolTip": "C:\\Users\\jagta\\OneDrive\\Desktop\\LibraryManagementSystem\\LibraryManagementSystem\\Controllers\\StudentController.cs",
               "RelativeToolTip": "LibraryManagementSystem\\Controllers\\StudentController.cs",
-              "ViewState": "AgIAAH0AAAAAAAAAAAAswJMAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAADsAAAAAAAAAAAAAwEsAAABpAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-01-07T16:33:00.256Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "ErrorController.cs",
+              "DocumentMoniker": "C:\\Users\\jagta\\OneDrive\\Desktop\\LibraryManagementSystem\\LibraryManagementSystem\\Controllers\\ErrorController.cs",
+              "RelativeDocumentMoniker": "LibraryManagementSystem\\Controllers\\ErrorController.cs",
+              "ToolTip": "C:\\Users\\jagta\\OneDrive\\Desktop\\LibraryManagementSystem\\LibraryManagementSystem\\Controllers\\ErrorController.cs",
+              "RelativeToolTip": "LibraryManagementSystem\\Controllers\\ErrorController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAhAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-12T16:03:03.098Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "AdminController.cs",
+              "DocumentMoniker": "C:\\Users\\jagta\\OneDrive\\Desktop\\LibraryManagementSystem\\LibraryManagementSystem\\Controllers\\AdminController.cs",
+              "RelativeDocumentMoniker": "LibraryManagementSystem\\Controllers\\AdminController.cs",
+              "ToolTip": "C:\\Users\\jagta\\OneDrive\\Desktop\\LibraryManagementSystem\\LibraryManagementSystem\\Controllers\\AdminController.cs",
+              "RelativeToolTip": "LibraryManagementSystem\\Controllers\\AdminController.cs",
+              "ViewState": "AgIAACACAAAAAAAAAAAAAC0CAAArAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-07T06:06:11.652Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "IssuedBook.cs",
+              "DocumentMoniker": "C:\\Users\\jagta\\OneDrive\\Desktop\\LibraryManagementSystem\\LibraryManagementSystem\\Models\\IssuedBook.cs",
+              "RelativeDocumentMoniker": "LibraryManagementSystem\\Models\\IssuedBook.cs",
+              "ToolTip": "C:\\Users\\jagta\\OneDrive\\Desktop\\LibraryManagementSystem\\LibraryManagementSystem\\Models\\IssuedBook.cs",
+              "RelativeToolTip": "LibraryManagementSystem\\Models\\IssuedBook.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAAmAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-12T15:48:12.693Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "ViewIssuedBooks.cshtml",
+              "DocumentMoniker": "C:\\Users\\jagta\\OneDrive\\Desktop\\LibraryManagementSystem\\LibraryManagementSystem\\Views\\Student\\ViewIssuedBooks.cshtml",
+              "RelativeDocumentMoniker": "LibraryManagementSystem\\Views\\Student\\ViewIssuedBooks.cshtml",
+              "ToolTip": "C:\\Users\\jagta\\OneDrive\\Desktop\\LibraryManagementSystem\\LibraryManagementSystem\\Views\\Student\\ViewIssuedBooks.cshtml",
+              "RelativeToolTip": "LibraryManagementSystem\\Views\\Student\\ViewIssuedBooks.cshtml",
+              "ViewState": "AgIAADIAAAAAAAAAAAAQwHYAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-01-09T05:15:18.136Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 5,
+              "Title": "ViewBookRequests.cshtml",
+              "DocumentMoniker": "C:\\Users\\jagta\\OneDrive\\Desktop\\LibraryManagementSystem\\LibraryManagementSystem\\Views\\Student\\ViewBookRequests.cshtml",
+              "RelativeDocumentMoniker": "LibraryManagementSystem\\Views\\Student\\ViewBookRequests.cshtml",
+              "ToolTip": "C:\\Users\\jagta\\OneDrive\\Desktop\\LibraryManagementSystem\\LibraryManagementSystem\\Views\\Student\\ViewBookRequests.cshtml",
+              "RelativeToolTip": "LibraryManagementSystem\\Views\\Student\\ViewBookRequests.cshtml",
+              "ViewState": "AgIAAGkAAAAAAAAAAAAAwI4AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-01-05T18:28:33.816Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "ReturnBook.cshtml",
+              "DocumentMoniker": "C:\\Users\\jagta\\OneDrive\\Desktop\\LibraryManagementSystem\\LibraryManagementSystem\\Views\\Admin\\ReturnBook.cshtml",
+              "RelativeDocumentMoniker": "LibraryManagementSystem\\Views\\Admin\\ReturnBook.cshtml",
+              "ToolTip": "C:\\Users\\jagta\\OneDrive\\Desktop\\LibraryManagementSystem\\LibraryManagementSystem\\Views\\Admin\\ReturnBook.cshtml",
+              "RelativeToolTip": "LibraryManagementSystem\\Views\\Admin\\ReturnBook.cshtml",
+              "ViewState": "AgIAAAcAAAAAAAAAAAAAAEEAAAArAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-01-11T12:10:12.442Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "ManageBookRequests.cshtml",
+              "DocumentMoniker": "C:\\Users\\jagta\\OneDrive\\Desktop\\LibraryManagementSystem\\LibraryManagementSystem\\Views\\Admin\\ManageBookRequests.cshtml",
+              "RelativeDocumentMoniker": "LibraryManagementSystem\\Views\\Admin\\ManageBookRequests.cshtml",
+              "ToolTip": "C:\\Users\\jagta\\OneDrive\\Desktop\\LibraryManagementSystem\\LibraryManagementSystem\\Views\\Admin\\ManageBookRequests.cshtml",
+              "RelativeToolTip": "LibraryManagementSystem\\Views\\Admin\\ManageBookRequests.cshtml",
+              "ViewState": "AgIAAFEAAAAAAAAAAAAAAA0AAAARAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-01-07T17:58:50.822Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "SearchBooks.cshtml",
+              "DocumentMoniker": "C:\\Users\\jagta\\OneDrive\\Desktop\\LibraryManagementSystem\\LibraryManagementSystem\\Views\\Admin\\SearchBooks.cshtml",
+              "RelativeDocumentMoniker": "LibraryManagementSystem\\Views\\Admin\\SearchBooks.cshtml",
+              "ToolTip": "C:\\Users\\jagta\\OneDrive\\Desktop\\LibraryManagementSystem\\LibraryManagementSystem\\Views\\Admin\\SearchBooks.cshtml",
+              "RelativeToolTip": "LibraryManagementSystem\\Views\\Admin\\SearchBooks.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAABQAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-01-07T05:55:46.866Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "StudentInfo.cshtml",
+              "DocumentMoniker": "C:\\Users\\jagta\\OneDrive\\Desktop\\LibraryManagementSystem\\LibraryManagementSystem\\Views\\Admin\\StudentInfo.cshtml",
+              "RelativeDocumentMoniker": "LibraryManagementSystem\\Views\\Admin\\StudentInfo.cshtml",
+              "ToolTip": "C:\\Users\\jagta\\OneDrive\\Desktop\\LibraryManagementSystem\\LibraryManagementSystem\\Views\\Admin\\StudentInfo.cshtml",
+              "RelativeToolTip": "LibraryManagementSystem\\Views\\Admin\\StudentInfo.cshtml",
+              "ViewState": "AgIAAGkAAAAAAAAAAAAAAH8AAAAZAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-01-02T20:27:59.772Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "ViewIssuedBooks.cshtml",
+              "DocumentMoniker": "C:\\Users\\jagta\\OneDrive\\Desktop\\LibraryManagementSystem\\LibraryManagementSystem\\Views\\Admin\\ViewIssuedBooks.cshtml",
+              "RelativeDocumentMoniker": "LibraryManagementSystem\\Views\\Admin\\ViewIssuedBooks.cshtml",
+              "ToolTip": "C:\\Users\\jagta\\OneDrive\\Desktop\\LibraryManagementSystem\\LibraryManagementSystem\\Views\\Admin\\ViewIssuedBooks.cshtml",
+              "RelativeToolTip": "LibraryManagementSystem\\Views\\Admin\\ViewIssuedBooks.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAE8AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-01-08T16:39:02.592Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "SearchBooks.cshtml",
+              "DocumentMoniker": "C:\\Users\\jagta\\OneDrive\\Desktop\\LibraryManagementSystem\\LibraryManagementSystem\\Views\\Student\\SearchBooks.cshtml",
+              "RelativeDocumentMoniker": "LibraryManagementSystem\\Views\\Student\\SearchBooks.cshtml",
+              "ToolTip": "C:\\Users\\jagta\\OneDrive\\Desktop\\LibraryManagementSystem\\LibraryManagementSystem\\Views\\Student\\SearchBooks.cshtml",
+              "RelativeToolTip": "LibraryManagementSystem\\Views\\Student\\SearchBooks.cshtml",
+              "ViewState": "AgIAAC0AAAAAAAAAAAAAACEAAAAmAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-12-26T15:17:35.832Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "Dashboard.cshtml",
+              "DocumentMoniker": "C:\\Users\\jagta\\OneDrive\\Desktop\\LibraryManagementSystem\\LibraryManagementSystem\\Views\\Student\\Dashboard.cshtml",
+              "RelativeDocumentMoniker": "LibraryManagementSystem\\Views\\Student\\Dashboard.cshtml",
+              "ToolTip": "C:\\Users\\jagta\\OneDrive\\Desktop\\LibraryManagementSystem\\LibraryManagementSystem\\Views\\Student\\Dashboard.cshtml",
+              "RelativeToolTip": "LibraryManagementSystem\\Views\\Student\\Dashboard.cshtml",
+              "ViewState": "AgIAAC0AAAAAAAAAAAAAADkAAAAZAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-01-07T17:07:42.242Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
               "Title": "ManageFines.cshtml",
               "DocumentMoniker": "C:\\Users\\jagta\\OneDrive\\Desktop\\LibraryManagementSystem\\LibraryManagementSystem\\Views\\Admin\\ManageFines.cshtml",
               "RelativeDocumentMoniker": "LibraryManagementSystem\\Views\\Admin\\ManageFines.cshtml",
@@ -292,25 +435,11 @@
               "RelativeToolTip": "LibraryManagementSystem\\Views\\Admin\\ManageFines.cshtml",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAATAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-01-09T02:58:33.688Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-01-09T02:58:33.688Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "ViewBookRequests.cshtml",
-              "DocumentMoniker": "C:\\Users\\jagta\\OneDrive\\Desktop\\LibraryManagementSystem\\LibraryManagementSystem\\Views\\Student\\ViewBookRequests.cshtml",
-              "RelativeDocumentMoniker": "LibraryManagementSystem\\Views\\Student\\ViewBookRequests.cshtml",
-              "ToolTip": "C:\\Users\\jagta\\OneDrive\\Desktop\\LibraryManagementSystem\\LibraryManagementSystem\\Views\\Student\\ViewBookRequests.cshtml",
-              "RelativeToolTip": "LibraryManagementSystem\\Views\\Student\\ViewBookRequests.cshtml",
-              "ViewState": "AgIAAEkAAAAAAAAAAAAQwFAAAAAnAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-01-05T18:28:33.816Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 14,
               "Title": "Dashboard.cshtml",
               "DocumentMoniker": "C:\\Users\\jagta\\OneDrive\\Desktop\\LibraryManagementSystem\\LibraryManagementSystem\\Views\\Admin\\Dashboard.cshtml",
               "RelativeDocumentMoniker": "LibraryManagementSystem\\Views\\Admin\\Dashboard.cshtml",
@@ -318,12 +447,11 @@
               "RelativeToolTip": "LibraryManagementSystem\\Views\\Admin\\Dashboard.cshtml",
               "ViewState": "AgIAAE8AAAAAAAAAAAAhwDUAAAASAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-01-08T16:12:40.206Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-01-08T16:12:40.206Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 16,
               "Title": "AccountController.cs",
               "DocumentMoniker": "C:\\Users\\jagta\\OneDrive\\Desktop\\LibraryManagementSystem\\LibraryManagementSystem\\Controllers\\AccountController.cs",
               "RelativeDocumentMoniker": "LibraryManagementSystem\\Controllers\\AccountController.cs",
@@ -335,19 +463,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "Dashboard.cshtml",
-              "DocumentMoniker": "C:\\Users\\jagta\\OneDrive\\Desktop\\LibraryManagementSystem\\LibraryManagementSystem\\Views\\Student\\Dashboard.cshtml",
-              "RelativeDocumentMoniker": "LibraryManagementSystem\\Views\\Student\\Dashboard.cshtml",
-              "ToolTip": "C:\\Users\\jagta\\OneDrive\\Desktop\\LibraryManagementSystem\\LibraryManagementSystem\\Views\\Student\\Dashboard.cshtml",
-              "RelativeToolTip": "LibraryManagementSystem\\Views\\Student\\Dashboard.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAFgAAAAFAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-01-07T17:07:42.242Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 17,
               "Title": "Books.cshtml",
               "DocumentMoniker": "C:\\Users\\jagta\\OneDrive\\Desktop\\LibraryManagementSystem\\LibraryManagementSystem\\Views\\Admin\\Books.cshtml",
               "RelativeDocumentMoniker": "LibraryManagementSystem\\Views\\Admin\\Books.cshtml",
@@ -359,7 +475,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 14,
+              "DocumentIndex": 21,
               "Title": "appsettings.json",
               "DocumentMoniker": "C:\\Users\\jagta\\OneDrive\\Desktop\\LibraryManagementSystem\\LibraryManagementSystem\\appsettings.json",
               "RelativeDocumentMoniker": "LibraryManagementSystem\\appsettings.json",
@@ -371,7 +487,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 18,
               "Title": "ReturnBooks.cshtml",
               "DocumentMoniker": "C:\\Users\\jagta\\OneDrive\\Desktop\\LibraryManagementSystem\\LibraryManagementSystem\\Views\\Student\\ReturnBooks.cshtml",
               "RelativeDocumentMoniker": "LibraryManagementSystem\\Views\\Student\\ReturnBooks.cshtml",
@@ -383,19 +499,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "ViewFines.cshtml",
-              "DocumentMoniker": "C:\\Users\\jagta\\OneDrive\\Desktop\\LibraryManagementSystem\\LibraryManagementSystem\\Views\\Student\\ViewFines.cshtml",
-              "RelativeDocumentMoniker": "LibraryManagementSystem\\Views\\Student\\ViewFines.cshtml",
-              "ToolTip": "C:\\Users\\jagta\\OneDrive\\Desktop\\LibraryManagementSystem\\LibraryManagementSystem\\Views\\Student\\ViewFines.cshtml",
-              "RelativeToolTip": "LibraryManagementSystem\\Views\\Student\\ViewFines.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABwAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-01-10T18:16:50.576Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 13,
+              "DocumentIndex": 20,
               "Title": "Fine.cs",
               "DocumentMoniker": "C:\\Users\\jagta\\OneDrive\\Desktop\\LibraryManagementSystem\\LibraryManagementSystem\\Models\\Fine.cs",
               "RelativeDocumentMoniker": "LibraryManagementSystem\\Models\\Fine.cs",
@@ -407,7 +511,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 19,
               "Title": "site.css",
               "DocumentMoniker": "C:\\Users\\jagta\\OneDrive\\Desktop\\LibraryManagementSystem\\LibraryManagementSystem\\wwwroot\\css\\site.css",
               "RelativeDocumentMoniker": "LibraryManagementSystem\\wwwroot\\css\\site.css",
@@ -419,19 +523,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
-              "Title": "IssuedBook.cs",
-              "DocumentMoniker": "C:\\Users\\jagta\\OneDrive\\Desktop\\LibraryManagementSystem\\LibraryManagementSystem\\Models\\IssuedBook.cs",
-              "RelativeDocumentMoniker": "LibraryManagementSystem\\Models\\IssuedBook.cs",
-              "ToolTip": "C:\\Users\\jagta\\OneDrive\\Desktop\\LibraryManagementSystem\\LibraryManagementSystem\\Models\\IssuedBook.cs",
-              "RelativeToolTip": "LibraryManagementSystem\\Models\\IssuedBook.cs",
-              "ViewState": "AgIAAAYAAAAAAAAAAAAAABMAAAAmAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-12T15:48:12.693Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 15,
+              "DocumentIndex": 22,
               "Title": "_Layout.cshtml",
               "DocumentMoniker": "C:\\Users\\jagta\\OneDrive\\Desktop\\LibraryManagementSystem\\LibraryManagementSystem\\Views\\Shared\\_Layout.cshtml",
               "RelativeDocumentMoniker": "LibraryManagementSystem\\Views\\Shared\\_Layout.cshtml",
@@ -443,43 +535,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 16,
-              "Title": "ManageBookRequests.cshtml",
-              "DocumentMoniker": "C:\\Users\\jagta\\OneDrive\\Desktop\\LibraryManagementSystem\\LibraryManagementSystem\\Views\\Admin\\ManageBookRequests.cshtml",
-              "RelativeDocumentMoniker": "LibraryManagementSystem\\Views\\Admin\\ManageBookRequests.cshtml",
-              "ToolTip": "C:\\Users\\jagta\\OneDrive\\Desktop\\LibraryManagementSystem\\LibraryManagementSystem\\Views\\Admin\\ManageBookRequests.cshtml",
-              "RelativeToolTip": "LibraryManagementSystem\\Views\\Admin\\ManageBookRequests.cshtml",
-              "ViewState": "AgIAAC0AAAAAAAAAAAAAADIAAAAuAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-01-07T17:58:50.822Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 17,
-              "Title": "ViewIssuedBooks.cshtml",
-              "DocumentMoniker": "C:\\Users\\jagta\\OneDrive\\Desktop\\LibraryManagementSystem\\LibraryManagementSystem\\Views\\Student\\ViewIssuedBooks.cshtml",
-              "RelativeDocumentMoniker": "LibraryManagementSystem\\Views\\Student\\ViewIssuedBooks.cshtml",
-              "ToolTip": "C:\\Users\\jagta\\OneDrive\\Desktop\\LibraryManagementSystem\\LibraryManagementSystem\\Views\\Student\\ViewIssuedBooks.cshtml",
-              "RelativeToolTip": "LibraryManagementSystem\\Views\\Student\\ViewIssuedBooks.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAGIAAABKAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-01-09T05:15:18.136Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 18,
-              "Title": "ViewIssuedBooks.cshtml",
-              "DocumentMoniker": "C:\\Users\\jagta\\OneDrive\\Desktop\\LibraryManagementSystem\\LibraryManagementSystem\\Views\\Admin\\ViewIssuedBooks.cshtml",
-              "RelativeDocumentMoniker": "LibraryManagementSystem\\Views\\Admin\\ViewIssuedBooks.cshtml",
-              "ToolTip": "C:\\Users\\jagta\\OneDrive\\Desktop\\LibraryManagementSystem\\LibraryManagementSystem\\Views\\Admin\\ViewIssuedBooks.cshtml",
-              "RelativeToolTip": "LibraryManagementSystem\\Views\\Admin\\ViewIssuedBooks.cshtml",
-              "ViewState": "AgIAAC4AAAAAAAAAAAAowE8AAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-01-08T16:39:02.592Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 19,
+              "DocumentIndex": 23,
               "Title": "BookRequest.cs",
               "DocumentMoniker": "C:\\Users\\jagta\\OneDrive\\Desktop\\LibraryManagementSystem\\LibraryManagementSystem\\Models\\BookRequest.cs",
               "RelativeDocumentMoniker": "LibraryManagementSystem\\Models\\BookRequest.cs",
@@ -491,7 +547,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 21,
+              "DocumentIndex": 25,
               "Title": "LibraryContext.cs",
               "DocumentMoniker": "C:\\Users\\jagta\\OneDrive\\Desktop\\LibraryManagementSystem\\LibraryManagementSystem\\Data\\LibraryContext.cs",
               "RelativeDocumentMoniker": "LibraryManagementSystem\\Data\\LibraryContext.cs",
@@ -503,7 +559,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 20,
+              "DocumentIndex": 24,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\jagta\\OneDrive\\Desktop\\LibraryManagementSystem\\LibraryManagementSystem\\Program.cs",
               "RelativeDocumentMoniker": "LibraryManagementSystem\\Program.cs",
@@ -515,7 +571,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 22,
+              "DocumentIndex": 26,
               "Title": "Book.cs",
               "DocumentMoniker": "C:\\Users\\jagta\\OneDrive\\Desktop\\LibraryManagementSystem\\LibraryManagementSystem\\Models\\Book.cs",
               "RelativeDocumentMoniker": "LibraryManagementSystem\\Models\\Book.cs",
@@ -527,7 +583,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 23,
+              "DocumentIndex": 27,
               "Title": "ErrorViewModel.cs",
               "DocumentMoniker": "C:\\Users\\jagta\\OneDrive\\Desktop\\LibraryManagementSystem\\LibraryManagementSystem\\Models\\ErrorViewModel.cs",
               "RelativeDocumentMoniker": "LibraryManagementSystem\\Models\\ErrorViewModel.cs",
@@ -539,7 +595,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 24,
+              "DocumentIndex": 28,
               "Title": "GenerateReports.cshtml",
               "DocumentMoniker": "C:\\Users\\jagta\\OneDrive\\Desktop\\LibraryManagementSystem\\LibraryManagementSystem\\Views\\Admin\\GenerateReports.cshtml",
               "RelativeDocumentMoniker": "LibraryManagementSystem\\Views\\Admin\\GenerateReports.cshtml",
@@ -551,19 +607,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 26,
-              "Title": "SearchBooks.cshtml",
-              "DocumentMoniker": "C:\\Users\\jagta\\OneDrive\\Desktop\\LibraryManagementSystem\\LibraryManagementSystem\\Views\\Student\\SearchBooks.cshtml",
-              "RelativeDocumentMoniker": "LibraryManagementSystem\\Views\\Student\\SearchBooks.cshtml",
-              "ToolTip": "C:\\Users\\jagta\\OneDrive\\Desktop\\LibraryManagementSystem\\LibraryManagementSystem\\Views\\Student\\SearchBooks.cshtml",
-              "RelativeToolTip": "LibraryManagementSystem\\Views\\Student\\SearchBooks.cshtml",
-              "ViewState": "AgIAAC0AAAAAAAAAAAAAACEAAAAmAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-12-26T15:17:35.832Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 25,
+              "DocumentIndex": 29,
               "Title": "HomeController.cs",
               "DocumentMoniker": "C:\\Users\\jagta\\OneDrive\\Desktop\\LibraryManagementSystem\\LibraryManagementSystem\\Controllers\\HomeController.cs",
               "RelativeDocumentMoniker": "LibraryManagementSystem\\Controllers\\HomeController.cs",
@@ -575,7 +619,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 27,
+              "DocumentIndex": 30,
               "Title": "User.cs",
               "DocumentMoniker": "C:\\Users\\jagta\\OneDrive\\Desktop\\LibraryManagementSystem\\LibraryManagementSystem\\Models\\User.cs",
               "RelativeDocumentMoniker": "LibraryManagementSystem\\Models\\User.cs",
@@ -587,7 +631,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 28,
+              "DocumentIndex": 31,
               "Title": "RegisterViewModel.cs",
               "DocumentMoniker": "C:\\Users\\jagta\\OneDrive\\Desktop\\LibraryManagementSystem\\LibraryManagementSystem\\Models\\RegisterViewModel.cs",
               "RelativeDocumentMoniker": "LibraryManagementSystem\\Models\\RegisterViewModel.cs",
@@ -599,7 +643,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 29,
+              "DocumentIndex": 32,
               "Title": "AddBooks.cshtml",
               "DocumentMoniker": "C:\\Users\\jagta\\OneDrive\\Desktop\\LibraryManagementSystem\\LibraryManagementSystem\\Views\\Admin\\AddBooks.cshtml",
               "RelativeDocumentMoniker": "LibraryManagementSystem\\Views\\Admin\\AddBooks.cshtml",
@@ -659,31 +703,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 31,
-              "Title": "SearchBooks.cshtml",
-              "DocumentMoniker": "C:\\Users\\jagta\\OneDrive\\Desktop\\LibraryManagementSystem\\LibraryManagementSystem\\Views\\Admin\\SearchBooks.cshtml",
-              "RelativeDocumentMoniker": "LibraryManagementSystem\\Views\\Admin\\SearchBooks.cshtml",
-              "ToolTip": "C:\\Users\\jagta\\OneDrive\\Desktop\\LibraryManagementSystem\\LibraryManagementSystem\\Views\\Admin\\SearchBooks.cshtml",
-              "RelativeToolTip": "LibraryManagementSystem\\Views\\Admin\\SearchBooks.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAABQAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-01-07T05:55:46.866Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 30,
-              "Title": "StudentInfo.cshtml",
-              "DocumentMoniker": "C:\\Users\\jagta\\OneDrive\\Desktop\\LibraryManagementSystem\\LibraryManagementSystem\\Views\\Admin\\StudentInfo.cshtml",
-              "RelativeDocumentMoniker": "LibraryManagementSystem\\Views\\Admin\\StudentInfo.cshtml",
-              "ToolTip": "C:\\Users\\jagta\\OneDrive\\Desktop\\LibraryManagementSystem\\LibraryManagementSystem\\Views\\Admin\\StudentInfo.cshtml",
-              "RelativeToolTip": "LibraryManagementSystem\\Views\\Admin\\StudentInfo.cshtml",
-              "ViewState": "AgIAAGkAAAAAAAAAAAAAAH8AAAAZAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-01-02T20:27:59.772Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 32,
+              "DocumentIndex": 33,
               "Title": "StudentReport.cs",
               "DocumentMoniker": "C:\\Users\\jagta\\OneDrive\\Desktop\\LibraryManagementSystem\\LibraryManagementSystem\\Models\\StudentReport.cs",
               "RelativeDocumentMoniker": "LibraryManagementSystem\\Models\\StudentReport.cs",
@@ -695,7 +715,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 33,
+              "DocumentIndex": 34,
               "Title": "LoginViewModel.cs",
               "DocumentMoniker": "C:\\Users\\jagta\\OneDrive\\Desktop\\LibraryManagementSystem\\LibraryManagementSystem\\Models\\LoginViewModel.cs",
               "RelativeDocumentMoniker": "LibraryManagementSystem\\Models\\LoginViewModel.cs",
@@ -704,18 +724,6 @@
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-12-12T16:38:48.43Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 34,
-              "Title": "ErrorController.cs",
-              "DocumentMoniker": "C:\\Users\\jagta\\OneDrive\\Desktop\\LibraryManagementSystem\\LibraryManagementSystem\\Controllers\\ErrorController.cs",
-              "RelativeDocumentMoniker": "LibraryManagementSystem\\Controllers\\ErrorController.cs",
-              "ToolTip": "C:\\Users\\jagta\\OneDrive\\Desktop\\LibraryManagementSystem\\LibraryManagementSystem\\Controllers\\ErrorController.cs",
-              "RelativeToolTip": "LibraryManagementSystem\\Controllers\\ErrorController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAhAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-12T16:03:03.098Z"
             },
             {
               "$type": "Document",

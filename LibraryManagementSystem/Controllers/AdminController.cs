@@ -554,7 +554,10 @@ namespace LibraryManagementSystem.Controllers
         {
             try
             {
-                var issuedBook = _context.IssuedBooks.Include(ib => ib.Book).Include(ib => ib.User).FirstOrDefault(ib => ib.IssuedBookId == issuedBookId);
+                var issuedBook = _context.IssuedBooks
+                    .Include(ib => ib.Book)
+                    .Include(ib => ib.User)
+                    .FirstOrDefault(ib => ib.IssuedBookId == issuedBookId);
 
                 if (issuedBook == null)
                     return Json(new { success = false, message = "Issued book not found." });
@@ -568,9 +571,21 @@ namespace LibraryManagementSystem.Controllers
 
                 // Mark the book as returned
                 issuedBook.ReturnDate = DateTime.Now;
-                _context.SaveChanges();
 
-                var metrics = GetMetrics(); // Update metrics
+                // Update the corresponding book request status to "Returned"
+                var bookRequest = _context.BookRequests.FirstOrDefault(r =>
+                    r.BookId == issuedBook.BookId &&
+                    r.UserId == issuedBook.UserId &&
+                    r.Status == "Approved");  // Only update the approved request
+
+                if (bookRequest != null)
+                {
+                    bookRequest.Status = "Returned";
+                }
+
+                _context.SaveChanges();  // Save changes to the database
+
+                var metrics = GetMetrics();  // Update metrics
                 return Json(new { success = true, message = "Book returned successfully!", metrics });
             }
             catch (Exception ex)
@@ -578,6 +593,7 @@ namespace LibraryManagementSystem.Controllers
                 return Json(new { success = false, message = $"Error processing return: {ex.Message}" });
             }
         }
+
 
 
 
