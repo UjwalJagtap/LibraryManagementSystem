@@ -135,7 +135,7 @@ public class StudentController : Controller
     }
 
     public IActionResult ViewBookRequests()
-{
+    {
     var userId = HttpContext.Session.GetInt32("UserId");
     if (!userId.HasValue)
         return Unauthorized();
@@ -147,7 +147,7 @@ public class StudentController : Controller
         .ToList();
 
     return PartialView("ViewBookRequests", bookRequests);
-}
+    }
 
 
     [HttpPost]

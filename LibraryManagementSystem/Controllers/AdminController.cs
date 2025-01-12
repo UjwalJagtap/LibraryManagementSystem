@@ -523,7 +523,64 @@ namespace LibraryManagementSystem.Controllers
             var metrics = GetMetrics();
             return Json(new { success = true, message = "Fine marked as paid successfully!", metrics });
         }
-      
+        [HttpGet]
+        public IActionResult ReturnBook()
+        {
+            try
+            {
+                var issuedBooks = _context.IssuedBooks
+                    .Where(ib => ib.ReturnDate == null) // Show books that are not returned
+                    .Include(ib => ib.Book)
+                    .Include(ib => ib.User)
+                    .Select(ib => new
+                    {
+                        ib.IssuedBookId,
+                        BookTitle = ib.Book.Title,
+                        StudentName = ib.User.FullName,
+                        IssueDate = ib.IssueDate,
+                        DueDate = ib.DueDate
+                    })
+                    .ToList();
+
+                return PartialView("ReturnBook", issuedBooks); // Load the ReturnBook view
+            }
+            catch (Exception ex)
+            {
+                return Json(new { success = false, message = $"Error loading Return Book view: {ex.Message}" });
+            }
+        }
+        [HttpPost]
+        public IActionResult ReturnBook(int issuedBookId)
+        {
+            try
+            {
+                var issuedBook = _context.IssuedBooks.Include(ib => ib.Book).Include(ib => ib.User).FirstOrDefault(ib => ib.IssuedBookId == issuedBookId);
+
+                if (issuedBook == null)
+                    return Json(new { success = false, message = "Issued book not found." });
+
+                bool isOverdue = issuedBook.DueDate < DateTime.Now && issuedBook.ReturnDate == null;
+
+                if (isOverdue)
+                {
+                    return Json(new { success = false, redirectTo = "/Admin/ManageFines", message = "This book is overdue. Redirecting to manage fines." });
+                }
+
+                // Mark the book as returned
+                issuedBook.ReturnDate = DateTime.Now;
+                _context.SaveChanges();
+
+                var metrics = GetMetrics(); // Update metrics
+                return Json(new { success = true, message = "Book returned successfully!", metrics });
+            }
+            catch (Exception ex)
+            {
+                return Json(new { success = false, message = $"Error processing return: {ex.Message}" });
+            }
+        }
+
+
+
         public IActionResult GenerateReports()
         {
             return PartialView("GenerateReports");

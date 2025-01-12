@@ -1,0 +1,80 @@
+﻿@model IEnumerable<dynamic>
+
+<div class="container mt-4">
+    <h3>Mark Books as Returned</h3>
+    <div class="table-wrapper">
+        <table class="table table-bordered mt-3">
+            <thead>
+                <tr>
+                    <th>Book Title</th>
+                    <th>Student Name</th>
+                    <th>Issue Date</th>
+                    <th>Due Date</th>
+                    <th>Status</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                @if (Model.Any())
+                {
+                    @foreach (var book in Model)
+                    {
+                        <tr>
+                            <td>@book.BookTitle</td>
+                            <td>@book.StudentName</td>
+                            <td>@book.IssueDate.ToString("dd MMM yyyy")</td>
+                            <td>@book.DueDate.ToString("dd MMM yyyy")</td>
+                            <td>
+                                @if (DateTime.Now > book.DueDate)
+                                {
+                                    <span class="badge bg-danger">Overdue</span>
+                                }
+                                else
+                                {
+                                    <span class="badge bg-success">On Time</span>
+                                }
+                            </td>
+                            <td>
+                                <button class="btn btn-warning btn-sm" onclick="returnBook(@book.IssuedBookId)">Mark as Returned</button>
+                            </td>
+                        </tr>
+                    }
+                }
+                else
+                {
+                    <tr>
+                        <td colspan="6" class="text-center text-danger">No issued books pending return.</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<script>
+    function returnBook(issuedBookId) {
+        if (!confirm("Are you sure you want to return this book?")) return;
+
+        $.ajax({
+            url: "/Admin/ReturnBook",
+            type: "POST",
+            data: { issuedBookId: issuedBookId },
+            success: function (response) {
+                alert(response.message);
+
+                if (response.success) {
+                    loadContent('ViewIssuedBooks'); // Reload issued books after return
+                    updateMetrics(response.metrics); // Update metrics dynamically
+                } else if (response.redirectTo) {
+                    // Redirect to manage fines if the book is overdue
+                    loadContent('ManageFines');
+                }
+            },
+            error: function () {
+                alert("Error processing return.");
+            }
+        });
+    }
+
+
+</script>
