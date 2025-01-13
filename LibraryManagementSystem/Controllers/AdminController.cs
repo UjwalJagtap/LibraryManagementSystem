@@ -445,6 +445,52 @@ namespace LibraryManagementSystem.Controllers
             return PartialView("ViewIssuedBooks", filteredIssuedBooks); // Return filtered results
         }
         [HttpGet]
+        public IActionResult FilterIssuedBooksAdmin(string status)
+        {
+            try
+            {
+                IQueryable<IssuedBook> issuedBooksQuery = _context.IssuedBooks
+                    .Include(ib => ib.Book)
+                    .Include(ib => ib.User);
+
+                if (!string.IsNullOrWhiteSpace(status) && status != "All")
+                {
+                    if (status == "Overdue")
+                    {
+                        issuedBooksQuery = issuedBooksQuery.Where(ib => ib.DueDate < DateTime.Now && ib.ReturnDate == null);
+                    }
+                    else if (status == "On Time")
+                    {
+                        issuedBooksQuery = issuedBooksQuery.Where(ib => ib.DueDate >= DateTime.Now && ib.ReturnDate == null);
+                    }
+                    else if (status == "Returned")
+                    {
+                        issuedBooksQuery = issuedBooksQuery.Where(ib => ib.ReturnDate != null);
+                    }
+                }
+
+                var filteredIssuedBooks = issuedBooksQuery.Select(ib => new
+                {
+                    ib.IssuedBookId,
+                    BookId = ib.BookId,
+                    BookTitle = ib.Book.Title,
+                    StudentName = ib.User.FullName,
+                    IssueDate = ib.IssueDate,
+                    DueDate = ib.DueDate,
+                    ReturnDate = ib.ReturnDate,
+                    Status = ib.DueDate < DateTime.Now && ib.ReturnDate == null ? "Overdue" : ib.ReturnDate != null ? "Returned" : "On Time"
+                }).ToList();
+
+                return PartialView("ViewIssuedBooks", filteredIssuedBooks);  // Corrected partial view name
+            }
+            catch (Exception ex)
+            {
+                return Json(new { success = false, message = $"Error loading issued books: {ex.Message}" });
+            }
+        }
+
+
+        [HttpGet]
         public IActionResult ManageFines()
         {
             try
@@ -523,6 +569,8 @@ namespace LibraryManagementSystem.Controllers
             var metrics = GetMetrics();
             return Json(new { success = true, message = "Fine marked as paid successfully!", metrics });
         }
+        
+
         [HttpGet]
         public IActionResult ReturnBook()
         {

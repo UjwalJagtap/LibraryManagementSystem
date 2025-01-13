@@ -1,16 +1,21 @@
-﻿@model IEnumerable<dynamic>
-
+﻿@model IEnumerable<dynamic> // For anonymous types returned by LINQ Select
 <div class="container mt-4">
     <h3>Issued Books</h3>
 
-    <!-- Search Bar -->
+    <!-- Filter Section (placed outside the table) -->
     <div class="d-flex justify-content-between mb-3">
-        <input type="text" id="searchQuery" class="form-control w-50" placeholder="Search by Book Title or Student Name">
-        <button class="btn btn-primary ms-2" onclick="searchIssuedBooks()">Search</button>
+        <label for="filterIssuedStatus" class="fw-bold">Filter by Status:</label>
+        <select id="filterIssuedStatus" class="form-select w-auto" onchange="filterIssuedBooksAdmin()">
+            <option value="All" selected>All</option>
+            <option value="On Time">On Time</option>
+            <option value="Overdue">Overdue</option>
+            <option value="Returned">Returned</option>
+        </select>
     </div>
 
-    <!-- Issued Books Table -->
+    <!-- Issued Books Table Section (dynamic content) -->
     <div id="issuedBooksTable">
+        @* Partial table rendering will be inserted here *@
         @if (Model.Any())
         {
             <table class="table table-bordered">
@@ -60,7 +65,7 @@
         }
     </div>
 </div>
- 
+
 <script>
     function searchIssuedBooks() {
         const query = $("#searchQuery").val().trim();
@@ -76,4 +81,21 @@
             }
         });
     }
+    function filterIssuedBooksAdmin() {
+        var selectedStatus = $("#filterIssuedStatus").val();
+
+        $.ajax({
+            url: `/Admin/FilterIssuedBooksAdmin?status=${selectedStatus}`,
+            type: "GET",
+            success: function (data) {
+                $("#issuedBooksTable").html($(data).find("#issuedBooksTable").html()); // Only update the table content
+            },
+            error: function () {
+                alert("Error loading issued books.");
+            }
+        });
+    }
+
+
+
 </script>

@@ -335,6 +335,57 @@ public class StudentController : Controller
         }
     }
 
+    [HttpGet]
+    public IActionResult FilterFines(string status)
+    {
+        try
+        {
+            var userId = HttpContext.Session.GetInt32("UserId");
+            if (!userId.HasValue)
+            {
+                return Unauthorized(); // Redirect to login if not authenticated
+            }
+
+            // Get fines for the logged-in user
+            IQueryable<Fine> finesQuery = _context.Fines
+                .Include(f => f.IssuedBook)
+                .ThenInclude(ib => ib.Book)
+                .Where(f => f.IssuedBook.UserId == userId.Value);
+
+            if (!string.IsNullOrWhiteSpace(status) && status != "All")
+            {
+                if (status == "Paid")
+                {
+                    finesQuery = finesQuery.Where(f => f.IsPaid);
+                }
+                else if (status == "Unpaid")
+                {
+                    finesQuery = finesQuery.Where(f => !f.IsPaid);
+                }
+            }
+
+            var filteredFines = finesQuery
+                .Select(f => new
+                {
+                    f.FineId,
+                    BookTitle = f.IssuedBook.Book.Title,
+                    f.FineAmount,
+                    f.FineDate,
+                    f.IssuedBook.DueDate,
+                    f.IssuedBook.ReturnDate,
+                    Status = f.IsPaid ? "Paid" : "Unpaid"
+                })
+                .ToList();
+
+            return PartialView("ViewFines", filteredFines);
+        }
+        catch (Exception ex)
+        {
+            return Json(new { success = false, message = $"Error loading fines: {ex.Message}" });
+        }
+    }
+
+
     private object GetStudentMetrics(int userId)
     {
         return new
