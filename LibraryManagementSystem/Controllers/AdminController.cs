@@ -365,6 +365,36 @@ namespace LibraryManagementSystem.Controllers
 
             return Json(new { success = true, message = "Request rejected successfully!" });
         }
+        [HttpGet]
+        public IActionResult SearchBookRequests(string searchQuery)
+        {
+            try
+            {
+                if (string.IsNullOrWhiteSpace(searchQuery))
+                {
+                    return Json(new { success = false, message = "Search query cannot be empty." });
+                }
+
+                var bookRequests = _context.BookRequests
+                    .Include(br => br.Book)
+                    .Include(br => br.User)
+                    .Where(br =>
+                        (br.Book != null && br.Book.Title.Contains(searchQuery)) ||
+                        (br.User != null && br.User.FullName.Contains(searchQuery)))
+                    .ToList();
+
+                if (!bookRequests.Any())
+                {
+                    return Json(new { success = false, message = "No matching book requests found." });
+                }
+
+                return PartialView("ManageBookRequests", bookRequests);
+            }
+            catch (Exception ex)
+            {
+                return Json(new { success = false, message = $"Error loading search results: {ex.Message}" });
+            }
+        }
 
         [HttpGet]
         public IActionResult FilterBookRequests(string status)
@@ -417,33 +447,47 @@ namespace LibraryManagementSystem.Controllers
             }
         }
         [HttpGet]
-        public IActionResult SearchIssuedBooks(string searchQuery)
+        public IActionResult SearchIssuedBooksAdmin(string searchQuery)
         {
-            var issuedBooksQuery = _context.IssuedBooks
-                .Include(ib => ib.Book)
-                .Include(ib => ib.User)
-                .Select(ib => new
-                {
-                    ib.BookId,
-                    BookTitle = ib.Book.Title,
-                    StudentName = ib.User.FullName,
-                    ib.IssueDate,
-                    ib.DueDate,
-                    ib.ReturnDate,
-                    Status = ib.ReturnDate != null ? "Returned" : (ib.DueDate < DateTime.Now ? "Overdue" : "On Time")
-                });
-
-            // Apply search filter
-            if (!string.IsNullOrWhiteSpace(searchQuery))
+            try
             {
-                issuedBooksQuery = issuedBooksQuery.Where(ib =>
-                    ib.BookTitle.Contains(searchQuery) ||
-                    ib.StudentName.Contains(searchQuery));
-            }
+                if (string.IsNullOrWhiteSpace(searchQuery))
+                {
+                    return Json(new { success = false, message = "Search query cannot be empty." });
+                }
 
-            var filteredIssuedBooks = issuedBooksQuery.ToList();
-            return PartialView("ViewIssuedBooks", filteredIssuedBooks); // Return filtered results
+                var issuedBooks = _context.IssuedBooks
+                    .Include(ib => ib.Book)
+                    .Include(ib => ib.User)
+                    .Where(ib =>
+                        (ib.Book != null && ib.Book.Title.Contains(searchQuery)) ||
+                        (ib.User != null && ib.User.FullName.Contains(searchQuery)))
+                    .Select(ib => new
+                    {
+                        BookId = ib.BookId,
+                        BookTitle = ib.Book.Title,
+                        StudentName = ib.User.FullName,
+                        IssueDate = ib.IssueDate,
+                        DueDate = ib.DueDate,
+                        ReturnDate = ib.ReturnDate,
+                        Status = ib.ReturnDate != null ? "Returned" : (ib.DueDate < DateTime.Now ? "Overdue" : "On Time")
+                    })
+                    .ToList();
+
+                if (!issuedBooks.Any())
+                {
+                    return Json(new { success = false, message = "No matching issued books found." });
+                }
+
+                return PartialView("ViewIssuedBooks", issuedBooks);  // Ensure the view name matches exactly
+            }
+            catch (Exception ex)
+            {
+                return Json(new { success = false, message = $"Error loading search results: {ex.Message}" });
+            }
         }
+
+
         [HttpGet]
         public IActionResult FilterIssuedBooksAdmin(string status)
         {
