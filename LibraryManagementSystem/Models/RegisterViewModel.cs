@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using Microsoft.AspNetCore.Mvc.ModelBinding.Validation;
+using System.ComponentModel.DataAnnotations;
 
 namespace LibraryManagementSystem.Models
 {
@@ -22,7 +23,7 @@ namespace LibraryManagementSystem.Models
         [StringLength(15, ErrorMessage = "Phone number cannot exceed 15 characters.")]
         public string Phone { get; set; }
 
-        [Required]
+        [ValidateNever]
         public string Role { get; set; }
 
         [Required, MinLength(6, ErrorMessage = "Password must be at least 6 characters.")]

@@ -54,7 +54,7 @@ namespace LibraryManagementSystem.Controllers
                 FullName = model.FullName,
                 Email = model.Email,
                 Phone = model.Phone,
-                Role = model.Role,
+                Role = "Student",
                 PasswordHash = hashedPassword
             };
 
