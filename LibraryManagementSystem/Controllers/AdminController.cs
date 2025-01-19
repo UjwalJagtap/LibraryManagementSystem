@@ -6,18 +6,20 @@ using System.Linq;
 using System;
 using Microsoft.AspNetCore.Mvc.Filters;
 using Microsoft.EntityFrameworkCore;
+using LibraryManagementSystem.Repositories;
 
 namespace LibraryManagementSystem.Controllers
 {
     public class AdminController : Controller
     {
         private readonly LibraryContext _context;
+        private readonly IBookRepository _bookRepository;
 
-        public AdminController(LibraryContext context)
+        public AdminController(LibraryContext context, IBookRepository bookRepository)
         {
             _context = context;
+            _bookRepository = bookRepository;
         }
-
         // Ensure only logged-in Admins can access this controller
         public override void OnActionExecuting(ActionExecutingContext context)
         {
@@ -85,9 +87,7 @@ namespace LibraryManagementSystem.Controllers
         public IActionResult AddBook(Book model)
         {
             if (!ModelState.IsValid)
-            {
                 return PartialView("AddBooks", model);
-            }
 
             try
             {
@@ -95,26 +95,21 @@ namespace LibraryManagementSystem.Controllers
                 {
                     return Json(new { success = false, message = "Available copies cannot exceed total copies." });
                 }
-                _context.Books.Add(model);
-                _context.SaveChanges();
 
-                // Fetch updated data for metrics and books
-                var books = _context.Books.ToList();
+                _bookRepository.AddBook(model);
+                _bookRepository.SaveChanges();
+
+                var books = _bookRepository.GetAllBooks();
                 var metrics = GetMetrics();
 
-                return Json(new
-                {
-                    success = true,
-                    message = "Book added successfully!",
-                    books,
-                    metrics
-                });
+                return Json(new { success = true, message = "Book added successfully!", books, metrics });
             }
             catch (Exception ex)
             {
                 return Json(new { success = false, message = $"Error adding book: {ex.Message}" });
             }
         }
+
 
         [HttpGet]
         public IActionResult UpdateBook(int id)
@@ -130,13 +125,11 @@ namespace LibraryManagementSystem.Controllers
         public IActionResult UpdateBook(Book model)
         {
             if (!ModelState.IsValid)
-            {
                 return PartialView("UpdateBook", model);
-            }
 
             try
             {
-                var book = _context.Books.Find(model.BookId);
+                var book = _bookRepository.GetBookById(model.BookId);
                 if (book == null)
                     return Json(new { success = false, message = "Book not found." });
 
@@ -145,7 +138,6 @@ namespace LibraryManagementSystem.Controllers
                     return Json(new { success = false, message = "Available copies cannot exceed total copies." });
                 }
 
-                // Update book details
                 book.Title = model.Title;
                 book.Author = model.Author;
                 book.Publisher = model.Publisher;
@@ -155,19 +147,13 @@ namespace LibraryManagementSystem.Controllers
                 book.TotalCopies = model.TotalCopies;
                 book.AvailableCopies = model.AvailableCopies;
 
-                _context.SaveChanges();
+                _bookRepository.UpdateBook(book);
+                _bookRepository.SaveChanges();
 
-                // Fetch updated data for metrics and books
-                var books = _context.Books.ToList();
+                var books = _bookRepository.GetAllBooks();
                 var metrics = GetMetrics();
 
-                return Json(new
-                {
-                    success = true,
-                    message = "Book updated successfully!",
-                    books,
-                    metrics
-                });
+                return Json(new { success = true, message = "Book updated successfully!", books, metrics });
             }
             catch (Exception ex)
             {
@@ -175,35 +161,30 @@ namespace LibraryManagementSystem.Controllers
             }
         }
 
+
         [HttpPost]
         public IActionResult DeleteBook(int id)
         {
             try
             {
-                var book = _context.Books.Find(id);
+                var book = _bookRepository.GetBookById(id);
                 if (book == null)
                     return Json(new { success = false, message = "Book not found." });
 
-                _context.Books.Remove(book);
-                _context.SaveChanges();
+                _bookRepository.DeleteBook(id);
+                _bookRepository.SaveChanges();
 
-                // Fetch updated data for metrics and books
-                var books = _context.Books.ToList();
+                var books = _bookRepository.GetAllBooks();
                 var metrics = GetMetrics();
 
-                return Json(new
-                {
-                    success = true,
-                    message = "Book deleted successfully!",
-                    books,
-                    metrics
-                });
+                return Json(new { success = true, message = "Book deleted successfully!", books, metrics });
             }
             catch (Exception ex)
             {
                 return Json(new { success = false, message = $"Error deleting book: {ex.Message}" });
             }
         }
+
         public IActionResult StudentInfo()
         {
             var students = _context.Users.Where(u => u.Role == "Student").ToList();
