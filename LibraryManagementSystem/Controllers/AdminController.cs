@@ -666,15 +666,6 @@ namespace LibraryManagementSystem.Controllers
                 return Json(new { success = false, message = $"Error processing return: {ex.Message}" });
             }
         }
-
-
-
-
-        public IActionResult GenerateReports()
-        {
-            return PartialView("GenerateReports");
-        }
-
         private void UpdateMetrics()
         {
             ViewBag.TotalBooks = _context.Books.Count();

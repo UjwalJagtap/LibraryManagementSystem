@@ -12,7 +12,6 @@ namespace LibraryManagementSystem.Data
         public DbSet<Book> Books { get; set; }
         public DbSet<IssuedBook> IssuedBooks { get; set; }
         public DbSet<Fine> Fines { get; set; }
-        public DbSet<StudentReport> StudentReports { get; set; }
         public DbSet<BookRequest> BookRequests { get; set; }
 
         public LibraryContext(DbContextOptions<LibraryContext> options) : base(options) { }
