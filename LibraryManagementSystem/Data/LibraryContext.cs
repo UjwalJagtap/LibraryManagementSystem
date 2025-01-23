@@ -37,21 +37,6 @@ namespace LibraryManagementSystem.Data
                 Phone = "9234567810",
                 Role = "Librarian"
             });
-            // Optional: Add additional table seeds here if needed
-        }
-
-        //<summary>
-        // Hashes the provided password using SHA256.
-        // </summary>
-        // <param name="password">Password to hash.</param>
-        // <returns>SHA256 hashed password as a string.</returns>
-        private static string HashPassword(string password)
-        {
-            using (var sha256 = System.Security.Cryptography.SHA256.Create())
-            {
-                var hash = sha256.ComputeHash(System.Text.Encoding.UTF8.GetBytes(password));
-                return BitConverter.ToString(hash).Replace("-", "").ToLower();
-            }
         }
     }
 }

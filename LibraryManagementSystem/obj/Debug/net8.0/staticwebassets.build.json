@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "fXolK/AklXaEE9OvnE+Oq5Nw2idptSz+7WF9BCvyVLY=",
+  "Hash": "Vme6B+gY0zKCLdKI3nTjwvO1wNrFREabB+ir1F2I+CI=",
   "Source": "LibraryManagementSystem",
   "BasePath": "_content/LibraryManagementSystem",
   "Mode": "Default",
@@ -73,8 +73,8 @@
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
-      "Fingerprint": "qeyqm9s246",
-      "Integrity": "TvWKpl+iX7fZg9SgkYA3zTJ9su3h0ZeJ+Z4V88N2u3w=",
+      "Fingerprint": "euo2jzju89",
+      "Integrity": "ugbdMW5veAWmuFVUZbyN2GY/yVAWRE9136WLnDyP3fs=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\css\\site.css"
@@ -99,27 +99,6 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\favicon.ico"
-    },
-    {
-      "Identity": "C:\\Users\\jagta\\OneDrive\\Desktop\\LibraryManagementSystem\\LibraryManagementSystem\\wwwroot\\images\\home1.jpeg",
-      "SourceId": "LibraryManagementSystem",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\jagta\\OneDrive\\Desktop\\LibraryManagementSystem\\LibraryManagementSystem\\wwwroot\\",
-      "BasePath": "_content/LibraryManagementSystem",
-      "RelativePath": "images/home1#[.{fingerprint}]?.jpeg",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "AssetMergeBehavior": "",
-      "AssetMergeSource": "",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "Fingerprint": "l27d72brmv",
-      "Integrity": "83s10e0hyImb38QxmqCM1+xgmmS5snAx3N6JVtmJLnI=",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\images\\home1.jpeg"
     },
     {
       "Identity": "C:\\Users\\jagta\\OneDrive\\Desktop\\LibraryManagementSystem\\LibraryManagementSystem\\wwwroot\\images\\homeBG.jpg",
@@ -1394,7 +1373,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "3622"
+          "Value": "2106"
         },
         {
           "Name": "Content-Type",
@@ -1402,11 +1381,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"TvWKpl+iX7fZg9SgkYA3zTJ9su3h0ZeJ+Z4V88N2u3w=\""
+          "Value": "\"ugbdMW5veAWmuFVUZbyN2GY/yVAWRE9136WLnDyP3fs=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 07 Jan 2025 17:50:16 GMT"
+          "Value": "Thu, 23 Jan 2025 17:16:52 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -1416,12 +1395,12 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-TvWKpl+iX7fZg9SgkYA3zTJ9su3h0ZeJ+Z4V88N2u3w="
+          "Value": "sha256-ugbdMW5veAWmuFVUZbyN2GY/yVAWRE9136WLnDyP3fs="
         }
       ]
     },
     {
-      "Route": "css/site.qeyqm9s246.css",
+      "Route": "css/site.euo2jzju89.css",
       "AssetFile": "C:\\Users\\jagta\\OneDrive\\Desktop\\LibraryManagementSystem\\LibraryManagementSystem\\wwwroot\\css\\site.css",
       "Selectors": [],
       "ResponseHeaders": [
@@ -1431,7 +1410,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "3622"
+          "Value": "2106"
         },
         {
           "Name": "Content-Type",
@@ -1439,11 +1418,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"TvWKpl+iX7fZg9SgkYA3zTJ9su3h0ZeJ+Z4V88N2u3w=\""
+          "Value": "\"ugbdMW5veAWmuFVUZbyN2GY/yVAWRE9136WLnDyP3fs=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 07 Jan 2025 17:50:16 GMT"
+          "Value": "Thu, 23 Jan 2025 17:16:52 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -1453,7 +1432,7 @@
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "qeyqm9s246"
+          "Value": "euo2jzju89"
         },
         {
           "Name": "label",
@@ -1461,7 +1440,7 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-TvWKpl+iX7fZg9SgkYA3zTJ9su3h0ZeJ+Z4V88N2u3w="
+          "Value": "sha256-ugbdMW5veAWmuFVUZbyN2GY/yVAWRE9136WLnDyP3fs="
         }
       ]
     },
@@ -1544,88 +1523,6 @@
         {
           "Name": "integrity",
           "Value": "sha256-Jtxf9L+5ITKRc1gIRl4VbUpGkRNfOBXjYTdhJD4facM="
-        }
-      ]
-    },
-    {
-      "Route": "images/home1.jpeg",
-      "AssetFile": "C:\\Users\\jagta\\OneDrive\\Desktop\\LibraryManagementSystem\\LibraryManagementSystem\\wwwroot\\images\\home1.jpeg",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "2018448"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "image/jpeg"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"83s10e0hyImb38QxmqCM1+xgmmS5snAx3N6JVtmJLnI=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Sat, 14 Dec 2024 18:11:25 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "max-age=3600, must-revalidate"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "integrity",
-          "Value": "sha256-83s10e0hyImb38QxmqCM1+xgmmS5snAx3N6JVtmJLnI="
-        }
-      ]
-    },
-    {
-      "Route": "images/home1.l27d72brmv.jpeg",
-      "AssetFile": "C:\\Users\\jagta\\OneDrive\\Desktop\\LibraryManagementSystem\\LibraryManagementSystem\\wwwroot\\images\\home1.jpeg",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "2018448"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "image/jpeg"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"83s10e0hyImb38QxmqCM1+xgmmS5snAx3N6JVtmJLnI=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Sat, 14 Dec 2024 18:11:25 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "max-age=31536000, immutable"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "fingerprint",
-          "Value": "l27d72brmv"
-        },
-        {
-          "Name": "label",
-          "Value": "images/home1.jpeg"
-        },
-        {
-          "Name": "integrity",
-          "Value": "sha256-83s10e0hyImb38QxmqCM1+xgmmS5snAx3N6JVtmJLnI="
         }
       ]
     },
@@ -6572,7 +6469,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 15 Jan 2025 16:28:50 GMT"
+          "Value": "Thu, 23 Jan 2025 17:11:11 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -6609,7 +6506,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 15 Jan 2025 16:28:50 GMT"
+          "Value": "Thu, 23 Jan 2025 17:11:11 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -6654,7 +6551,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 15 Jan 2025 16:28:50 GMT"
+          "Value": "Thu, 23 Jan 2025 17:11:11 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -6699,7 +6596,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 15 Jan 2025 16:28:50 GMT"
+          "Value": "Thu, 23 Jan 2025 17:11:11 GMT"
         },
         {
           "Name": "Cache-Control",

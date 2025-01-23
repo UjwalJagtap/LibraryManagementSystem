@@ -1,6 +1,5 @@
 wwwroot\css\site.css
 wwwroot\favicon.ico
-wwwroot\images\home1.jpeg
 wwwroot\images\homeBG.jpg
 wwwroot\images\logo.png
 wwwroot\js\site.js

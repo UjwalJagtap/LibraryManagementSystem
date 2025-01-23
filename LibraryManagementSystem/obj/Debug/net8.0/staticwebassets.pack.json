@@ -13,10 +13,6 @@
       "PackagePath": "staticwebassets\\favicon.ico"
     },
     {
-      "Id": "C:\\Users\\jagta\\OneDrive\\Desktop\\LibraryManagementSystem\\LibraryManagementSystem\\wwwroot\\images\\home1.jpeg",
-      "PackagePath": "staticwebassets\\images\\home1.jpeg"
-    },
-    {
       "Id": "C:\\Users\\jagta\\OneDrive\\Desktop\\LibraryManagementSystem\\LibraryManagementSystem\\wwwroot\\images\\homeBG.jpg",
       "PackagePath": "staticwebassets\\images\\homeBG.jpg"
     },

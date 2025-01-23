@@ -4,7 +4,6 @@
 }
 
 <div class="container mt-4">
-    <!-- White Background div similar to Admin Dashboard (with solid background) -->
     <div class="dashboard-bg">
         <!-- Dashboard Header -->
         <h1 class="text-center mt-4">Student Dashboard</h1>
@@ -74,10 +73,10 @@
 <script>
     function loadContent(action) {
         $.ajax({
-            url: `/Student/${action}`, // Ensures the correct controller action
+            url: `/Student/${action}`, 
             type: "GET",
             success: function (data) {
-                $("#content").html(data); // Populate content section with the response
+                $("#content").html(data); 
                 updateMetrics(response.metrics);
             },
             error: function (xhr) {
@@ -91,10 +90,6 @@
         $("#totalBooks").text(metrics.totalBooks);
         $("#booksIssued").text(metrics.booksIssued);
         $("#overdueFines").text(metrics.overdueFines);
-       
-        // TotalBooks = _context.Books.Count(),
-        // booksIssued = _context.IssuedBooks.Count(ib => ib.UserId == userId && ib.ReturnDate == null),
-        // overdueFines = _context.Fines
     }
 </script>
 
