@@ -3,6 +3,7 @@ using LibraryManagementSystem.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using LibraryManagementSystem.Repositories;
+using Microsoft.OpenApi.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -31,14 +32,31 @@ builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationSc
         options.LoginPath = "/Account/Login"; // Redirect to Login page if not authenticated
         options.AccessDeniedPath = "/Account/AccessDenied"; // Redirect if access is denied
     });
-
+builder.Services.AddEndpointsApiExplorer();
+builder.Services.AddSwaggerGen(options =>
+{
+    options.SwaggerDoc("v1", new OpenApiInfo
+    {
+        Title = "Library Management System API",
+        Version = "v1",
+    });
+});
 var app = builder.Build();
 
 // Middleware configuration
-if (!app.Environment.IsDevelopment())
+if (app.Environment.IsDevelopment())
+{
+    app.UseSwagger();
+    app.UseSwaggerUI(c =>
+    {
+        c.SwaggerEndpoint("/swagger/v1/swagger.json", "Library Management System API v1");
+    });
+}
+else
 {
     app.UseExceptionHandler("/Home/Error");
     app.UseHsts(); // Enable HTTP Strict Transport Security (HSTS)
+
 }
 
 app.UseHttpsRedirection(); // Redirect HTTP to HTTPS

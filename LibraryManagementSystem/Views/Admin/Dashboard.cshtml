@@ -30,6 +30,22 @@
     #content {
         margin-top: 20px;
     }
+    #bookRequestNotificationCount {
+        font-size: 0.75rem;      /* Smaller font size for the badge */
+        width: 1.5rem;           /* Fixed width for the circle */
+        height: 1.5rem;          /* Fixed height for the circle */
+        padding: 0;              /* Remove padding for a perfect circle */
+        border-radius: 50%;      /* Make the badge a circle */
+        text-align: center;      /* Center the text horizontally */
+        line-height: 1.5rem;     /* Center the text vertically */
+        position: relative;      /* Ensure it stays in place */
+        top: -2px;               /* Slightly adjust vertical alignment */
+    }
+
+    /* Hide badge when count is 0 */
+    #bookRequestNotificationCount.hidden {
+        display: none;
+    }
 </style>
 
 <div class="container mt-4" id="one">
@@ -84,8 +100,12 @@
                     <a class="nav-link text-primary" onclick="loadContent('StudentInfo')">Student Info</a>
                 </li>
                 <li class="nav-item mb-2">
-                    <a class="nav-link text-primary" onclick="loadContent('ManageBookRequests')">Manage Book Requests</a>
+                    <a class="nav-link text-primary d-flex justify-content-between align-items-center" onclick="loadContent('ManageBookRequests')" style="position: relative;">
+                        Manage Book Requests
+                        <span class="badge bg-danger ms-2" id="bookRequestNotificationCount" style="font-size: 0.75rem;">0</span>
+                    </a>
                 </li>
+
                 <li class="nav-item mb-2">
                     <a href="#" class="nav-link text-primary" onclick="loadContent('ViewIssuedBooks')">View Issued Books</a>
                 </li>
@@ -131,4 +151,38 @@
         $("#totalIssuedBooks").text(metrics.totalIssuedBooks);
         $("#totalOverdueBooks").text(metrics.totalOverdueBooks);
     }
+    function updateBookRequestNotificationCount() {
+        
+        $.ajax({
+            url: "http://localhost:5043/api/BookRequests/count/pending", // API URL for pending count
+            type: "GET",
+            success: function (response) {
+                console.log(response)
+                // Assuming your API returns { success: true, count: X }
+                if (response.success) {
+                    const count = response.count;
+
+                    // Update the badge
+                    const badge = $("#bookRequestNotificationCount");
+                    badge.text(count);
+
+                    // Show or hide the badge based on count
+                    if (count === 0) {
+                        badge.addClass("hidden");
+                    } else {
+                        badge.removeClass("hidden");
+                    }
+                }
+            },
+            error: function () {
+                console.error("Failed to fetch book request notification count.");
+            }
+        });
+    }
+
+    // Update the badge every 60 seconds
+    setInterval(updateBookRequestNotificationCount, 10000);
+
+    // Initial call to load the count
+    updateBookRequestNotificationCount();
 </script>

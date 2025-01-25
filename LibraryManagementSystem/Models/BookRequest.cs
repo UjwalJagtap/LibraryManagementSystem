@@ -1,6 +1,8 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Mvc.ModelBinding.Validation;
+using System;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Text.Json.Serialization;
 
 namespace LibraryManagementSystem.Models
 {
@@ -9,12 +11,17 @@ namespace LibraryManagementSystem.Models
         [Key]
         public int RequestId { get; set; }
 
-        [ForeignKey("User")]
+        
         public int UserId { get; set; }
+        [ForeignKey("UserId")]
+        [JsonIgnore]
+        [ValidateNever]
         public User User { get; set; }
 
         [ForeignKey("Book")]
         public int BookId { get; set; }
+        [JsonIgnore]
+        [ValidateNever]
         public Book Book { get; set; }
 
         public DateTime RequestDate { get; set; }

@@ -632,6 +632,7 @@ C:\Users\jagta\OneDrive\Desktop\LibraryManagementSystem\LibraryManagementSystem\
 C:\Users\jagta\OneDrive\Desktop\LibraryManagementSystem\LibraryManagementSystem\bin\Debug\net8.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
 C:\Users\jagta\OneDrive\Desktop\LibraryManagementSystem\LibraryManagementSystem\bin\Debug\net8.0\Microsoft.IdentityModel.Tokens.dll
 C:\Users\jagta\OneDrive\Desktop\LibraryManagementSystem\LibraryManagementSystem\bin\Debug\net8.0\Microsoft.NET.StringTools.dll
+C:\Users\jagta\OneDrive\Desktop\LibraryManagementSystem\LibraryManagementSystem\bin\Debug\net8.0\Microsoft.OpenApi.dll
 C:\Users\jagta\OneDrive\Desktop\LibraryManagementSystem\LibraryManagementSystem\bin\Debug\net8.0\Microsoft.SqlServer.Server.dll
 C:\Users\jagta\OneDrive\Desktop\LibraryManagementSystem\LibraryManagementSystem\bin\Debug\net8.0\Microsoft.VisualStudio.Web.CodeGeneration.dll
 C:\Users\jagta\OneDrive\Desktop\LibraryManagementSystem\LibraryManagementSystem\bin\Debug\net8.0\Microsoft.VisualStudio.Web.CodeGeneration.Core.dll
@@ -652,6 +653,9 @@ C:\Users\jagta\OneDrive\Desktop\LibraryManagementSystem\LibraryManagementSystem\
 C:\Users\jagta\OneDrive\Desktop\LibraryManagementSystem\LibraryManagementSystem\bin\Debug\net8.0\NuGet.ProjectModel.dll
 C:\Users\jagta\OneDrive\Desktop\LibraryManagementSystem\LibraryManagementSystem\bin\Debug\net8.0\NuGet.Protocol.dll
 C:\Users\jagta\OneDrive\Desktop\LibraryManagementSystem\LibraryManagementSystem\bin\Debug\net8.0\NuGet.Versioning.dll
+C:\Users\jagta\OneDrive\Desktop\LibraryManagementSystem\LibraryManagementSystem\bin\Debug\net8.0\Swashbuckle.AspNetCore.Swagger.dll
+C:\Users\jagta\OneDrive\Desktop\LibraryManagementSystem\LibraryManagementSystem\bin\Debug\net8.0\Swashbuckle.AspNetCore.SwaggerGen.dll
+C:\Users\jagta\OneDrive\Desktop\LibraryManagementSystem\LibraryManagementSystem\bin\Debug\net8.0\Swashbuckle.AspNetCore.SwaggerUI.dll
 C:\Users\jagta\OneDrive\Desktop\LibraryManagementSystem\LibraryManagementSystem\bin\Debug\net8.0\System.ClientModel.dll
 C:\Users\jagta\OneDrive\Desktop\LibraryManagementSystem\LibraryManagementSystem\bin\Debug\net8.0\System.CodeDom.dll
 C:\Users\jagta\OneDrive\Desktop\LibraryManagementSystem\LibraryManagementSystem\bin\Debug\net8.0\System.Composition.AttributedModel.dll
