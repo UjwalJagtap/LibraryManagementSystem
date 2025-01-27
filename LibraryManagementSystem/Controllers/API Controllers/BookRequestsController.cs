@@ -44,13 +44,11 @@ namespace LibraryManagementSystem.Controllers
 
         // PUT: api/BookRequests/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
-        [HttpPut("{id}")]
-        public async Task<IActionResult> PutBookRequest(int id, BookRequest bookRequest)
+        [ProducesResponseType(StatusCodes.Status204NoContent)]
+        [HttpPut]
+        public async Task<IActionResult> PutBookRequest(BookRequest bookRequest)
         {
-            if (id != bookRequest.RequestId)
-            {
-                return BadRequest();
-            }
+           
 
             _context.Entry(bookRequest).State = EntityState.Modified;
 
@@ -60,7 +58,7 @@ namespace LibraryManagementSystem.Controllers
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!BookRequestExists(id))
+                if (!BookRequestExists(bookRequest.RequestId))
                 {
                     return NotFound();
                 }
@@ -127,6 +125,7 @@ namespace LibraryManagementSystem.Controllers
                 count = pendingCount
             });
         }
+        // DELETE: api/BookRequests/status/{status}
         [HttpGet("status/{status}")]
         public async Task<ActionResult<IEnumerable<BookRequest>>> GetBookRequestsByStatus(string status)
         {

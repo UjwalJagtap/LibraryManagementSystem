@@ -21,6 +21,22 @@
   },
   {
     "ContainingType": "LibraryManagementSystem.Controllers.BookRequestsController",
+    "Method": "PutBookRequest",
+    "RelativePath": "api/BookRequests",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "bookRequest",
+        "Type": "LibraryManagementSystem.Models.BookRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "LibraryManagementSystem.Controllers.BookRequestsController",
     "Method": "PostBookRequest",
     "RelativePath": "api/BookRequests",
     "HttpMethod": "POST",
@@ -70,27 +86,6 @@
         "StatusCode": 200
       }
     ]
-  },
-  {
-    "ContainingType": "LibraryManagementSystem.Controllers.BookRequestsController",
-    "Method": "PutBookRequest",
-    "RelativePath": "api/BookRequests/{id}",
-    "HttpMethod": "PUT",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "id",
-        "Type": "System.Int32",
-        "IsRequired": true
-      },
-      {
-        "Name": "bookRequest",
-        "Type": "LibraryManagementSystem.Models.BookRequest",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": []
   },
   {
     "ContainingType": "LibraryManagementSystem.Controllers.BookRequestsController",
