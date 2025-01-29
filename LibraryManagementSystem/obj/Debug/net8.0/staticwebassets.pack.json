@@ -9,8 +9,20 @@
       "PackagePath": "staticwebassets\\css\\site.css"
     },
     {
-      "Id": "C:\\Users\\2369942\\OneDrive - Cognizant\\Desktop\\LibraryManagementSystem\\LibraryManagementSystem\\wwwroot\\favicon.ico",
-      "PackagePath": "staticwebassets\\favicon.ico"
+      "Id": "C:\\Users\\2369942\\OneDrive - Cognizant\\Desktop\\LibraryManagementSystem\\LibraryManagementSystem\\wwwroot\\images\\favicon1.jpeg",
+      "PackagePath": "staticwebassets\\images\\favicon1.jpeg"
+    },
+    {
+      "Id": "C:\\Users\\2369942\\OneDrive - Cognizant\\Desktop\\LibraryManagementSystem\\LibraryManagementSystem\\wwwroot\\images\\favicon2.jpeg",
+      "PackagePath": "staticwebassets\\images\\favicon2.jpeg"
+    },
+    {
+      "Id": "C:\\Users\\2369942\\OneDrive - Cognizant\\Desktop\\LibraryManagementSystem\\LibraryManagementSystem\\wwwroot\\images\\favicon3.jpeg",
+      "PackagePath": "staticwebassets\\images\\favicon3.jpeg"
+    },
+    {
+      "Id": "C:\\Users\\2369942\\OneDrive - Cognizant\\Desktop\\LibraryManagementSystem\\LibraryManagementSystem\\wwwroot\\images\\favicon4.jpeg",
+      "PackagePath": "staticwebassets\\images\\favicon4.jpeg"
     },
     {
       "Id": "C:\\Users\\2369942\\OneDrive - Cognizant\\Desktop\\LibraryManagementSystem\\LibraryManagementSystem\\wwwroot\\images\\homeBG.jpg",
