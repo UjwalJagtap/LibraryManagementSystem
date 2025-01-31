@@ -177,7 +177,6 @@ public class StudentController : Controller
     }
 
 
-
     [HttpPost]
     public IActionResult CancelRequest(int requestId)
     {
@@ -185,33 +184,21 @@ public class StudentController : Controller
         if (!userId.HasValue)
             return Json(new { success = false, message = "User not logged in." });
 
-        var request = _context.BookRequests.Include(r => r.Book).FirstOrDefault(r => r.RequestId == requestId && r.UserId == userId.Value);
+        var request = _context.BookRequests
+            .FirstOrDefault(r => r.RequestId == requestId && r.UserId == userId.Value);
+
         if (request == null || request.Status != "Pending")
             return Json(new { success = false, message = "Request not found or already processed." });
 
         // Update the status to "Cancelled"
         request.Status = "Cancelled";
-        request.Book.AvailableCopies += 1; // Increment the available copies
+
         _context.SaveChanges();
 
         return Json(new { success = true, message = "Request cancelled successfully!" });
     }
-    [HttpPost]
-    public IActionResult ClearAllRequests()
-    {
-        var userId = HttpContext.Session.GetInt32("UserId");
-        if (!userId.HasValue)
-            return Json(new { success = false, message = "User not logged in." });
 
-        var allRequests = _context.BookRequests.Where(r => r.UserId == userId.Value).ToList();
-        if (!allRequests.Any())
-            return Json(new { success = false, message = "No requests to clear." });
 
-        _context.BookRequests.RemoveRange(allRequests);
-        _context.SaveChanges();
-
-        return Json(new { success = true, message = "All requests cleared successfully!" });
-    }
     [HttpGet]
     public IActionResult ViewIssuedBooks(string filter = "All")
     {

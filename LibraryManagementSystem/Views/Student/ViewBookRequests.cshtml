@@ -20,7 +20,7 @@
                 <th>Title</th>
                 <th>Request Date</th>
                 <th>Status</th>
-                <th>Actions</th>
+                <th>Actions</th> 
             </tr>
         </thead>
         <tbody>
@@ -51,7 +51,7 @@
                                     break;
                             }
                         </td>
-                        <td>
+                          <td>
                             @if (request.Status == "Pending")
                             {
                                 <button class="btn btn-danger btn-sm" onclick="cancelRequest(@request.RequestId)">Cancel Request</button>
@@ -60,7 +60,7 @@
                             {
                                 <span class="text-muted">No Actions Available</span>
                             }
-                        </td>
+                        </td>  
                     </tr>
                 }
             }
@@ -72,11 +72,6 @@
             }
         </tbody>
     </table>
-
-    <!-- Clear All Cancelled Requests Button (Positioned Bottom Right) -->
-    <div class="d-flex justify-content-end mt-3">
-        <button class="btn btn-danger" onclick="clearAllRequests()">Clear All Requests</button>
-    </div>
 </div>
 
 <script>
@@ -95,24 +90,6 @@
             },
             error: function () {
                 alert("An error occurred while canceling the request.");
-            }
-        });
-    }
-
-    function clearAllRequests() {
-        if (!confirm("Are you sure you want to clear all your book requests?")) return;
-
-        $.ajax({
-            url: "/Student/ClearAllRequests",
-            type: "POST",
-            success: function (response) {
-                alert(response.message);
-                if (response.success) {
-                    loadContent('ViewBookRequests'); // Reloads the requests list to reflect changes
-                }
-            },
-            error: function () {
-                alert("An error occurred while clearing the requests.");
             }
         });
     }

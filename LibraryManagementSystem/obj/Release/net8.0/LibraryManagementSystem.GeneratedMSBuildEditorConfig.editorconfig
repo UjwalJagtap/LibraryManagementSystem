@@ -17,87 +17,109 @@ build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = LibraryManagementSystem
 build_property.RootNamespace = LibraryManagementSystem
-build_property.ProjectDir = C:\Users\2369942\OneDrive - Cognizant\Desktop\LibraryManagementSystem\LibraryManagementSystem\
+build_property.ProjectDir = C:\Users\jagta\OneDrive\Desktop\LibraryManagementSystem\LibraryManagementSystem\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 
 build_property.RazorLangVersion = 8.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = C:\Users\2369942\OneDrive - Cognizant\Desktop\LibraryManagementSystem\LibraryManagementSystem
+build_property.MSBuildProjectDirectory = C:\Users\jagta\OneDrive\Desktop\LibraryManagementSystem\LibraryManagementSystem
 build_property._RazorSourceGeneratorDebug = 
+build_property.EffectiveAnalysisLevelStyle = 8.0
+build_property.EnableCodeStyleSeverity = 
 
-[C:/Users/2369942/OneDrive - Cognizant/Desktop/LibraryManagementSystem/LibraryManagementSystem/Views/Account/Register.cshtml]
+[C:/Users/jagta/OneDrive/Desktop/LibraryManagementSystem/LibraryManagementSystem/Views/Account/Register.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxSZWdpc3Rlci5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/2369942/OneDrive - Cognizant/Desktop/LibraryManagementSystem/LibraryManagementSystem/Views/Admin/Dashboard.cshtml]
+[C:/Users/jagta/OneDrive/Desktop/LibraryManagementSystem/LibraryManagementSystem/Views/Admin/AddBooks.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cQWRkQm9va3MuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/jagta/OneDrive/Desktop/LibraryManagementSystem/LibraryManagementSystem/Views/Admin/Books.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cQm9va3MuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/jagta/OneDrive/Desktop/LibraryManagementSystem/LibraryManagementSystem/Views/Admin/Dashboard.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cRGFzaGJvYXJkLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/2369942/OneDrive - Cognizant/Desktop/LibraryManagementSystem/LibraryManagementSystem/Views/Admin/_AddBooks.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cX0FkZEJvb2tzLmNzaHRtbA==
+[C:/Users/jagta/OneDrive/Desktop/LibraryManagementSystem/LibraryManagementSystem/Views/Admin/ManageBookRequests.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cTWFuYWdlQm9va1JlcXVlc3RzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/2369942/OneDrive - Cognizant/Desktop/LibraryManagementSystem/LibraryManagementSystem/Views/Admin/_GenerateReports.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cX0dlbmVyYXRlUmVwb3J0cy5jc2h0bWw=
+[C:/Users/jagta/OneDrive/Desktop/LibraryManagementSystem/LibraryManagementSystem/Views/Admin/ManageFines.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cTWFuYWdlRmluZXMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/2369942/OneDrive - Cognizant/Desktop/LibraryManagementSystem/LibraryManagementSystem/Views/Admin/_IssueBooks.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cX0lzc3VlQm9va3MuY3NodG1s
+[C:/Users/jagta/OneDrive/Desktop/LibraryManagementSystem/LibraryManagementSystem/Views/Admin/ReturnBook.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cUmV0dXJuQm9vay5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/2369942/OneDrive - Cognizant/Desktop/LibraryManagementSystem/LibraryManagementSystem/Views/Admin/_ManageFines.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cX01hbmFnZUZpbmVzLmNzaHRtbA==
+[C:/Users/jagta/OneDrive/Desktop/LibraryManagementSystem/LibraryManagementSystem/Views/Admin/StudentInfo.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cU3R1ZGVudEluZm8uY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/2369942/OneDrive - Cognizant/Desktop/LibraryManagementSystem/LibraryManagementSystem/Views/Error/Error.cshtml]
+[C:/Users/jagta/OneDrive/Desktop/LibraryManagementSystem/LibraryManagementSystem/Views/Admin/UpdateBook.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cVXBkYXRlQm9vay5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/jagta/OneDrive/Desktop/LibraryManagementSystem/LibraryManagementSystem/Views/Admin/ViewIssuedBooks.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cVmlld0lzc3VlZEJvb2tzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/jagta/OneDrive/Desktop/LibraryManagementSystem/LibraryManagementSystem/Views/Error/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRXJyb3JcRXJyb3IuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/2369942/OneDrive - Cognizant/Desktop/LibraryManagementSystem/LibraryManagementSystem/Views/Home/Index.cshtml]
+[C:/Users/jagta/OneDrive/Desktop/LibraryManagementSystem/LibraryManagementSystem/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/2369942/OneDrive - Cognizant/Desktop/LibraryManagementSystem/LibraryManagementSystem/Views/Shared/Error.cshtml]
+[C:/Users/jagta/OneDrive/Desktop/LibraryManagementSystem/LibraryManagementSystem/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/2369942/OneDrive - Cognizant/Desktop/LibraryManagementSystem/LibraryManagementSystem/Views/Shared/_ValidationScriptsPartial.cshtml]
+[C:/Users/jagta/OneDrive/Desktop/LibraryManagementSystem/LibraryManagementSystem/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/2369942/OneDrive - Cognizant/Desktop/LibraryManagementSystem/LibraryManagementSystem/Views/Student/Dashboard.cshtml]
+[C:/Users/jagta/OneDrive/Desktop/LibraryManagementSystem/LibraryManagementSystem/Views/Student/Books.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3R1ZGVudFxCb29rcy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/jagta/OneDrive/Desktop/LibraryManagementSystem/LibraryManagementSystem/Views/Student/Dashboard.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3R1ZGVudFxEYXNoYm9hcmQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/2369942/OneDrive - Cognizant/Desktop/LibraryManagementSystem/LibraryManagementSystem/Views/Student/_RenewBooks.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3R1ZGVudFxfUmVuZXdCb29rcy5jc2h0bWw=
+[C:/Users/jagta/OneDrive/Desktop/LibraryManagementSystem/LibraryManagementSystem/Views/Student/ReturnBooks.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3R1ZGVudFxSZXR1cm5Cb29rcy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/2369942/OneDrive - Cognizant/Desktop/LibraryManagementSystem/LibraryManagementSystem/Views/Student/_ReturnBooks.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3R1ZGVudFxfUmV0dXJuQm9va3MuY3NodG1s
+[C:/Users/jagta/OneDrive/Desktop/LibraryManagementSystem/LibraryManagementSystem/Views/Student/SearchBooks.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3R1ZGVudFxTZWFyY2hCb29rcy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/2369942/OneDrive - Cognizant/Desktop/LibraryManagementSystem/LibraryManagementSystem/Views/Student/_SearchBooks.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3R1ZGVudFxfU2VhcmNoQm9va3MuY3NodG1s
+[C:/Users/jagta/OneDrive/Desktop/LibraryManagementSystem/LibraryManagementSystem/Views/Student/ViewBookRequests.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3R1ZGVudFxWaWV3Qm9va1JlcXVlc3RzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/2369942/OneDrive - Cognizant/Desktop/LibraryManagementSystem/LibraryManagementSystem/Views/Student/_ViewFines.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3R1ZGVudFxfVmlld0ZpbmVzLmNzaHRtbA==
+[C:/Users/jagta/OneDrive/Desktop/LibraryManagementSystem/LibraryManagementSystem/Views/Student/ViewFines.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3R1ZGVudFxWaWV3RmluZXMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/2369942/OneDrive - Cognizant/Desktop/LibraryManagementSystem/LibraryManagementSystem/Views/Student/_ViewIssuedBooks.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3R1ZGVudFxfVmlld0lzc3VlZEJvb2tzLmNzaHRtbA==
+[C:/Users/jagta/OneDrive/Desktop/LibraryManagementSystem/LibraryManagementSystem/Views/Student/ViewIssuedBooks.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3R1ZGVudFxWaWV3SXNzdWVkQm9va3MuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/2369942/OneDrive - Cognizant/Desktop/LibraryManagementSystem/LibraryManagementSystem/Views/_ViewImports.cshtml]
+[C:/Users/jagta/OneDrive/Desktop/LibraryManagementSystem/LibraryManagementSystem/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/2369942/OneDrive - Cognizant/Desktop/LibraryManagementSystem/LibraryManagementSystem/Views/_ViewStart.cshtml]
+[C:/Users/jagta/OneDrive/Desktop/LibraryManagementSystem/LibraryManagementSystem/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/2369942/OneDrive - Cognizant/Desktop/LibraryManagementSystem/LibraryManagementSystem/Views/Shared/_Layout.cshtml]
+[C:/Users/jagta/OneDrive/Desktop/LibraryManagementSystem/LibraryManagementSystem/Views/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = b-spbznog2vl

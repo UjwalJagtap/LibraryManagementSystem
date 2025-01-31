@@ -240,7 +240,7 @@ namespace LibraryManagementSystem.Controllers
             var requests = _context.BookRequests
              .Include(r => r.Book)  // Eager loading to include Book details
              .Include(r => r.User)  // Eager loading to include User details
-             .Where(r => r.Status != "Returned")  // Filter out requests with status "Returned"
+             .Where(r => r.Status != "Returned" && r.Status != "Cancelled")  // Filter out requests with status "Returned"
              .Select(r => new BookRequest
              {
                  RequestId = r.RequestId,
@@ -304,34 +304,6 @@ namespace LibraryManagementSystem.Controllers
             var metrics = GetMetrics();
             return Json(new { success = true, message = "Request approved successfully!", metrics });
         }
-
-        [HttpPost]
-        public IActionResult RenewBook(int issuedBookId)
-        {
-            var userId = HttpContext.Session.GetInt32("UserId");
-            if (!userId.HasValue)
-                return Json(new { success = false, message = "User not logged in." });
-
-            var issuedBook = _context.IssuedBooks.FirstOrDefault(ib => ib.IssuedBookId == issuedBookId && ib.UserId == userId.Value && ib.ReturnDate == null);
-            if (issuedBook == null)
-                return Json(new { success = false, message = "Issued book not found." });
-
-            // Add renewal request to BookRequests table
-            var renewalRequest = new BookRequest
-            {
-                UserId = userId.Value,
-                BookId = issuedBook.BookId,
-                RequestDate = DateTime.Now,
-                Status = "Pending",
-                RequestType = "Renewal" // Set the request type as "Renewal"
-            };
-
-            _context.BookRequests.Add(renewalRequest);
-            _context.SaveChanges();
-
-            return Json(new { success = true, message = "Renewal request has been successfully submitted!" });
-        }
-
 
         [HttpPost]
         public IActionResult RejectRequest(int requestId)
@@ -568,33 +540,51 @@ namespace LibraryManagementSystem.Controllers
                 return Json(new { success = false, message = $"Error loading ManageFines view: {ex.Message}" });
             }
         }
+
         [HttpPost]
         public IActionResult PayFine(int fineId)
         {
-            var fine = _context.Fines.Include(f => f.IssuedBook).FirstOrDefault(f => f.FineId == fineId);
+            var fine = _context.Fines
+                .Include(f => f.IssuedBook)
+                .ThenInclude(ib => ib.Book)  // Include Book details
+                .FirstOrDefault(f => f.FineId == fineId);
+
             if (fine == null)
                 return Json(new { success = false, message = "Fine not found." });
+
             // Mark fine as paid
             fine.IsPaid = true;
+
             // Update the return date of the issued book
             var issuedBook = fine.IssuedBook;
             if (issuedBook != null)
             {
                 issuedBook.ReturnDate = DateTime.Now; // Set today's date as the return date
-                var bookRequest = _context.BookRequests.FirstOrDefault(r => r.BookId == issuedBook.BookId
-                                                                         && r.UserId==issuedBook.UserId
-                                                                         && r.Status=="Approved");
-                if (bookRequest != null)
+
+                // Find the associated book and increase available copies
+                var book = issuedBook.Book;
+                if (book != null)
                 {
-                    bookRequest.Status = "Returned";
+                    book.AvailableCopies += 1; // Increment available copies
+                }
+
+                var bookRequests = _context.BookRequests
+                    .Where(r => r.BookId == issuedBook.BookId && r.UserId == issuedBook.UserId && r.Status == "Approved")
+                    .ToList();
+
+                foreach (var request in bookRequests)
+                {
+                    request.Status = "Returned";
                 }
             }
+
             _context.SaveChanges(); // Save changes to the database
+
             // Update metrics after marking the fine as paid
             var metrics = GetMetrics();
             return Json(new { success = true, message = "Fine marked as paid successfully!", metrics });
         }
-        
+
 
         [HttpGet]
         public IActionResult ReturnBook()
@@ -645,15 +635,20 @@ namespace LibraryManagementSystem.Controllers
                 // Mark the book as returned
                 issuedBook.ReturnDate = DateTime.Now;
 
-                // Update the corresponding book request status to "Returned"
-                var bookRequest = _context.BookRequests.FirstOrDefault(r =>
-                    r.BookId == issuedBook.BookId &&
-                    r.UserId == issuedBook.UserId &&
-                    r.Status == "Approved");  // Only update the approved request
-
-                if (bookRequest != null)
+                // Increase available copies
+                if (issuedBook.Book != null)
                 {
-                    bookRequest.Status = "Returned";
+                    issuedBook.Book.AvailableCopies += 1;
+                }
+
+                // Update ALL book requests (New & Renewal) to "Returned"
+                var bookRequests = _context.BookRequests
+                    .Where(r => r.BookId == issuedBook.BookId && r.UserId == issuedBook.UserId && r.Status == "Approved")
+                    .ToList();
+
+                foreach (var request in bookRequests)
+                {
+                    request.Status = "Returned";
                 }
 
                 _context.SaveChanges();  // Save changes to the database
@@ -666,6 +661,7 @@ namespace LibraryManagementSystem.Controllers
                 return Json(new { success = false, message = $"Error processing return: {ex.Message}" });
             }
         }
+
         private void UpdateMetrics()
         {
             ViewBag.TotalBooks = _context.Books.Count();

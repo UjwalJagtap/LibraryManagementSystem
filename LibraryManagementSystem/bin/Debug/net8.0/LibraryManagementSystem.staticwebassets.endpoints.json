@@ -167,8 +167,8 @@
       ]
     },
     {
-      "Route": "favicon.61n19gt1b8.ico",
-      "AssetFile": "favicon.ico",
+      "Route": "images/favicon4.4ekf9ptswe.jpeg",
+      "AssetFile": "images/favicon4.jpeg",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -181,39 +181,39 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "5430"
+          "Value": "3357"
         },
         {
           "Name": "Content-Type",
-          "Value": "image/x-icon"
+          "Value": "image/jpeg"
         },
         {
           "Name": "ETag",
-          "Value": "\"Jtxf9L+5ITKRc1gIRl4VbUpGkRNfOBXjYTdhJD4facM=\""
+          "Value": "\"/JEnr5wWFSM7ZKqNZVVs0oE48oGkbXi5m++gWicAZ9o=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sun, 29 Dec 2024 18:13:36 GMT"
+          "Value": "Wed, 29 Jan 2025 15:47:58 GMT"
         }
       ],
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "61n19gt1b8"
+          "Value": "4ekf9ptswe"
         },
         {
           "Name": "integrity",
-          "Value": "sha256-Jtxf9L+5ITKRc1gIRl4VbUpGkRNfOBXjYTdhJD4facM="
+          "Value": "sha256-/JEnr5wWFSM7ZKqNZVVs0oE48oGkbXi5m++gWicAZ9o="
         },
         {
           "Name": "label",
-          "Value": "favicon.ico"
+          "Value": "images/favicon4.jpeg"
         }
       ]
     },
     {
-      "Route": "favicon.ico",
-      "AssetFile": "favicon.ico",
+      "Route": "images/favicon4.jpeg",
+      "AssetFile": "images/favicon4.jpeg",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -226,25 +226,25 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "5430"
+          "Value": "3357"
         },
         {
           "Name": "Content-Type",
-          "Value": "image/x-icon"
+          "Value": "image/jpeg"
         },
         {
           "Name": "ETag",
-          "Value": "\"Jtxf9L+5ITKRc1gIRl4VbUpGkRNfOBXjYTdhJD4facM=\""
+          "Value": "\"/JEnr5wWFSM7ZKqNZVVs0oE48oGkbXi5m++gWicAZ9o=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sun, 29 Dec 2024 18:13:36 GMT"
+          "Value": "Wed, 29 Jan 2025 15:47:58 GMT"
         }
       ],
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-Jtxf9L+5ITKRc1gIRl4VbUpGkRNfOBXjYTdhJD4facM="
+          "Value": "sha256-/JEnr5wWFSM7ZKqNZVVs0oE48oGkbXi5m++gWicAZ9o="
         }
       ]
     },

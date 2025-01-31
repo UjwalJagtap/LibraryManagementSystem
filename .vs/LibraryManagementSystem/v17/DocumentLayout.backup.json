@@ -1,30 +1,42 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\2369942\\OneDrive - Cognizant\\Desktop\\LibraryManagementSystem\\",
+  "WorkspaceRootPath": "C:\\Users\\jagta\\OneDrive\\Desktop\\LibraryManagementSystem\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{F9CD7EE4-B28B-409F-BD11-CBA987925E13}|LibraryManagementSystem\\LibraryManagementSystem.csproj|c:\\users\\2369942\\onedrive - cognizant\\desktop\\librarymanagementsystem\\librarymanagementsystem\\controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F9CD7EE4-B28B-409F-BD11-CBA987925E13}|LibraryManagementSystem\\LibraryManagementSystem.csproj|solutionrelative:librarymanagementsystem\\controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{F9CD7EE4-B28B-409F-BD11-CBA987925E13}|LibraryManagementSystem\\LibraryManagementSystem.csproj|c:\\users\\jagta\\onedrive\\desktop\\librarymanagementsystem\\librarymanagementsystem\\controllers\\admincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F9CD7EE4-B28B-409F-BD11-CBA987925E13}|LibraryManagementSystem\\LibraryManagementSystem.csproj|solutionrelative:librarymanagementsystem\\controllers\\admincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{F9CD7EE4-B28B-409F-BD11-CBA987925E13}|LibraryManagementSystem\\LibraryManagementSystem.csproj|c:\\users\\2369942\\onedrive - cognizant\\desktop\\librarymanagementsystem\\librarymanagementsystem\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F9CD7EE4-B28B-409F-BD11-CBA987925E13}|LibraryManagementSystem\\LibraryManagementSystem.csproj|solutionrelative:librarymanagementsystem\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{F9CD7EE4-B28B-409F-BD11-CBA987925E13}|LibraryManagementSystem\\LibraryManagementSystem.csproj|c:\\users\\jagta\\onedrive\\desktop\\librarymanagementsystem\\librarymanagementsystem\\controllers\\studentcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F9CD7EE4-B28B-409F-BD11-CBA987925E13}|LibraryManagementSystem\\LibraryManagementSystem.csproj|solutionrelative:librarymanagementsystem\\controllers\\studentcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{F9CD7EE4-B28B-409F-BD11-CBA987925E13}|LibraryManagementSystem\\LibraryManagementSystem.csproj|c:\\users\\2369942\\onedrive - cognizant\\desktop\\librarymanagementsystem\\librarymanagementsystem\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "AbsoluteMoniker": "D:0:0:{F9CD7EE4-B28B-409F-BD11-CBA987925E13}|LibraryManagementSystem\\LibraryManagementSystem.csproj|c:\\users\\jagta\\onedrive\\desktop\\librarymanagementsystem\\librarymanagementsystem\\views\\student\\viewbookrequests.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{F9CD7EE4-B28B-409F-BD11-CBA987925E13}|LibraryManagementSystem\\LibraryManagementSystem.csproj|solutionrelative:librarymanagementsystem\\views\\student\\viewbookrequests.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F9CD7EE4-B28B-409F-BD11-CBA987925E13}|LibraryManagementSystem\\LibraryManagementSystem.csproj|c:\\users\\jagta\\onedrive\\desktop\\librarymanagementsystem\\librarymanagementsystem\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{F9CD7EE4-B28B-409F-BD11-CBA987925E13}|LibraryManagementSystem\\LibraryManagementSystem.csproj|solutionrelative:librarymanagementsystem\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F9CD7EE4-B28B-409F-BD11-CBA987925E13}|LibraryManagementSystem\\LibraryManagementSystem.csproj|c:\\users\\jagta\\onedrive\\desktop\\librarymanagementsystem\\librarymanagementsystem\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{F9CD7EE4-B28B-409F-BD11-CBA987925E13}|LibraryManagementSystem\\LibraryManagementSystem.csproj|solutionrelative:librarymanagementsystem\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{F9CD7EE4-B28B-409F-BD11-CBA987925E13}|LibraryManagementSystem\\LibraryManagementSystem.csproj|c:\\users\\2369942\\onedrive - cognizant\\desktop\\librarymanagementsystem\\librarymanagementsystem\\controllers\\api controllers\\bookscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{F9CD7EE4-B28B-409F-BD11-CBA987925E13}|LibraryManagementSystem\\LibraryManagementSystem.csproj|c:\\users\\jagta\\onedrive\\desktop\\librarymanagementsystem\\librarymanagementsystem\\controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F9CD7EE4-B28B-409F-BD11-CBA987925E13}|LibraryManagementSystem\\LibraryManagementSystem.csproj|solutionrelative:librarymanagementsystem\\controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F9CD7EE4-B28B-409F-BD11-CBA987925E13}|LibraryManagementSystem\\LibraryManagementSystem.csproj|c:\\users\\jagta\\onedrive\\desktop\\librarymanagementsystem\\librarymanagementsystem\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F9CD7EE4-B28B-409F-BD11-CBA987925E13}|LibraryManagementSystem\\LibraryManagementSystem.csproj|solutionrelative:librarymanagementsystem\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F9CD7EE4-B28B-409F-BD11-CBA987925E13}|LibraryManagementSystem\\LibraryManagementSystem.csproj|c:\\users\\jagta\\onedrive\\desktop\\librarymanagementsystem\\librarymanagementsystem\\controllers\\api controllers\\bookscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{F9CD7EE4-B28B-409F-BD11-CBA987925E13}|LibraryManagementSystem\\LibraryManagementSystem.csproj|solutionrelative:librarymanagementsystem\\controllers\\api controllers\\bookscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{F9CD7EE4-B28B-409F-BD11-CBA987925E13}|LibraryManagementSystem\\LibraryManagementSystem.csproj|c:\\users\\2369942\\onedrive - cognizant\\desktop\\librarymanagementsystem\\librarymanagementsystem\\controllers\\api controllers\\bookrequestscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{F9CD7EE4-B28B-409F-BD11-CBA987925E13}|LibraryManagementSystem\\LibraryManagementSystem.csproj|c:\\users\\jagta\\onedrive\\desktop\\librarymanagementsystem\\librarymanagementsystem\\controllers\\api controllers\\bookrequestscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{F9CD7EE4-B28B-409F-BD11-CBA987925E13}|LibraryManagementSystem\\LibraryManagementSystem.csproj|solutionrelative:librarymanagementsystem\\controllers\\api controllers\\bookrequestscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F9CD7EE4-B28B-409F-BD11-CBA987925E13}|LibraryManagementSystem\\LibraryManagementSystem.csproj|c:\\users\\2369942\\onedrive - cognizant\\desktop\\librarymanagementsystem\\librarymanagementsystem\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
-      "RelativeMoniker": "D:0:0:{F9CD7EE4-B28B-409F-BD11-CBA987925E13}|LibraryManagementSystem\\LibraryManagementSystem.csproj|solutionrelative:librarymanagementsystem\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
     }
   ],
   "DocumentGroupContainers": [
@@ -34,45 +46,78 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 0,
           "Children": [
             {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
-            },
-            {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\2369942\\OneDrive - Cognizant\\Desktop\\LibraryManagementSystem\\LibraryManagementSystem\\Program.cs",
-              "RelativeDocumentMoniker": "LibraryManagementSystem\\Program.cs",
-              "ToolTip": "C:\\Users\\2369942\\OneDrive - Cognizant\\Desktop\\LibraryManagementSystem\\LibraryManagementSystem\\Program.cs",
-              "RelativeToolTip": "LibraryManagementSystem\\Program.cs",
-              "ViewState": "AgIAAAkAAAAAAAAAAAAAACMAAAApAAAAAAAAAA==",
+              "DocumentIndex": 0,
+              "Title": "AdminController.cs",
+              "DocumentMoniker": "C:\\Users\\jagta\\OneDrive\\Desktop\\LibraryManagementSystem\\LibraryManagementSystem\\Controllers\\AdminController.cs",
+              "RelativeDocumentMoniker": "LibraryManagementSystem\\Controllers\\AdminController.cs",
+              "ToolTip": "C:\\Users\\jagta\\OneDrive\\Desktop\\LibraryManagementSystem\\LibraryManagementSystem\\Controllers\\AdminController.cs",
+              "RelativeToolTip": "LibraryManagementSystem\\Controllers\\AdminController.cs",
+              "ViewState": "AgIAAOMAAAAAAAAAAAAqwPIAAABKAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-29T04:00:32.25Z",
+              "WhenOpened": "2025-01-30T16:55:11.018Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "AccountController.cs",
-              "DocumentMoniker": "C:\\Users\\2369942\\OneDrive - Cognizant\\Desktop\\LibraryManagementSystem\\LibraryManagementSystem\\Controllers\\AccountController.cs",
-              "RelativeDocumentMoniker": "LibraryManagementSystem\\Controllers\\AccountController.cs",
-              "ToolTip": "C:\\Users\\2369942\\OneDrive - Cognizant\\Desktop\\LibraryManagementSystem\\LibraryManagementSystem\\Controllers\\AccountController.cs",
-              "RelativeToolTip": "LibraryManagementSystem\\Controllers\\AccountController.cs",
-              "ViewState": "AgIAAFEAAAAAAAAAAAAowHsAAAAoAAAAAAAAAA==",
+              "DocumentIndex": 1,
+              "Title": "StudentController.cs",
+              "DocumentMoniker": "C:\\Users\\jagta\\OneDrive\\Desktop\\LibraryManagementSystem\\LibraryManagementSystem\\Controllers\\StudentController.cs",
+              "RelativeDocumentMoniker": "LibraryManagementSystem\\Controllers\\StudentController.cs",
+              "ToolTip": "C:\\Users\\jagta\\OneDrive\\Desktop\\LibraryManagementSystem\\LibraryManagementSystem\\Controllers\\StudentController.cs",
+              "RelativeToolTip": "LibraryManagementSystem\\Controllers\\StudentController.cs",
+              "ViewState": "AgIAAKkAAAAAAAAAAADwv8cAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-29T04:00:05.453Z",
+              "WhenOpened": "2025-01-30T16:01:02.456Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
+              "Title": "ViewBookRequests.cshtml",
+              "DocumentMoniker": "C:\\Users\\jagta\\OneDrive\\Desktop\\LibraryManagementSystem\\LibraryManagementSystem\\Views\\Student\\ViewBookRequests.cshtml",
+              "RelativeDocumentMoniker": "LibraryManagementSystem\\Views\\Student\\ViewBookRequests.cshtml",
+              "ToolTip": "C:\\Users\\jagta\\OneDrive\\Desktop\\LibraryManagementSystem\\LibraryManagementSystem\\Views\\Student\\ViewBookRequests.cshtml",
+              "RelativeToolTip": "LibraryManagementSystem\\Views\\Student\\ViewBookRequests.cshtml",
+              "ViewState": "AgIAABsAAAAAAAAAAAAAAF8AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-01-30T15:56:55.072Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\jagta\\OneDrive\\Desktop\\LibraryManagementSystem\\LibraryManagementSystem\\Program.cs",
+              "RelativeDocumentMoniker": "LibraryManagementSystem\\Program.cs",
+              "ToolTip": "C:\\Users\\jagta\\OneDrive\\Desktop\\LibraryManagementSystem\\LibraryManagementSystem\\Program.cs",
+              "RelativeToolTip": "LibraryManagementSystem\\Program.cs",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAAACMAAAApAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-29T04:00:32.25Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "AccountController.cs",
+              "DocumentMoniker": "C:\\Users\\jagta\\OneDrive\\Desktop\\LibraryManagementSystem\\LibraryManagementSystem\\Controllers\\AccountController.cs",
+              "RelativeDocumentMoniker": "LibraryManagementSystem\\Controllers\\AccountController.cs",
+              "ToolTip": "C:\\Users\\jagta\\OneDrive\\Desktop\\LibraryManagementSystem\\LibraryManagementSystem\\Controllers\\AccountController.cs",
+              "RelativeToolTip": "LibraryManagementSystem\\Controllers\\AccountController.cs",
+              "ViewState": "AgIAAFEAAAAAAAAAAAAowHsAAAAoAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-29T04:00:05.453Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
               "Title": "_Layout.cshtml",
-              "DocumentMoniker": "C:\\Users\\2369942\\OneDrive - Cognizant\\Desktop\\LibraryManagementSystem\\LibraryManagementSystem\\Views\\Shared\\_Layout.cshtml",
+              "DocumentMoniker": "C:\\Users\\jagta\\OneDrive\\Desktop\\LibraryManagementSystem\\LibraryManagementSystem\\Views\\Shared\\_Layout.cshtml",
               "RelativeDocumentMoniker": "LibraryManagementSystem\\Views\\Shared\\_Layout.cshtml",
-              "ToolTip": "C:\\Users\\2369942\\OneDrive - Cognizant\\Desktop\\LibraryManagementSystem\\LibraryManagementSystem\\Views\\Shared\\_Layout.cshtml",
+              "ToolTip": "C:\\Users\\jagta\\OneDrive\\Desktop\\LibraryManagementSystem\\LibraryManagementSystem\\Views\\Shared\\_Layout.cshtml",
               "RelativeToolTip": "LibraryManagementSystem\\Views\\Shared\\_Layout.cshtml",
               "ViewState": "AgIAAE4AAAAAAAAAAAAAAA0AAABDAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
@@ -80,11 +125,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 7,
               "Title": "BooksController.cs",
-              "DocumentMoniker": "C:\\Users\\2369942\\OneDrive - Cognizant\\Desktop\\LibraryManagementSystem\\LibraryManagementSystem\\Controllers\\API Controllers\\BooksController.cs",
+              "DocumentMoniker": "C:\\Users\\jagta\\OneDrive\\Desktop\\LibraryManagementSystem\\LibraryManagementSystem\\Controllers\\API Controllers\\BooksController.cs",
               "RelativeDocumentMoniker": "LibraryManagementSystem\\Controllers\\API Controllers\\BooksController.cs",
-              "ToolTip": "C:\\Users\\2369942\\OneDrive - Cognizant\\Desktop\\LibraryManagementSystem\\LibraryManagementSystem\\Controllers\\API Controllers\\BooksController.cs",
+              "ToolTip": "C:\\Users\\jagta\\OneDrive\\Desktop\\LibraryManagementSystem\\LibraryManagementSystem\\Controllers\\API Controllers\\BooksController.cs",
               "RelativeToolTip": "LibraryManagementSystem\\Controllers\\API Controllers\\BooksController.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAADgAAAANAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -92,11 +137,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 8,
               "Title": "BookRequestsController.cs",
-              "DocumentMoniker": "C:\\Users\\2369942\\OneDrive - Cognizant\\Desktop\\LibraryManagementSystem\\LibraryManagementSystem\\Controllers\\API Controllers\\BookRequestsController.cs",
+              "DocumentMoniker": "C:\\Users\\jagta\\OneDrive\\Desktop\\LibraryManagementSystem\\LibraryManagementSystem\\Controllers\\API Controllers\\BookRequestsController.cs",
               "RelativeDocumentMoniker": "LibraryManagementSystem\\Controllers\\API Controllers\\BookRequestsController.cs",
-              "ToolTip": "C:\\Users\\2369942\\OneDrive - Cognizant\\Desktop\\LibraryManagementSystem\\LibraryManagementSystem\\Controllers\\API Controllers\\BookRequestsController.cs",
+              "ToolTip": "C:\\Users\\jagta\\OneDrive\\Desktop\\LibraryManagementSystem\\LibraryManagementSystem\\Controllers\\API Controllers\\BookRequestsController.cs",
               "RelativeToolTip": "LibraryManagementSystem\\Controllers\\API Controllers\\BookRequestsController.cs",
               "ViewState": "AgIAAFsAAAAAAAAAAAAiwC4AAAA9AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -104,15 +149,16 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 3,
               "Title": "appsettings.json",
-              "DocumentMoniker": "C:\\Users\\2369942\\OneDrive - Cognizant\\Desktop\\LibraryManagementSystem\\LibraryManagementSystem\\appsettings.json",
+              "DocumentMoniker": "C:\\Users\\jagta\\OneDrive\\Desktop\\LibraryManagementSystem\\LibraryManagementSystem\\appsettings.json",
               "RelativeDocumentMoniker": "LibraryManagementSystem\\appsettings.json",
-              "ToolTip": "C:\\Users\\2369942\\OneDrive - Cognizant\\Desktop\\LibraryManagementSystem\\LibraryManagementSystem\\appsettings.json",
+              "ToolTip": "C:\\Users\\jagta\\OneDrive\\Desktop\\LibraryManagementSystem\\LibraryManagementSystem\\appsettings.json",
               "RelativeToolTip": "LibraryManagementSystem\\appsettings.json",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAABAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2025-01-26T10:04:08.25Z"
+              "WhenOpened": "2025-01-26T10:04:08.25Z",
+              "EditorCaption": ""
             }
           ]
         }

@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\2369942\\OneDrive - Cognizant\\Desktop\\LibraryManagementSystem\\LibraryManagementSystem\\LibraryManagementSystem.csproj": {}
+    "C:\\Users\\jagta\\OneDrive\\Desktop\\LibraryManagementSystem\\LibraryManagementSystem\\LibraryManagementSystem.csproj": {}
   },
   "projects": {
-    "C:\\Users\\2369942\\OneDrive - Cognizant\\Desktop\\LibraryManagementSystem\\LibraryManagementSystem\\LibraryManagementSystem.csproj": {
+    "C:\\Users\\jagta\\OneDrive\\Desktop\\LibraryManagementSystem\\LibraryManagementSystem\\LibraryManagementSystem.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\2369942\\OneDrive - Cognizant\\Desktop\\LibraryManagementSystem\\LibraryManagementSystem\\LibraryManagementSystem.csproj",
+        "projectUniqueName": "C:\\Users\\jagta\\OneDrive\\Desktop\\LibraryManagementSystem\\LibraryManagementSystem\\LibraryManagementSystem.csproj",
         "projectName": "LibraryManagementSystem",
-        "projectPath": "C:\\Users\\2369942\\OneDrive - Cognizant\\Desktop\\LibraryManagementSystem\\LibraryManagementSystem\\LibraryManagementSystem.csproj",
-        "packagesPath": "C:\\Users\\2369942\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\2369942\\OneDrive - Cognizant\\Desktop\\LibraryManagementSystem\\LibraryManagementSystem\\obj\\",
+        "projectPath": "C:\\Users\\jagta\\OneDrive\\Desktop\\LibraryManagementSystem\\LibraryManagementSystem\\LibraryManagementSystem.csproj",
+        "packagesPath": "C:\\Users\\jagta\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\jagta\\OneDrive\\Desktop\\LibraryManagementSystem\\LibraryManagementSystem\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\2369942\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\jagta\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -43,7 +43,7 @@
         "restoreAuditProperties": {
           "enableAudit": "true",
           "auditLevel": "low",
-          "auditMode": "direct"
+          "auditMode": "all"
         }
       },
       "frameworks": {
@@ -114,6 +114,28 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.AspNetCore.App.Ref",
+              "version": "[8.0.11, 8.0.11]"
+            },
+            {
+              "name": "Microsoft.Net.Sdk.Compilers.Toolset",
+              "version": "[9.0.100, 9.0.100]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Host.win-x64",
+              "version": "[8.0.11, 8.0.11]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Ref",
+              "version": "[8.0.11, 8.0.11]"
+            },
+            {
+              "name": "Microsoft.WindowsDesktop.App.Ref",
+              "version": "[8.0.11, 8.0.11]"
+            }
+          ],
           "frameworkReferences": {
             "Microsoft.AspNetCore.App": {
               "privateAssets": "none"
@@ -122,7 +144,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.403/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.100/PortableRuntimeIdentifierGraph.json"
         }
       }
     }
